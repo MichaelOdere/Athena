@@ -1,7 +1,7 @@
 import UIKit
 
 class TabBarController: UITabBarController {
-    var topicNavController:UINavigationController!
+    var topicNavController: UINavigationController!
     let topicsViewController = TopicsViewController()
     let trainerViewController = TrainerViewController()
     let historyViewController = HistoryViewController()
