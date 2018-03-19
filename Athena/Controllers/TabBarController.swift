@@ -10,9 +10,6 @@ class TabBarController: UITabBarController {
     override func viewDidLoad() {
         topicNavController = UINavigationController(rootViewController: topicsViewController)
         topicsViewController.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        topicsViewController.navigationController?.navigationBar.shadowImage = UIImage()
-        topicsViewController.navigationController?.navigationBar.isTranslucent = true
-        topicsViewController.navigationController?.view.backgroundColor = UIColor.clear
 
         topicsViewController.title = "Topics"
         trainerViewController.title = "Trainer"
