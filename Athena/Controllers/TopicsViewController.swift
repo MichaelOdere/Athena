@@ -2,6 +2,7 @@ import UIKit
 
 class TopicsViewController: UIViewController {
     var tableView: UITableView!
+    var store: RussianStore = RussianStore()
     var colors = [AthenaPalette.parisGreen,
                   AthenaPalette.maximumBlue,
                   AthenaPalette.lightPink,
@@ -36,19 +37,19 @@ extension TopicsViewController: UITableViewDelegate, UITableViewDataSource {
         let vc = LearTopicViewController()
         self.navigationController?.pushViewController(vc, animated: true)
     }
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 25
+        return store.topics.count
     }
 
    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellOptional = tableView.dequeueReusableCell(withIdentifier: "TopicCell") as? TopicCell
-
+        let topic = store.topics[indexPath.row]
         guard let cell =  cellOptional else {
             fatalError("TopicCell not found.")
         }
 
-        cell.title.text = "Topic"
+        cell.title.text = topic.name
         cell.progress.progress = 0.55
 
         cell.backgroundColor = colors[indexPath.row % colors.count]
