@@ -1,3 +1,5 @@
+import SwiftyJSON
+
 struct Topic {
     var name: String
     var icon: String
@@ -10,4 +12,34 @@ struct Topic {
         self.wordsLearned = wordsLearned
         self.wordsToLearn = wordsToLearn
     }
+}
+
+extension Topic {
+    init?(json: JSON) {
+        guard let name = json["name"].string else {
+            print("Error parsing game object for key: name")
+            return nil
+        }
+        
+        guard let icon = json["icon"].string else {
+            print("Error parsing game object for key: icon")
+            return nil
+        }
+        
+        guard let wordsData = json["words"].array else {
+            print("Error parsing game object for key: language")
+            return nil
+        }
+        
+        var words: [Word] = []
+        for wordJson in wordsData {
+            if let word = Word(json: wordJson) {
+                words.append(word)
+            }
+        }
+        
+        // Initialize words learned to empty and load what has been learned from CoreData
+        self.init(name: name, icon: icon, wordsLearned: [], wordsToLearn: words)
+    }
+    
 }

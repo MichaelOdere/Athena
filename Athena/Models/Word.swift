@@ -7,6 +7,7 @@ struct Word {
     var language: Language
     var transliteration: String
     var audioFile: String?
+    var icon: String?
 
     init(english: String, native: String,
          language: Language, transliteration: String, audioFile: String?) {
