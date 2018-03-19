@@ -1,20 +1,22 @@
 import UIKit
 
 class TabBarController: UITabBarController {
+    var topicNavController:UINavigationController!
     let topicsViewController = TopicsViewController()
     let trainerViewController = TrainerViewController()
     let historyViewController = HistoryViewController()
     let profileViewController = ProfileViewController()
 
     override func viewDidLoad() {
+        topicNavController = UINavigationController(rootViewController: topicsViewController)
         topicsViewController.title = "Topics"
         trainerViewController.title = "Trainer"
         historyViewController.title = "History"
         profileViewController.title = "Profile"
 
         self.delegate = self
-        self.viewControllers = [topicsViewController] //,
-//                               trainerViewController,
+        self.viewControllers = [topicNavController] //,
+//                               trainerViewController]
 //                               historyViewController,
 //                               profileViewController]
     }
