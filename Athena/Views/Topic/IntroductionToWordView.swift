@@ -26,8 +26,10 @@ class IntroductionToWordView: UIView {
 
     func initAddLabel() {
         addLabel = UILabel()
-        addLabel.backgroundColor = UIColor.clear
-        addLabel.text = "Drag to me to add word!"
+        addLabel.backgroundColor = UIColor.black.withAlphaComponent(0.2)
+        addLabel.layer.cornerRadius = 20
+        addLabel.layer.masksToBounds = true
+        addLabel.text = "Drag to me to add!"
         addLabel.font = UIFont(name: "HelveticaNeue-Bold", size: 14)
         addLabel.textAlignment = .center
         addLabel.textColor = UIColor.white
@@ -41,7 +43,7 @@ class IntroductionToWordView: UIView {
                                         toItem: self,
                                         attribute: .bottom,
                                         multiplier: 1,
-                                        constant: 0)
+                                        constant: -20)
         bottom.isActive = true
 
         let height = NSLayoutConstraint(item: addLabel,
@@ -49,7 +51,7 @@ class IntroductionToWordView: UIView {
                                         relatedBy: .equal,
                                         toItem: self,
                                         attribute: .height,
-                                        multiplier: 1/5,
+                                        multiplier: 3/10,
                                         constant: 0)
         height.isActive = true
 
@@ -57,8 +59,8 @@ class IntroductionToWordView: UIView {
                                        attribute: .width,
                                        relatedBy: .equal,
                                        toItem: self,
-                                       attribute: .width,
-                                       multiplier: 1/2,
+                                       attribute: .height,
+                                       multiplier: 3/10,
                                        constant: 0)
         width.isActive = true
 
