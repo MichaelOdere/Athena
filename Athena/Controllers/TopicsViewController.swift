@@ -35,6 +35,7 @@ class TopicsViewController: UIViewController {
 extension TopicsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = LearTopicViewController()
+        vc.topic = store.topics[indexPath.row]
         self.navigationController?.pushViewController(vc, animated: true)
     }
 
