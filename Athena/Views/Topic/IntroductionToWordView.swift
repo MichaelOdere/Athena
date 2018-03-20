@@ -1,19 +1,26 @@
 import UIKit
 
 class IntroductionToWordView: UIView {
-    var gl: CAGradientLayer!
     var word: Word
+
+    var bigSize: CGSize!
     var bigNewWordView: NewWordView!
     var littleNewWordView: NewWordView!
+
     var addLabel: UILabel!
+
+    var gl: CAGradientLayer!
 
     init(frame: CGRect, word: Word) {
         self.word = word
         super.init(frame: frame)
 
+        bigSize = CGSize(width: frame.width * 1/2, height: frame.height *  2/5)
+
         initGradientColor()
         initAddLabel()
         initBigNewWordView()
+        initLittleNewWordView(point: CGPoint.zero)
     }
 
     func initGradientColor() {
@@ -26,13 +33,16 @@ class IntroductionToWordView: UIView {
 
     func initAddLabel() {
         addLabel = UILabel()
-        addLabel.backgroundColor = UIColor.black.withAlphaComponent(0.2)
+
         addLabel.layer.cornerRadius = 20
         addLabel.layer.masksToBounds = true
+
         addLabel.text = "Drag to me to add!"
-        addLabel.font = UIFont(name: "HelveticaNeue-Bold", size: 14)
-        addLabel.textAlignment = .center
         addLabel.textColor = UIColor.white
+        addLabel.textAlignment = .center
+        addLabel.font = UIFont(name: "HelveticaNeue-Bold", size: 14)
+
+        addLabel.backgroundColor = UIColor.black.withAlphaComponent(0.2)
         addSubview(addLabel)
 
         addLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -85,19 +95,19 @@ class IntroductionToWordView: UIView {
         let height = NSLayoutConstraint(item: bigNewWordView,
                                         attribute: .height,
                                         relatedBy: .equal,
-                                        toItem: self,
+                                        toItem: nil,
                                         attribute: .height,
-                                        multiplier: 2/5,
-                                        constant: 0)
+                                        multiplier: 1,
+                                        constant: bigSize.height)
         height.isActive = true
 
         let width = NSLayoutConstraint(item: bigNewWordView,
                                        attribute: .width,
                                        relatedBy: .equal,
-                                       toItem: self,
+                                       toItem: nil,
                                        attribute: .width,
-                                       multiplier: 1/2,
-                                       constant: 0)
+                                       multiplier: 1,
+                                       constant: bigSize.width)
         width.isActive = true
 
         let centerX = NSLayoutConstraint(item: bigNewWordView,
@@ -119,8 +129,45 @@ class IntroductionToWordView: UIView {
         centerY.isActive = true
     }
 
-    func initLittleNewWordView() {
+    func initLittleNewWordView(point: CGPoint) {
+        let littleFrame = CGRect(x: point.x, y: point.y, width: bigSize.width / 4, height: bigSize.height / 4)
+        littleNewWordView = NewWordView(frame: littleFrame)
 
+        let fontSize = littleNewWordView.fontSize
+        let fontMultiplier = littleNewWordView.fontMultiplier
+        littleNewWordView.nativeLabel.font = UIFont(name: "HelveticaNeue-Bold", size: fontSize / 4)
+        littleNewWordView.englishLabel.font = UIFont(name: "HelveticaNeue-Bold", size: (fontSize * fontMultiplier) / 4)
+
+        littleNewWordView.nativeLabel.text = word.native
+        littleNewWordView.englishLabel.text = word.english
+
+        littleNewWordView.backgroundColor = UIColor.clear
+        addSubview(littleNewWordView)
+
+        // Don't want to show this view when we initialize
+        littleNewWordView.isHidden = true
+    }
+
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if let location = touches.first?.location(in: self) {
+            bigNewWordView.isHidden = true
+            littleNewWordView.isHidden = false
+            littleNewWordView.center = location
+        }
+    }
+
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if let location = touches.first?.location(in: self) {
+            littleNewWordView.center = location
+        }
+
+    }
+
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if let location = touches.first?.location(in: self) {
+            bigNewWordView.isHidden = false
+            littleNewWordView.isHidden = true
+        }
     }
 
     required init?(coder aDecoder: NSCoder) {
