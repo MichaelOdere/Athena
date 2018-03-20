@@ -3,6 +3,8 @@ import UIKit
 class NewWordView: UIView {
     var nativeLabel: UILabel!
     var englishLabel: UILabel!
+    let fontSize: CGFloat = 80
+    let fontMultiplier: CGFloat = 0.6
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -16,7 +18,7 @@ class NewWordView: UIView {
         nativeLabel.backgroundColor = UIColor.clear
         nativeLabel.textColor = UIColor.white
         nativeLabel.textAlignment = .center
-        nativeLabel.font = UIFont(name: "HelveticaNeue-Bold", size: 50)
+        nativeLabel.font = UIFont(name: "HelveticaNeue-Bold", size: fontSize)
         addSubview(nativeLabel)
 
         nativeLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -63,7 +65,7 @@ class NewWordView: UIView {
         englishLabel.backgroundColor = UIColor.clear
         englishLabel.textColor = UIColor.white
         englishLabel.textAlignment = .center
-        englishLabel.font = UIFont(name: "HelveticaNeue-Bold", size: 40)
+        englishLabel.font = UIFont(name: "HelveticaNeue-Bold", size: fontSize * fontMultiplier)
         addSubview(englishLabel)
 
         englishLabel.translatesAutoresizingMaskIntoConstraints = false
