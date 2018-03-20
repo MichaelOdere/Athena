@@ -13,6 +13,7 @@ class TopicsViewController: UIViewController {
         initTableView()
     }
 
+    
     func initTableView() {
         guard let tabHeight = self.tabBarController?.tabBar.frame.height else {
             fatalError("tabbar height not found.")
@@ -36,6 +37,7 @@ extension TopicsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = LearTopicViewController()
         vc.topic = store.topics[indexPath.row]
+        vc.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(vc, animated: true)
     }
 
