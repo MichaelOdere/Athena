@@ -6,10 +6,15 @@ class IntroductionToWordView: UIView {
     var bigSize: CGSize!
     var bigNewWordView: NewWordView!
     var littleNewWordView: NewWordView!
+    // we only want to drag if it has been initiated in the bigNewWord view
+    var isValidDrag = false
 
+    var addLabelPulse: CABasicAnimation!
     var addLabel: UILabel!
 
     var gl: CAGradientLayer!
+
+    weak var delegate: DoneHandlerProtocol?
 
     init(frame: CGRect, word: Word) {
         self.word = word
@@ -19,6 +24,7 @@ class IntroductionToWordView: UIView {
 
         initGradientColor()
         initAddLabel()
+        initPulse()
         initBigNewWordView()
         initLittleNewWordView(point: CGPoint.zero)
     }
@@ -83,6 +89,19 @@ class IntroductionToWordView: UIView {
                                          constant: 0)
         centerX.isActive = true
     }
+
+    func initPulse() {
+        let width = frame.height * 3/10
+
+        addLabelPulse = CABasicAnimation()
+        addLabelPulse.value(forKeyPath: "size")
+        addLabelPulse.fromValue = CGSize(width: width, height: width)
+        addLabelPulse.toValue = CGSize(width: 1.5 * width, height: 1.5 * width)
+        addLabelPulse.duration = 1
+        addLabelPulse.repeatCount = .infinity
+
+    }
+
     func initBigNewWordView() {
         bigNewWordView = NewWordView()
         bigNewWordView.nativeLabel.text = word.native
@@ -150,23 +169,52 @@ class IntroductionToWordView: UIView {
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let location = touches.first?.location(in: self) {
-            bigNewWordView.isHidden = true
-            littleNewWordView.isHidden = false
-            littleNewWordView.center = location
+            if bigNewWordView.frame.contains(location) {
+                isValidDrag = true
+                bigNewWordView.isHidden = true
+                littleNewWordView.isHidden = false
+                littleNewWordView.center = location
+            }
         }
     }
 
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if let location = touches.first?.location(in: self) {
-            littleNewWordView.center = location
+        if !isValidDrag {
+            return
         }
 
+        if let location = touches.first?.location(in: self) {
+            littleNewWordView.center = location
+            if addLabel.frame.contains(location) {
+
+    //                addLabel.layer.add(addLabelPulse, forKey: "pulse")
+            } else {
+                addLabel.layer.removeAllAnimations()
+            }
+        }
     }
 
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if !isValidDrag {
+            return
+        }
+        isValidDrag = false
+        bigNewWordView.isHidden = false
+        littleNewWordView.isHidden = true
+        addLabel.layer.removeAllAnimations()
+
         if let location = touches.first?.location(in: self) {
-            bigNewWordView.isHidden = false
-            littleNewWordView.isHidden = true
+            littleNewWordView.center = location
+            if addLabel.frame.contains(location) {
+
+                UIView.animate(withDuration: 1, animations: {
+                    self.addLabel.alpha = 0
+                }) { (_) in
+                    self.addLabel.alpha = 1
+                    self.delegate?.nextView(tag: 0)
+                }
+
+            }
         }
     }
 
