@@ -8,7 +8,7 @@ class DragFiveView: UIView {
     var bottomLeft: UILabel!
     var bottomRight: UILabel!
 
-    let fontSize: CGFloat = 80
+    let fontSize: CGFloat = 40
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -17,11 +17,12 @@ class DragFiveView: UIView {
         initDragWord()
         initBottomLeft()
         initBottomRight()
+        setText()
     }
 
     func initTopLeft() {
         topLeft = UILabel()
-        topLeft.backgroundColor = UIColor.red
+        topLeft.backgroundColor = UIColor.clear
         topLeft.textColor = UIColor.white
         topLeft.textAlignment = .center
         topLeft.font = UIFont(name: "HelveticaNeue-Bold", size: fontSize)
@@ -51,7 +52,7 @@ class DragFiveView: UIView {
 
     func initTopRight() {
         topRight = UILabel()
-        topRight.backgroundColor = UIColor.blue
+        topRight.backgroundColor = UIColor.clear
         topRight.textColor = UIColor.white
         topRight.textAlignment = .center
         topRight.font = UIFont(name: "HelveticaNeue-Bold", size: fontSize)
@@ -108,7 +109,7 @@ class DragFiveView: UIView {
 
     func initDragWord() {
         dragWord = UILabel()
-        dragWord.backgroundColor = UIColor.white
+        dragWord.backgroundColor = UIColor.clear
         dragWord.textColor = UIColor.white
         dragWord.textAlignment = .center
         dragWord.font = UIFont(name: "HelveticaNeue-Bold", size: fontSize + 20)
@@ -165,7 +166,7 @@ class DragFiveView: UIView {
 
     func initBottomLeft() {
         bottomLeft = UILabel()
-        bottomLeft.backgroundColor = UIColor.blue
+        bottomLeft.backgroundColor = UIColor.clear
         bottomLeft.textColor = UIColor.white
         bottomLeft.textAlignment = .center
         bottomLeft.font = UIFont(name: "HelveticaNeue-Bold", size: fontSize)
@@ -222,7 +223,7 @@ class DragFiveView: UIView {
 
     func initBottomRight() {
         bottomRight = UILabel()
-        bottomRight.backgroundColor = UIColor.red
+        bottomRight.backgroundColor = UIColor.clear
         bottomRight.textColor = UIColor.white
         bottomRight.textAlignment = .center
         bottomRight.font = UIFont(name: "HelveticaNeue-Bold", size: fontSize)
@@ -284,6 +285,14 @@ class DragFiveView: UIView {
                                        multiplier: 1,
                                        constant: 0)
         width.isActive = true
+    }
+
+    func setText() {
+        topLeft.text = "Test"
+        topRight.text = "Test"
+        dragWord.text = "Test"
+        bottomLeft.text = "Test"
+        bottomRight.text = "Test"
     }
 
     required init?(coder aDecoder: NSCoder) {
