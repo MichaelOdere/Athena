@@ -6,7 +6,7 @@ class DragToCorrectView: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = UIColor.blue
+        backgroundColor = UIColor.gray
         dragView = DragFiveView(frame: frame)
         addSubview(dragView)
         addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(DragToCorrectView.switchView)))
