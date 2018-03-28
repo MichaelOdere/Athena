@@ -2,6 +2,8 @@ import UIKit
 
 class DragFiveView: UIView {
 
+    weak var delegate: DoneHandlerProtocol?
+
     var topLeft: UILabel!
     var topRight: UILabel!
     var dragWord: UILabel!
@@ -33,17 +35,6 @@ class DragFiveView: UIView {
 
         labels = [topLeft, topRight, bottomLeft, bottomRight]
         setup()
-        print(frame)
-        print(topLeft.frame)
-        print(topRight.frame)
-        print(dragWord.frame)
-        print(bottomLeft.frame)
-        print(bottomRight.frame)
-//        topLeft.backgroundColor = UIColor.blue
-//        topRight.backgroundColor = UIColor.black
-//        dragWord.backgroundColor = UIColor.brown
-//        bottomLeft.backgroundColor = UIColor.black
-//        bottomRight.backgroundColor = UIColor.blue
     }
 
     func setup() {
@@ -167,6 +158,22 @@ extension DragFiveView {
         isValidDrag = false
 
         if let location = touches.first?.location(in: self) {
+            for label in labels {
+                if label.frame.contains(location) {
+                    UIView.animate(withDuration: 1,
+                                   delay: 0,
+                                   options: [],
+                    animations: {
+                        self.alpha = 0
+                    },
+                    completion: { (_) in
+                        self.alpha = 1
+                        self.delegate?.nextView(tag: 1)
+                        print(self.delegate)
+                        print("complete")
+                    })
+                }
+            }
             dragWord.center = location
             dragWord.removeFromSuperview()
             dragWord = nil
