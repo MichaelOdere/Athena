@@ -7,7 +7,11 @@ class DragToCorrectView: UIView {
 
     var gl: CAGradientLayer!
 
-    weak var delegate: DoneHandlerProtocol?
+    weak var delegate: DoneHandlerProtocol? {
+        didSet {
+            dragView.delegate = delegate
+        }
+    }
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -29,43 +33,15 @@ class DragToCorrectView: UIView {
     }
 
     func initDragFiveView() {
-        let mainFrame = CGRect(x: frame.width / 10, y: frame.height / 8, width: frame.width * 0.8, height: frame.height * 0.7)
+        let mainFrame = CGRect(x: frame.width / 10, y: frame.height / 8,
+                               width: frame.width * 0.8, height: frame.height * 0.7)
         dragView = DragFiveView(frame: mainFrame)
         dragView.backgroundColor = UIColor.clear
         addSubview(dragView)
-
-//        dragView.translatesAutoresizingMaskIntoConstraints = false
-//
-//        let top = NSLayoutConstraint(item: dragView,
-//                                     attribute: .top,
-//                                     relatedBy: .equal,
-//                                     toItem: self,
-//                                     attribute: .top,
-//                                     multiplier: 1,
-//                                     constant: 0)
-//        top.isActive = true
-//
-//        let leading = NSLayoutConstraint(item: dragView,
-//                                         attribute: .leading,
-//                                         relatedBy: .equal,
-//                                         toItem: self,
-//                                         attribute: .leading,
-//                                         multiplier: 1,
-//                                         constant: horizontalPadding)
-//        leading.isActive = true
-//
-//        let trailing = NSLayoutConstraint(item: dragView,
-//                                         attribute: .trailing,
-//                                         relatedBy: .equal,
-//                                         toItem: self,
-//                                         attribute: .trailing,
-//                                         multiplier: 1,
-//                                         constant: -horizontalPadding)
-//        trailing.isActive = true
     }
 
     func initProgressView() {
-        progressView = ProgresView()//frame: CGRect(x: 0, y: 100 + frame.height * 3/5, width: frame.width, height: 100))
+        progressView = ProgresView()
         progressView.percentageComplete = 0.66
         progressView.topicTitle = "Alphabet!"
         addSubview(progressView)
