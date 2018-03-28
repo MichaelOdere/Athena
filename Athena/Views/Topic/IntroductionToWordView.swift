@@ -206,9 +206,6 @@ extension IntroductionToWordView {
             return
         }
         isValidDrag = false
-        bigNewWordView.isHidden = false
-        littleNewWordView.isHidden = true
-        addLabel.layer.removeAllAnimations()
 
         if let location = touches.first?.location(in: self) {
             littleNewWordView.center = location
@@ -216,12 +213,19 @@ extension IntroductionToWordView {
 
                 UIView.animate(withDuration: 1, animations: {
                     self.addLabel.alpha = 0
+                    self.littleNewWordView.alpha = 0
                 }) { (_) in
                     self.addLabel.alpha = 1
+                    self.littleNewWordView.alpha = 1
                     self.delegate?.nextView(tag: 0)
+                    self.bigNewWordView.isHidden = false
+                    self.littleNewWordView.isHidden = true
                 }
-
+                return
             }
         }
+        bigNewWordView.isHidden = false
+        littleNewWordView.isHidden = true
+
     }
 }
