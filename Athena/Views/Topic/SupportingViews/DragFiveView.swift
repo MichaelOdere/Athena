@@ -75,11 +75,8 @@ class DragFiveView: UIView {
             animation.duration = 0.1
             animation.repeatCount = .infinity
             animation.autoreverses = true
-//            animation.fromValue = NSValue(cgPoint: CGPoint(x: label.center.x - 10, y: label.center.y))
-//            animation.toValue = NSValue(cgPoint: CGPoint(x: label.center.x + 10, y: label.center.y))
             animation.fromValue = NSNumber(value: Double.pi / 80)
             animation.toValue = NSNumber(value: -Double.pi / 80)
-
             label.layer.add(animation, forKey: "transform.rotation.z")
         }
     }
