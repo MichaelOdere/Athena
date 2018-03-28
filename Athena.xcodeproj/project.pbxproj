@@ -12,15 +12,22 @@
 		F91C1118205C588F00FD7776 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F91C1116205C588F00FD7776 /* Main.storyboard */; };
 		F91C111A205C588F00FD7776 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F91C1119205C588F00FD7776 /* Assets.xcassets */; };
 		F91C111D205C588F00FD7776 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F91C111B205C588F00FD7776 /* LaunchScreen.storyboard */; };
+		F9470BFF2061B19C000624E2 /* DragToCorrectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9470BFE2061B19C000624E2 /* DragToCorrectView.swift */; };
+		F9470C012061C500000624E2 /* DragFiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9470C002061C500000624E2 /* DragFiveView.swift */; };
 		F9791E3D205E4DFE0055C1F6 /* Word.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9791E3C205E4DFE0055C1F6 /* Word.swift */; };
 		F9791E40205E5C530055C1F6 /* RussianStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9791E3F205E5C530055C1F6 /* RussianStore.swift */; };
 		F9791E42205E5C6D0055C1F6 /* Topic.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9791E41205E5C6D0055C1F6 /* Topic.swift */; };
+		F981135120602AFD00D3BE79 /* LearnTopicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F981135020602AFD00D3BE79 /* LearnTopicViewController.swift */; };
+		F981135320603BFD00D3BE79 /* IntroductionToWordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F981135220603BFD00D3BE79 /* IntroductionToWordView.swift */; };
+		F981135D206059AB00D3BE79 /* Russian.json in Resources */ = {isa = PBXBuildFile; fileRef = F981135C206059AB00D3BE79 /* Russian.json */; };
+		F981135F20607E1900D3BE79 /* NewWordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F981135E20607E1900D3BE79 /* NewWordView.swift */; };
 		F985E839205E005A00B5ACB4 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F985E838205E005A00B5ACB4 /* TabBarController.swift */; };
 		F985E83B205E00CA00B5ACB4 /* TopicsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F985E83A205E00CA00B5ACB4 /* TopicsViewController.swift */; };
 		F985E83D205E010F00B5ACB4 /* TrainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F985E83C205E010F00B5ACB4 /* TrainerViewController.swift */; };
 		F985E83F205E011800B5ACB4 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F985E83E205E011800B5ACB4 /* HistoryViewController.swift */; };
 		F985E841205E012E00B5ACB4 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F985E840205E012E00B5ACB4 /* ProfileViewController.swift */; };
 		F9881E4F205F0A390014BF07 /* AthenaPallett.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9881E4E205F0A390014BF07 /* AthenaPallett.swift */; };
+		F9B87B772062164400BAF4A7 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B87B762062164400BAF4A7 /* ProgressView.swift */; };
 		F9FFC996205E724700224EB1 /* TopicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9FFC995205E724700224EB1 /* TopicCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -34,15 +41,22 @@
 		F91C1119205C588F00FD7776 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F91C111C205C588F00FD7776 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F91C111E205C588F00FD7776 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F9470BFE2061B19C000624E2 /* DragToCorrectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragToCorrectView.swift; sourceTree = "<group>"; };
+		F9470C002061C500000624E2 /* DragFiveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragFiveView.swift; sourceTree = "<group>"; };
 		F9791E3C205E4DFE0055C1F6 /* Word.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Word.swift; sourceTree = "<group>"; };
 		F9791E3F205E5C530055C1F6 /* RussianStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RussianStore.swift; sourceTree = "<group>"; };
 		F9791E41205E5C6D0055C1F6 /* Topic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Topic.swift; sourceTree = "<group>"; };
+		F981135020602AFD00D3BE79 /* LearnTopicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnTopicViewController.swift; sourceTree = "<group>"; };
+		F981135220603BFD00D3BE79 /* IntroductionToWordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroductionToWordView.swift; sourceTree = "<group>"; };
+		F981135C206059AB00D3BE79 /* Russian.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Russian.json; sourceTree = "<group>"; };
+		F981135E20607E1900D3BE79 /* NewWordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewWordView.swift; sourceTree = "<group>"; };
 		F985E838205E005A00B5ACB4 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		F985E83A205E00CA00B5ACB4 /* TopicsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicsViewController.swift; sourceTree = "<group>"; };
 		F985E83C205E010F00B5ACB4 /* TrainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainerViewController.swift; sourceTree = "<group>"; };
 		F985E83E205E011800B5ACB4 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		F985E840205E012E00B5ACB4 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		F9881E4E205F0A390014BF07 /* AthenaPallett.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AthenaPallett.swift; sourceTree = "<group>"; };
+		F9B87B762062164400BAF4A7 /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
 		F9FFC995205E724700224EB1 /* TopicCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -116,6 +130,7 @@
 				F985E840205E012E00B5ACB4 /* ProfileViewController.swift */,
 				F985E838205E005A00B5ACB4 /* TabBarController.swift */,
 				F985E83A205E00CA00B5ACB4 /* TopicsViewController.swift */,
+				F981135020602AFD00D3BE79 /* LearnTopicViewController.swift */,
 				F985E83C205E010F00B5ACB4 /* TrainerViewController.swift */,
 			);
 			path = Controllers;
@@ -138,9 +153,20 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		F9371249206B290300603CC5 /* SupportingViews */ = {
+			isa = PBXGroup;
+			children = (
+				F9470C002061C500000624E2 /* DragFiveView.swift */,
+				F9B87B762062164400BAF4A7 /* ProgressView.swift */,
+				F9FFC995205E724700224EB1 /* TopicCell.swift */,
+			);
+			path = SupportingViews;
+			sourceTree = "<group>";
+		};
 		F9791E3B205E4DC90055C1F6 /* Stores */ = {
 			isa = PBXGroup;
 			children = (
+				F981135C206059AB00D3BE79 /* Russian.json */,
 				F9791E3F205E5C530055C1F6 /* RussianStore.swift */,
 				F9881E4E205F0A390014BF07 /* AthenaPallett.swift */,
 			);
@@ -150,7 +176,10 @@
 		F9FFC994205E723A00224EB1 /* Topic */ = {
 			isa = PBXGroup;
 			children = (
-				F9FFC995205E724700224EB1 /* TopicCell.swift */,
+				F9470BFE2061B19C000624E2 /* DragToCorrectView.swift */,
+				F981135220603BFD00D3BE79 /* IntroductionToWordView.swift */,
+				F981135E20607E1900D3BE79 /* NewWordView.swift */,
+				F9371249206B290300603CC5 /* SupportingViews */,
 			);
 			path = Topic;
 			sourceTree = "<group>";
@@ -185,6 +214,9 @@
 		F91C1107205C588F00FD7776 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				KnownAssetTags = (
+					New,
+				);
 				LastSwiftUpdateCheck = 0920;
 				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = michaelodere;
@@ -219,6 +251,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F91C111D205C588F00FD7776 /* LaunchScreen.storyboard in Resources */,
+				F981135D206059AB00D3BE79 /* Russian.json in Resources */,
 				F91C111A205C588F00FD7776 /* Assets.xcassets in Resources */,
 				F91C1118205C588F00FD7776 /* Main.storyboard in Resources */,
 			);
@@ -299,16 +332,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F9470C012061C500000624E2 /* DragFiveView.swift in Sources */,
 				F985E841205E012E00B5ACB4 /* ProfileViewController.swift in Sources */,
+				F981135320603BFD00D3BE79 /* IntroductionToWordView.swift in Sources */,
 				F9791E42205E5C6D0055C1F6 /* Topic.swift in Sources */,
+				F981135F20607E1900D3BE79 /* NewWordView.swift in Sources */,
 				F9791E3D205E4DFE0055C1F6 /* Word.swift in Sources */,
+				F9B87B772062164400BAF4A7 /* ProgressView.swift in Sources */,
 				F9881E4F205F0A390014BF07 /* AthenaPallett.swift in Sources */,
 				F9FFC996205E724700224EB1 /* TopicCell.swift in Sources */,
 				F91C1113205C588F00FD7776 /* AppDelegate.swift in Sources */,
 				F985E839205E005A00B5ACB4 /* TabBarController.swift in Sources */,
 				F985E83D205E010F00B5ACB4 /* TrainerViewController.swift in Sources */,
 				F985E83F205E011800B5ACB4 /* HistoryViewController.swift in Sources */,
+				F981135120602AFD00D3BE79 /* LearnTopicViewController.swift in Sources */,
 				F985E83B205E00CA00B5ACB4 /* TopicsViewController.swift in Sources */,
+				F9470BFF2061B19C000624E2 /* DragToCorrectView.swift in Sources */,
 				F9791E40205E5C530055C1F6 /* RussianStore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

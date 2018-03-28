@@ -14,9 +14,13 @@ class TopicsViewController: UIViewController {
     }
 
     func initTableView() {
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+
         guard let tabHeight = self.tabBarController?.tabBar.frame.height else {
             fatalError("tabbar height not found.")
         }
+
         let frame = CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height - tabHeight)
         tableView = UITableView(frame: frame)
         view.addSubview(tableView)

@@ -8,6 +8,8 @@ class DragFiveView: UIView {
     var bottomLeft: UILabel!
     var bottomRight: UILabel!
 
+    var isValidDrag = false
+
     let fontSize: CGFloat = 40
 
     override init(frame: CGRect) {
@@ -113,6 +115,7 @@ class DragFiveView: UIView {
         dragWord.textColor = UIColor.white
         dragWord.textAlignment = .center
         dragWord.font = UIFont(name: "HelveticaNeue-Bold", size: fontSize + 20)
+        dragWord.text = "Test"
 
         addSubview(dragWord)
 
@@ -290,12 +293,46 @@ class DragFiveView: UIView {
     func setText() {
         topLeft.text = "Test"
         topRight.text = "Test"
-        dragWord.text = "Test"
         bottomLeft.text = "Test"
         bottomRight.text = "Test"
     }
 
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+}
+
+extension DragFiveView {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if let location = touches.first?.location(in: self) {
+            if dragWord.frame.contains(location) {
+                isValidDrag = true
+                dragWord.center = location
+            }
+        }
+    }
+
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if !isValidDrag {
+            return
+        }
+
+        if let location = touches.first?.location(in: self) {
+            dragWord.center = location
+        }
+    }
+
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if !isValidDrag {
+            return
+        }
+        isValidDrag = false
+
+        if let location = touches.first?.location(in: self) {
+            dragWord.center = location
+            dragWord.removeFromSuperview()
+            dragWord = nil
+            initDragWord()
+        }
     }
 }

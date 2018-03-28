@@ -23,7 +23,7 @@ class DragToCorrectView: UIView {
     func initGradientColor() {
         gl = CAGradientLayer()
         gl.frame = self.frame
-        gl.colors = [AthenaPalette.turquoise.cgColor, AthenaPalette.lightBlue.cgColor]
+        gl.colors = [AthenaPalette.lightBlue.cgColor, AthenaPalette.turquoise.cgColor]
         gl.locations = [0.0, 1.0]
         self.layer.addSublayer(gl)
     }

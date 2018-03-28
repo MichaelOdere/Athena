@@ -167,6 +167,13 @@ class IntroductionToWordView: UIView {
         littleNewWordView.isHidden = true
     }
 
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+}
+
+extension IntroductionToWordView {
+
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let location = touches.first?.location(in: self) {
             if bigNewWordView.frame.contains(location) {
@@ -216,9 +223,5 @@ class IntroductionToWordView: UIView {
 
             }
         }
-    }
-
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
 }
