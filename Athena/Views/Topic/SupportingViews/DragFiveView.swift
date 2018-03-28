@@ -69,6 +69,27 @@ class DragFiveView: UIView {
         }
     }
 
+    func addShakeAnimation() {
+        for label in labels {
+            let animation = CABasicAnimation(keyPath: "transform.rotation.z")
+            animation.duration = 0.1
+            animation.repeatCount = .infinity
+            animation.autoreverses = true
+//            animation.fromValue = NSValue(cgPoint: CGPoint(x: label.center.x - 10, y: label.center.y))
+//            animation.toValue = NSValue(cgPoint: CGPoint(x: label.center.x + 10, y: label.center.y))
+            animation.fromValue = NSNumber(value: Double.pi / 80)
+            animation.toValue = NSNumber(value: -Double.pi / 80)
+
+            label.layer.add(animation, forKey: "transform.rotation.z")
+        }
+    }
+
+    func removeAllAnimations() {
+        for label in labels {
+            label.layer.removeAllAnimations()
+        }
+    }
+
     func initTopLeft() {
         let initFrame = CGRect(x: originTopLeft.x, y: originTopLeft.y, width: size.width, height: size.height)
         topLeft = UILabel(frame: initFrame)
@@ -139,6 +160,7 @@ extension DragFiveView {
             if dragWord.frame.contains(location) {
                 isValidDrag = true
                 dragWord.center = location
+                addShakeAnimation()
             }
         }
     }
@@ -158,6 +180,8 @@ extension DragFiveView {
             return
         }
         isValidDrag = false
+
+        removeAllAnimations()
 
         if let location = touches.first?.location(in: self) {
             for label in labels {
