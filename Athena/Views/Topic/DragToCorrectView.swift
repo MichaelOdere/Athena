@@ -20,8 +20,6 @@ class DragToCorrectView: UIView {
         initGradientColor()
         initDragFiveView()
         initProgressView()
-
-        addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(DragToCorrectView.switchView)))
     }
 
     func initGradientColor() {
@@ -83,10 +81,6 @@ class DragToCorrectView: UIView {
                                           multiplier: 1,
                                           constant: frame.height / 10)
         height.isActive = true
-    }
-
-    @objc func switchView() {
-        delegate?.nextView(tag: 1)
     }
 
     required init?(coder aDecoder: NSCoder) {

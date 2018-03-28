@@ -13,17 +13,22 @@ class DragFiveView: UIView {
     var labels: [UILabel] = []
 
     var size: CGSize!
+    var dragCenter: CGPoint!
     var originTopLeft: CGPoint!
     var originBototmRight: CGPoint!
 
     var isValidDrag = false
 
     let fontSize: CGFloat = 40
+    let scale: CGFloat = 1.2
 
     override init(frame: CGRect) {
         super.init(frame: frame)
 
         size = CGSize(width: frame.width / 3, height: frame.height / 8)
+        let centerX = frame.width / 2 - size.width * scale / 2
+        let centerY = frame.height / 2 - size.height * scale / 2
+        dragCenter = CGPoint(x: centerX, y: centerY)
         originTopLeft = CGPoint(x: 0, y: 0)
         originBototmRight = CGPoint(x: frame.width - size.width, y: frame.height - size.height)
 
@@ -85,10 +90,7 @@ class DragFiveView: UIView {
     }
 
     func initDragWord() {
-        let scale: CGFloat = 1.2
-        let centerX = frame.width / 2 - size.width * scale / 2
-        let centerY = frame.height / 2 - size.height * scale / 2
-        let initFrame = CGRect(x: centerX, y: centerY, width: size.width * scale, height: size.height * scale)
+        let initFrame = CGRect(x: dragCenter.x, y: dragCenter.y, width: size.width * scale, height: size.height * scale)
         dragWord = UILabel(frame: initFrame)
         dragWord.backgroundColor = UIColor.clear
         dragWord.textColor = UIColor.white
@@ -169,15 +171,15 @@ extension DragFiveView {
                     completion: { (_) in
                         self.alpha = 1
                         self.delegate?.nextView(tag: 1)
-                        print(self.delegate)
-                        print("complete")
+                        self.dragWord.frame.origin = self.dragCenter
                     })
+                    return
                 }
             }
-            dragWord.center = location
-            dragWord.removeFromSuperview()
-            dragWord = nil
-            initDragWord()
+
+            UIView.animate(withDuration: 0.2, animations: {
+                self.dragWord.frame.origin = self.dragCenter
+            })
         }
     }
 }
