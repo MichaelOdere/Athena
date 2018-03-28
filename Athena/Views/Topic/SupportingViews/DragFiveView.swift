@@ -8,291 +8,129 @@ class DragFiveView: UIView {
     var bottomLeft: UILabel!
     var bottomRight: UILabel!
 
+    var labels: [UILabel] = []
+
+    var size: CGSize!
+    var originTopLeft: CGPoint!
+    var originBototmRight: CGPoint!
+
     var isValidDrag = false
 
     let fontSize: CGFloat = 40
 
     override init(frame: CGRect) {
         super.init(frame: frame)
+
+        size = CGSize(width: frame.width / 3, height: frame.height / 8)
+        originTopLeft = CGPoint(x: 0, y: 0)
+        originBototmRight = CGPoint(x: frame.width - size.width, y: frame.height - size.height)
+
         initTopLeft()
         initTopRight()
         initDragWord()
         initBottomLeft()
         initBottomRight()
+
+        labels = [topLeft, topRight, bottomLeft, bottomRight]
+        setup()
+        print(frame)
+        print(topLeft.frame)
+        print(topRight.frame)
+        print(dragWord.frame)
+        print(bottomLeft.frame)
+        print(bottomRight.frame)
+//        topLeft.backgroundColor = UIColor.blue
+//        topRight.backgroundColor = UIColor.black
+//        dragWord.backgroundColor = UIColor.brown
+//        bottomLeft.backgroundColor = UIColor.black
+//        bottomRight.backgroundColor = UIColor.blue
+    }
+
+    func setup() {
         setText()
+        hideLabels()
+        animateLabels()
+    }
+
+    func hideLabels() {
+        for label in labels {
+            label.alpha = 0
+        }
+    }
+
+    func animateLabels() {
+        let duration = 0.2
+        var delay = 0.0
+
+        for label in labels {
+            let tempCenter = label.center
+            label.center = dragWord.center
+            UIView.animate(withDuration: duration, delay: delay, options: [], animations: {
+                label.center = tempCenter
+                label.alpha = 1
+            }, completion: nil)
+            delay += duration
+        }
     }
 
     func initTopLeft() {
-        topLeft = UILabel()
+        let initFrame = CGRect(x: originTopLeft.x, y: originTopLeft.y, width: size.width, height: size.height)
+        topLeft = UILabel(frame: initFrame)
         topLeft.backgroundColor = UIColor.clear
         topLeft.textColor = UIColor.white
         topLeft.textAlignment = .center
         topLeft.font = UIFont(name: "HelveticaNeue-Bold", size: fontSize)
-
         addSubview(topLeft)
-
-        topLeft.translatesAutoresizingMaskIntoConstraints = false
-
-        let top = NSLayoutConstraint(item: topLeft,
-                                     attribute: .top,
-                                     relatedBy: .equal,
-                                     toItem: self,
-                                     attribute: .top,
-                                     multiplier: 1,
-                                     constant: 0)
-        top.isActive = true
-
-        let leading = NSLayoutConstraint(item: topLeft,
-                                     attribute: .leading,
-                                     relatedBy: .equal,
-                                     toItem: self,
-                                     attribute: .leading,
-                                     multiplier: 1,
-                                     constant: 0)
-        leading.isActive = true
     }
 
     func initTopRight() {
-        topRight = UILabel()
+        let initFrame = CGRect(x: originBototmRight.x, y: originTopLeft.y, width: size.width, height: size.height)
+        topRight = UILabel(frame: initFrame)
         topRight.backgroundColor = UIColor.clear
         topRight.textColor = UIColor.white
         topRight.textAlignment = .center
         topRight.font = UIFont(name: "HelveticaNeue-Bold", size: fontSize)
-
         addSubview(topRight)
-
-        topRight.translatesAutoresizingMaskIntoConstraints = false
-
-        let top = NSLayoutConstraint(item: topRight,
-                                     attribute: .top,
-                                     relatedBy: .equal,
-                                     toItem: self,
-                                     attribute: .top,
-                                     multiplier: 1,
-                                     constant: 0)
-        top.isActive = true
-
-        let leading = NSLayoutConstraint(item: topRight,
-                                         attribute: .leading,
-                                         relatedBy: .equal,
-                                         toItem: topLeft,
-                                         attribute: .trailing,
-                                         multiplier: 1,
-                                         constant: 0)
-        leading.isActive = true
-
-        let trailing = NSLayoutConstraint(item: topRight,
-                                         attribute: .trailing,
-                                         relatedBy: .equal,
-                                         toItem: self,
-                                         attribute: .trailing,
-                                         multiplier: 1,
-                                         constant: 0)
-        trailing.isActive = true
-
-        let height = NSLayoutConstraint(item: topRight,
-                                          attribute: .height,
-                                          relatedBy: .equal,
-                                          toItem: topLeft,
-                                          attribute: .height,
-                                          multiplier: 1,
-                                          constant: 0)
-        height.isActive = true
-
-        let width = NSLayoutConstraint(item: topRight,
-                                          attribute: .width,
-                                          relatedBy: .equal,
-                                          toItem: topLeft,
-                                          attribute: .width,
-                                          multiplier: 1,
-                                          constant: 0)
-        width.isActive = true
     }
 
     func initDragWord() {
-        dragWord = UILabel()
+        let scale: CGFloat = 1.2
+        let centerX = frame.width / 2 - size.width * scale / 2
+        let centerY = frame.height / 2 - size.height * scale / 2
+        let initFrame = CGRect(x: centerX, y: centerY, width: size.width * scale, height: size.height * scale)
+        dragWord = UILabel(frame: initFrame)
         dragWord.backgroundColor = UIColor.clear
         dragWord.textColor = UIColor.white
         dragWord.textAlignment = .center
         dragWord.font = UIFont(name: "HelveticaNeue-Bold", size: fontSize + 20)
         dragWord.text = "Test"
-
         addSubview(dragWord)
-
-        dragWord.translatesAutoresizingMaskIntoConstraints = false
-
-        let top = NSLayoutConstraint(item: dragWord,
-                                     attribute: .top,
-                                     relatedBy: .equal,
-                                     toItem: topRight,
-                                     attribute: .bottom,
-                                     multiplier: 1,
-                                     constant: 0)
-        top.isActive = true
-
-        let centerX = NSLayoutConstraint(item: dragWord,
-                                          attribute: .centerX,
-                                          relatedBy: .equal,
-                                          toItem: self,
-                                          attribute: .centerX,
-                                          multiplier: 1,
-                                          constant: 0)
-        centerX.isActive = true
-
-        let centerY = NSLayoutConstraint(item: dragWord,
-                                         attribute: .centerY,
-                                         relatedBy: .equal,
-                                         toItem: self,
-                                         attribute: .centerY,
-                                         multiplier: 1,
-                                         constant: 0)
-        centerY.isActive = true
-
-        let height = NSLayoutConstraint(item: topLeft,
-                                        attribute: .height,
-                                        relatedBy: .equal,
-                                        toItem: dragWord,
-                                        attribute: .height,
-                                        multiplier: 1,
-                                        constant: 0)
-        height.isActive = true
-
-        let width = NSLayoutConstraint(item: topLeft,
-                                       attribute: .width,
-                                       relatedBy: .equal,
-                                       toItem: dragWord,
-                                       attribute: .width,
-                                       multiplier: 1,
-                                       constant: 0)
-        width.isActive = true
     }
 
     func initBottomLeft() {
-        bottomLeft = UILabel()
+        let initFrame = CGRect(x: originTopLeft.x, y: originBototmRight.y, width: size.width, height: size.height)
+        bottomLeft = UILabel(frame: initFrame)
         bottomLeft.backgroundColor = UIColor.clear
         bottomLeft.textColor = UIColor.white
         bottomLeft.textAlignment = .center
         bottomLeft.font = UIFont(name: "HelveticaNeue-Bold", size: fontSize)
-
         addSubview(bottomLeft)
-
-        bottomLeft.translatesAutoresizingMaskIntoConstraints = false
-
-        let top = NSLayoutConstraint(item: bottomLeft,
-                                     attribute: .top,
-                                     relatedBy: .equal,
-                                     toItem: dragWord,
-                                     attribute: .bottom,
-                                     multiplier: 1,
-                                     constant: 0)
-        top.isActive = true
-
-        let bottom = NSLayoutConstraint(item: bottomLeft,
-                                     attribute: .bottom,
-                                     relatedBy: .equal,
-                                     toItem: self,
-                                     attribute: .bottom,
-                                     multiplier: 1,
-                                     constant: 0)
-        bottom.isActive = true
-
-        let leading = NSLayoutConstraint(item: bottomLeft,
-                                         attribute: .leading,
-                                         relatedBy: .equal,
-                                         toItem: self,
-                                         attribute: .leading,
-                                         multiplier: 1,
-                                         constant: 0)
-        leading.isActive = true
-
-        let height = NSLayoutConstraint(item: bottomLeft,
-                                        attribute: .height,
-                                        relatedBy: .equal,
-                                        toItem: topLeft,
-                                        attribute: .height,
-                                        multiplier: 1,
-                                        constant: 0)
-        height.isActive = true
-
-        let width = NSLayoutConstraint(item: bottomLeft,
-                                       attribute: .width,
-                                       relatedBy: .equal,
-                                       toItem: topLeft,
-                                       attribute: .width,
-                                       multiplier: 1,
-                                       constant: 0)
-        width.isActive = true
     }
 
     func initBottomRight() {
-        bottomRight = UILabel()
+        let initFrame = CGRect(x: originBototmRight.x, y: originBototmRight.y, width: size.width, height: size.height)
+        bottomRight = UILabel(frame: initFrame)
         bottomRight.backgroundColor = UIColor.clear
         bottomRight.textColor = UIColor.white
         bottomRight.textAlignment = .center
         bottomRight.font = UIFont(name: "HelveticaNeue-Bold", size: fontSize)
-
         addSubview(bottomRight)
-
-        bottomRight.translatesAutoresizingMaskIntoConstraints = false
-
-        let top = NSLayoutConstraint(item: bottomRight,
-                                     attribute: .top,
-                                     relatedBy: .equal,
-                                     toItem: dragWord,
-                                     attribute: .bottom,
-                                     multiplier: 1,
-                                     constant: 0)
-        top.isActive = true
-
-        let bottom = NSLayoutConstraint(item: bottomRight,
-                                        attribute: .bottom,
-                                        relatedBy: .equal,
-                                        toItem: self,
-                                        attribute: .bottom,
-                                        multiplier: 1,
-                                        constant: 0)
-        bottom.isActive = true
-
-        let leading = NSLayoutConstraint(item: bottomRight,
-                                         attribute: .leading,
-                                         relatedBy: .equal,
-                                         toItem: bottomLeft,
-                                         attribute: .trailing,
-                                         multiplier: 1,
-                                         constant: 0)
-        leading.isActive = true
-
-        let trailing = NSLayoutConstraint(item: bottomRight,
-                                         attribute: .trailing,
-                                         relatedBy: .equal,
-                                         toItem: self,
-                                         attribute: .trailing,
-                                         multiplier: 1,
-                                         constant: 0)
-        trailing.isActive = true
-
-        let height = NSLayoutConstraint(item: bottomRight,
-                                        attribute: .height,
-                                        relatedBy: .equal,
-                                        toItem: bottomLeft,
-                                        attribute: .height,
-                                        multiplier: 1,
-                                        constant: 0)
-        height.isActive = true
-
-        let width = NSLayoutConstraint(item: bottomRight,
-                                       attribute: .width,
-                                       relatedBy: .equal,
-                                       toItem: bottomLeft,
-                                       attribute: .width,
-                                       multiplier: 1,
-                                       constant: 0)
-        width.isActive = true
     }
 
     func setText() {
         topLeft.text = "Test"
         topRight.text = "Test"
+        dragWord.text = "Test"
         bottomLeft.text = "Test"
         bottomRight.text = "Test"
     }

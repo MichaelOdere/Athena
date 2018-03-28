@@ -26,6 +26,7 @@ extension LearnTopicViewController: DoneHandlerProtocol {
         }
         if tag == 0 {
             view.addSubview(dragToCorrectView)
+            dragToCorrectView.dragView.setup()
         } else {
             view.addSubview(introductionToWordView)
         }

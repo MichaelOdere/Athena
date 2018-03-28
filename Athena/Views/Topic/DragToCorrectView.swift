@@ -29,38 +29,39 @@ class DragToCorrectView: UIView {
     }
 
     func initDragFiveView() {
-        let mainFrame = CGRect(x: 0, y: 100, width: frame.width, height: frame.height * 3/5)
-        dragView = DragFiveView()//frame: mainFrame)
+        let mainFrame = CGRect(x: frame.width / 10, y: frame.height / 8, width: frame.width * 0.8, height: frame.height * 0.7)
+        dragView = DragFiveView(frame: mainFrame)
+        dragView.backgroundColor = UIColor.clear
         addSubview(dragView)
 
-        dragView.translatesAutoresizingMaskIntoConstraints = false
-
-        let top = NSLayoutConstraint(item: dragView,
-                                     attribute: .top,
-                                     relatedBy: .equal,
-                                     toItem: self,
-                                     attribute: .top,
-                                     multiplier: 1,
-                                     constant: 0)
-        top.isActive = true
-
-        let leading = NSLayoutConstraint(item: dragView,
-                                         attribute: .leading,
-                                         relatedBy: .equal,
-                                         toItem: self,
-                                         attribute: .leading,
-                                         multiplier: 1,
-                                         constant: horizontalPadding)
-        leading.isActive = true
-
-        let trailing = NSLayoutConstraint(item: dragView,
-                                         attribute: .trailing,
-                                         relatedBy: .equal,
-                                         toItem: self,
-                                         attribute: .trailing,
-                                         multiplier: 1,
-                                         constant: -horizontalPadding)
-        trailing.isActive = true
+//        dragView.translatesAutoresizingMaskIntoConstraints = false
+//
+//        let top = NSLayoutConstraint(item: dragView,
+//                                     attribute: .top,
+//                                     relatedBy: .equal,
+//                                     toItem: self,
+//                                     attribute: .top,
+//                                     multiplier: 1,
+//                                     constant: 0)
+//        top.isActive = true
+//
+//        let leading = NSLayoutConstraint(item: dragView,
+//                                         attribute: .leading,
+//                                         relatedBy: .equal,
+//                                         toItem: self,
+//                                         attribute: .leading,
+//                                         multiplier: 1,
+//                                         constant: horizontalPadding)
+//        leading.isActive = true
+//
+//        let trailing = NSLayoutConstraint(item: dragView,
+//                                         attribute: .trailing,
+//                                         relatedBy: .equal,
+//                                         toItem: self,
+//                                         attribute: .trailing,
+//                                         multiplier: 1,
+//                                         constant: -horizontalPadding)
+//        trailing.isActive = true
     }
 
     func initProgressView() {
@@ -70,15 +71,6 @@ class DragToCorrectView: UIView {
         addSubview(progressView)
 
         progressView.translatesAutoresizingMaskIntoConstraints = false
-
-        let top = NSLayoutConstraint(item: progressView,
-                                     attribute: .top,
-                                     relatedBy: .equal,
-                                     toItem: dragView,
-                                     attribute: .bottom,
-                                     multiplier: 1,
-                                     constant: 100)
-        top.isActive = true
 
         let bottom = NSLayoutConstraint(item: progressView,
                                      attribute: .bottom,
