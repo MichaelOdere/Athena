@@ -6,6 +6,9 @@ struct RussianStore {
 
     init() {
         populateTopics()
+        // Reset defaults so that we start with clean slate each time for testing
+        resetDefaults()
+        setWordsLearnedOnInit()
     }
 
     mutating func populateTopics() {
@@ -26,9 +29,30 @@ struct RussianStore {
                     topics.append(topic)
                 }
             }
-
         } catch {
             print(error)
         }
     }
+
+    func setWordsLearnedOnInit() {
+        let defaults = UserDefaults.standard
+        for topic in topics {
+            let progress = defaults.integer(forKey: topic.name)
+            for count in 0..<topic.wordsToLearn.count {
+                if count == progress {
+                    break
+                }
+                topic.wordsLearned.append(topic.wordsToLearn[0])
+                topic.wordsToLearn.remove(at: 0)
+            }
+        }
+    }
+
+    func resetDefaults() {
+        let defaults = UserDefaults.standard
+        for topic in topics {
+            defaults.set(0, forKey: topic.name)
+        }
+    }
+
 }
