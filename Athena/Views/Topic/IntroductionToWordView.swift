@@ -1,32 +1,34 @@
 import UIKit
 
 class IntroductionToWordView: UIView {
-    var word: Word
-
     var bigSize: CGSize!
     var bigNewWordView: NewWordView!
     var littleNewWordView: NewWordView!
     // we only want to drag if it has been initiated in the bigNewWord view
     var isValidDrag = false
-
-    var addLabelPulse: CABasicAnimation!
     var addLabel: UILabel!
 
     var gl: CAGradientLayer!
 
     weak var delegate: DoneHandlerProtocol?
 
-    init(frame: CGRect, word: Word) {
-        self.word = word
+    override init(frame: CGRect) {
         super.init(frame: frame)
 
         bigSize = CGSize(width: frame.width * 1/2, height: frame.height *  2/5)
 
         initGradientColor()
         initAddLabel()
-        initPulse()
         initBigNewWordView()
         initLittleNewWordView(point: CGPoint.zero)
+    }
+
+    func sendWord(word: Word) {
+        bigNewWordView.nativeLabel.text = word.native
+        bigNewWordView.englishLabel.text = word.english
+
+        littleNewWordView.nativeLabel.text = word.native
+        littleNewWordView.englishLabel.text = word.english
     }
 
     func initGradientColor() {
@@ -90,22 +92,8 @@ class IntroductionToWordView: UIView {
         centerX.isActive = true
     }
 
-    func initPulse() {
-        let width = frame.height * 3/10
-
-        addLabelPulse = CABasicAnimation()
-        addLabelPulse.value(forKeyPath: "size")
-        addLabelPulse.fromValue = CGSize(width: width, height: width)
-        addLabelPulse.toValue = CGSize(width: 1.5 * width, height: 1.5 * width)
-        addLabelPulse.duration = 1
-        addLabelPulse.repeatCount = .infinity
-
-    }
-
     func initBigNewWordView() {
         bigNewWordView = NewWordView()
-        bigNewWordView.nativeLabel.text = word.native
-        bigNewWordView.englishLabel.text = word.english
         bigNewWordView.backgroundColor = UIColor.clear
         addSubview(bigNewWordView)
 
@@ -157,13 +145,9 @@ class IntroductionToWordView: UIView {
         littleNewWordView.nativeLabel.font = UIFont(name: "HelveticaNeue-Bold", size: fontSize / 4)
         littleNewWordView.englishLabel.font = UIFont(name: "HelveticaNeue-Bold", size: (fontSize * fontMultiplier) / 4)
 
-        littleNewWordView.nativeLabel.text = word.native
-        littleNewWordView.englishLabel.text = word.english
-
         littleNewWordView.backgroundColor = UIColor.clear
         addSubview(littleNewWordView)
 
-        // Don't want to show this view when we initialize
         littleNewWordView.isHidden = true
     }
 
@@ -181,6 +165,15 @@ extension IntroductionToWordView {
                 bigNewWordView.isHidden = true
                 littleNewWordView.isHidden = false
                 littleNewWordView.center = location
+
+//                let width = addLabel.frame.height * 0.9
+//                let animation = CABasicAnimation(keyPath: "bounds.size")
+//                animation.duration = 1
+//                animation.repeatCount = .infinity
+//                animation.autoreverses = true
+//                animation.fromValue = addLabel.frame.size
+//                animation.toValue = CGSize(width: width, height: width)
+//                addLabel.layer.add(animation, forKey: "size")
             }
         }
     }
@@ -192,12 +185,6 @@ extension IntroductionToWordView {
 
         if let location = touches.first?.location(in: self) {
             littleNewWordView.center = location
-            if addLabel.frame.contains(location) {
-
-    //                addLabel.layer.add(addLabelPulse, forKey: "pulse")
-            } else {
-                addLabel.layer.removeAllAnimations()
-            }
         }
     }
 
@@ -206,7 +193,7 @@ extension IntroductionToWordView {
             return
         }
         isValidDrag = false
-
+        addLabel.layer.removeAllAnimations()
         if let location = touches.first?.location(in: self) {
             littleNewWordView.center = location
             if addLabel.frame.contains(location) {

@@ -12,7 +12,11 @@ class DragFiveView: UIView {
 
     var labels: [UILabel] = []
 
+    // Word in the center used as the drag word
+    var word: Word!
+
     var size: CGSize!
+    var dragOrigin: CGPoint!
     var dragCenter: CGPoint!
     var originTopLeft: CGPoint!
     var originBototmRight: CGPoint!
@@ -20,7 +24,7 @@ class DragFiveView: UIView {
     var isValidDrag = false
 
     let fontSize: CGFloat = 40
-    let scale: CGFloat = 1.2
+    let scale: CGFloat = 2.0
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -28,7 +32,7 @@ class DragFiveView: UIView {
         size = CGSize(width: frame.width / 3, height: frame.height / 8)
         let centerX = frame.width / 2 - size.width * scale / 2
         let centerY = frame.height / 2 - size.height * scale / 2
-        dragCenter = CGPoint(x: centerX, y: centerY)
+        dragOrigin = CGPoint(x: centerX, y: centerY)
         originTopLeft = CGPoint(x: 0, y: 0)
         originBototmRight = CGPoint(x: frame.width - size.width, y: frame.height - size.height)
 
@@ -43,7 +47,6 @@ class DragFiveView: UIView {
     }
 
     func setup() {
-        setText()
         hideLabels()
         animateLabels()
     }
@@ -60,7 +63,7 @@ class DragFiveView: UIView {
 
         for label in labels {
             let tempCenter = label.center
-            label.center = dragWord.center
+            label.center = dragCenter
             UIView.animate(withDuration: duration, delay: delay, options: [], animations: {
                 label.center = tempCenter
                 label.alpha = 1
@@ -108,13 +111,13 @@ class DragFiveView: UIView {
     }
 
     func initDragWord() {
-        let initFrame = CGRect(x: dragCenter.x, y: dragCenter.y, width: size.width * scale, height: size.height * scale)
+        let initFrame = CGRect(x: dragOrigin.x, y: dragOrigin.y, width: size.width * scale, height: size.height * scale)
         dragWord = UILabel(frame: initFrame)
         dragWord.backgroundColor = UIColor.clear
         dragWord.textColor = UIColor.white
         dragWord.textAlignment = .center
         dragWord.font = UIFont(name: "HelveticaNeue-Bold", size: fontSize + 20)
-        dragWord.text = "Test"
+        dragCenter = dragWord.center
         addSubview(dragWord)
     }
 
@@ -138,12 +141,31 @@ class DragFiveView: UIView {
         addSubview(bottomRight)
     }
 
-    func setText() {
-        topLeft.text = "Test"
-        topRight.text = "Test"
-        dragWord.text = "Test"
-        bottomLeft.text = "Test"
-        bottomRight.text = "Test"
+    // nativeWords includes the native word of the word we are sent
+    func setText(word: Word, nativeWords: [String]) {
+        self.word = word
+
+        let shuffledNativeWords = shuffleArray(arr: nativeWords)
+
+        var count = 0
+        for label in labels {
+            label.text = shuffledNativeWords[count]
+            count += 1
+        }
+        dragWord.text = word.native
+    }
+
+    func shuffleArray(arr: [String]) -> [String] {
+        var tempArr = arr
+        var shuffled: [String] = []
+
+        for count in 0..<tempArr.count {
+            let randomIndex = Int(arc4random_uniform(UInt32(arr.count - count)))
+            shuffled.append(tempArr[randomIndex])
+            tempArr.remove(at: randomIndex)
+        }
+
+        return shuffled
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -183,6 +205,9 @@ extension DragFiveView {
         if let location = touches.first?.location(in: self) {
             for label in labels {
                 if label.frame.contains(location) {
+                    if label.text == word.english {
+                        print("Match!")
+                    }
                     UIView.animate(withDuration: 1,
                                    delay: 0,
                                    options: [],
@@ -192,14 +217,14 @@ extension DragFiveView {
                     completion: { (_) in
                         self.alpha = 1
                         self.delegate?.nextView(tag: 1)
-                        self.dragWord.frame.origin = self.dragCenter
+                        self.dragWord.frame.origin = self.dragOrigin
                     })
                     return
                 }
             }
 
             UIView.animate(withDuration: 0.2, animations: {
-                self.dragWord.frame.origin = self.dragCenter
+                self.dragWord.frame.origin = self.dragOrigin
             })
         }
     }
