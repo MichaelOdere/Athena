@@ -1,6 +1,6 @@
 import SwiftyJSON
 
-struct Topic {
+class Topic {
     var name: String
     var icon: String
     var wordsLearned: [Word]
@@ -15,7 +15,7 @@ struct Topic {
 }
 
 extension Topic {
-    init?(json: JSON) {
+    convenience init?(json: JSON) {
         guard let name = json["name"].string else {
             print("Error parsing game object for key: name")
             return nil
