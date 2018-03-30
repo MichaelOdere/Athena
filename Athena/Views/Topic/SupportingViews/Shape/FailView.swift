@@ -6,10 +6,12 @@ class FailView: UIView {
     var slantRight: CAShapeLayer!
     var xShape: CAShapeLayer!
 
-    var width: CGFloat!
     var height: CGFloat!
-    var topLeftPoint: CGPoint!
-    var bottomRightPoint: CGPoint!
+    var width: CGFloat!
+    var top: CGFloat!
+    var bottom: CGFloat!
+    var left: CGFloat!
+    var right: CGFloat!
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -26,40 +28,42 @@ class FailView: UIView {
     }
 
     func initVariables(size: CGSize) {
-        width = frame.width * 0.2
-        height = frame.height * 0.1
-        topLeftPoint = CGPoint(x: 0, y: frame.height * 0.4)
-        bottomRightPoint = CGPoint(x: frame.width, y: frame.height * 0.6)
+        height = frame.height * 0.01
+        width = frame.width * 0.05
+        top = frame.height * 0.45
+        bottom = frame.height - top
+        left = frame.width * 0.4
+        right = frame.width - left
     }
 
     func initSlantLeft() {
         let path = UIBezierPath()
-        path.move(to: topLeftPoint)
-        path.addLine(to: CGPoint(x: topLeftPoint.x + width, y: topLeftPoint.y - height))
-        path.addLine(to: bottomRightPoint)
-        path.addLine(to: CGPoint(x: bottomRightPoint.x - width, y: bottomRightPoint.y + height))
+        path.move(to: CGPoint(x: left, y: top + height))
+        path.addLine(to: CGPoint(x: left + width, y: top))
+        path.addLine(to: CGPoint(x: right, y: bottom - height))
+        path.addLine(to: CGPoint(x: right - width, y: bottom))
         path.close()
 
         slantLeft = CAShapeLayer()
         slantLeft.frame = self.bounds
         slantLeft.path = path.cgPath
         slantLeft.fillColor = AthenaPalette.maximumRed.cgColor
-        self.layer.addSublayer(slantLeft)
+        circleView.circle.addSublayer(slantLeft)
     }
 
     func initSlantRight() {
         let path = UIBezierPath()
-        path.move(to: CGPoint(x: bottomRightPoint.x, y: topLeftPoint.y))
-        path.addLine(to: CGPoint(x: bottomRightPoint.x - width, y: topLeftPoint.y - height))
-        path.addLine(to: CGPoint(x: topLeftPoint.x, y: bottomRightPoint.y))
-        path.addLine(to: CGPoint(x: topLeftPoint.x + width, y: bottomRightPoint.y + height))
+        path.move(to: CGPoint(x: right, y: top + height))
+        path.addLine(to: CGPoint(x: right - width, y: top))
+        path.addLine(to: CGPoint(x: left, y: bottom - height))
+        path.addLine(to: CGPoint(x: left + width, y: bottom))
         path.close()
 
         slantRight = CAShapeLayer()
         slantRight.frame = self.bounds
         slantRight.path = path.cgPath
         slantRight.fillColor = AthenaPalette.maximumRed.cgColor
-        self.layer.addSublayer(slantRight)
+        circleView.circle.addSublayer(slantRight)
     }
 
     required init?(coder aDecoder: NSCoder) {

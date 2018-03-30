@@ -40,7 +40,7 @@ class CircleView: UIView {
 
         // Create scale animation
         let scaleAnimation = CAKeyframeAnimation(keyPath: "transform.scale")
-        scaleAnimation.values = [0.0, 1.0, 1.0, 10]
+        scaleAnimation.values = [0.0, 1.0, 1.0, 5]
         scaleAnimation.keyTimes = keytimes
         scaleAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
 
@@ -52,7 +52,7 @@ class CircleView: UIView {
 
         // Create group animation to store the scale and opcacity animation
         let group = CAAnimationGroup()
-        group.duration = 1
+        group.duration = 0.8
         group.repeatCount = 9
         group.animations = [scaleAnimation, secondScale]
 
