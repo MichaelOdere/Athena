@@ -208,15 +208,15 @@ extension DragFiveView {
                     if label.text == word.english {
                         print("Match!")
                     }
-                    UIView.animate(withDuration: 1,
+                    UIView.animate(withDuration: 0.6,
                                    delay: 0,
                                    options: [],
                     animations: {
                         self.alpha = 0
+                        self.delegate?.nextView(tag: 1)
                     },
                     completion: { (_) in
                         self.alpha = 1
-                        self.delegate?.nextView(tag: 1)
                         self.dragWord.frame.origin = self.dragOrigin
                     })
                     return

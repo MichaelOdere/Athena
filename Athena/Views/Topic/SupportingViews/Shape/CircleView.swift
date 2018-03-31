@@ -3,10 +3,12 @@ import UIKit
 class CircleView: UIView {
 
     var circle: CAShapeLayer!
+    let group = CAAnimationGroup()
+    let duration = 0.6
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = UIColor.red
+        backgroundColor = UIColor.clear
         initCircle()
     }
 
@@ -31,12 +33,14 @@ class CircleView: UIView {
 
         // Configure the circle
         circle.fillColor = UIColor.white.cgColor
-        circle.strokeColor = UIColor.red.cgColor
+        circle.strokeColor = UIColor.white.cgColor
         circle.lineWidth = 5
+    }
 
+    func initAnimations(vc: LearnTopicViewController) {
         // MARK: - Animations
 
-        let keytimes: [NSNumber] = [0, 0.2, 0.7, 1]
+        let keytimes: [NSNumber] = [0, 0.1, 0.9, 1]
 
         // Create scale animation
         let scaleAnimation = CAKeyframeAnimation(keyPath: "transform.scale")
@@ -50,14 +54,13 @@ class CircleView: UIView {
         secondScale.keyTimes = keytimes
         secondScale.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn)
 
+        group.delegate = vc
+
         // Create group animation to store the scale and opcacity animation
-        let group = CAAnimationGroup()
-        group.duration = 0.8
-        group.repeatCount = 9
+        group.duration = duration
+        group.repeatCount = 1
         group.animations = [scaleAnimation, secondScale]
-
         circle.add(group, forKey: "group")
-
         self.layer.addSublayer(circle)
     }
 }
