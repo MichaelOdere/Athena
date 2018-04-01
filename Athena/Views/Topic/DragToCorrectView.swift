@@ -40,8 +40,6 @@ class DragToCorrectView: UIView {
 
     func initProgressView() {
         progressView = ProgresView()
-        progressView.percentageComplete = 0.66
-        progressView.topicTitle = "Alphabet!"
         addSubview(progressView)
 
         progressView.translatesAutoresizingMaskIntoConstraints = false

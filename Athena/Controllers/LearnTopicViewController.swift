@@ -35,6 +35,7 @@ class LearnTopicViewController: UIViewController {
         introductionToWordView.delegate = self
 
         dragToCorrectView = DragToCorrectView(frame: self.view.frame)
+        dragToCorrectView.progressView.topicTitle = topic.name
         dragToCorrectView.delegate = self
 
         nextView(previous: .initialView, result: .learned)
@@ -70,6 +71,7 @@ extension LearnTopicViewController: DoneHandlerProtocol {
     }
 
     func showDragToCorrectView() -> Bool {
+        dragToCorrectView.progressView.percentageComplete = topic.getPercentageComplete()
         if topic.wordsLearned.count > 0 {
             removeAllSubviews()
             view.addSubview(dragToCorrectView)
