@@ -205,15 +205,16 @@ extension DragFiveView {
         if let location = touches.first?.location(in: self) {
             for label in labels {
                 if label.frame.contains(location) {
+                    var result: ResultOfLearn = .incorrect
                     if label.text == word.english {
-                        print("Match!")
+                        result = .correct
                     }
                     UIView.animate(withDuration: 0.6,
                                    delay: 0,
                                    options: [],
                     animations: {
                         self.alpha = 0
-                        self.delegate?.nextView(tag: 1)
+                        self.delegate?.nextView(previous: .dragToCorrectView, result: result)
                     },
                     completion: { (_) in
                         self.alpha = 1

@@ -204,7 +204,7 @@ extension IntroductionToWordView {
                 }) { (_) in
                     self.addLabel.alpha = 1
                     self.littleNewWordView.alpha = 1
-                    self.delegate?.nextView(tag: 0)
+                    self.delegate?.nextView(previous: .introductionToWord, result: .learned)
                     self.bigNewWordView.isHidden = false
                     self.littleNewWordView.isHidden = true
                 }
