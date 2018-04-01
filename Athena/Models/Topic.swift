@@ -12,6 +12,10 @@ class Topic {
         self.wordsLearned = wordsLearned
         self.wordsToLearn = wordsToLearn
     }
+
+    func getPercentageComplete() -> Float {
+        return Float(wordsLearned.count) / Float(wordsLearned.count + wordsToLearn.count)
+    }
 }
 
 extension Topic {
