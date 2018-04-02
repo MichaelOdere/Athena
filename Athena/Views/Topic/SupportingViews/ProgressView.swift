@@ -11,8 +11,6 @@ class ProgresView: UIView {
 
     var percentageComplete: Float! {
         didSet {
-            print("set")
-            print(percentageComplete)
             progressView.progress = percentageComplete
             titleLabel.text = topicTitle + ": \(percentageComplete * 100)%"
         }
