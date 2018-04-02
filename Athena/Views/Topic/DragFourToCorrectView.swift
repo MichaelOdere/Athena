@@ -1,6 +1,6 @@
 import UIKit
 
-class DragToCorrectView: TopicView {
+class DragFourToCorrectView: TopicView {
     var dragView: DragFiveView!
 
     var gl: CAGradientLayer!

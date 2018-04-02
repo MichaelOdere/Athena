@@ -3,7 +3,7 @@ import UIKit
 enum PreviusView {
     case initialView
     case introductionToWord
-    case dragToCorrectView
+    case dragFourToCorrectView
 }
 
 enum ResultOfLearn {
@@ -20,7 +20,7 @@ protocol DoneHandlerProtocol: class {
 class LearnTopicViewController: UIViewController {
 
     var introductionToWordView: IntroductionToWordView!
-    var dragToCorrectView: DragToCorrectView!
+    var dragFourToCorrectView: DragFourToCorrectView!
 
     var successView: SuccessView!
     var failView: FailView!
@@ -34,9 +34,9 @@ class LearnTopicViewController: UIViewController {
         introductionToWordView = IntroductionToWordView(frame: self.view.frame)
         introductionToWordView.delegate = self
 
-        dragToCorrectView = DragToCorrectView(frame: self.view.frame)
-        dragToCorrectView.progressView.topicTitle = topic.name
-        dragToCorrectView.delegate = self
+        dragFourToCorrectView = DragFourToCorrectView(frame: self.view.frame)
+        dragFourToCorrectView.progressView.topicTitle = topic.name
+        dragFourToCorrectView.delegate = self
 
         nextView(previous: .initialView, result: .learned)
     }
@@ -54,7 +54,7 @@ extension LearnTopicViewController: DoneHandlerProtocol {
             if !showDragToCorrectView() {
                 _ = showNewWord()
             }
-        case .dragToCorrectView:
+        case .dragFourToCorrectView:
             showResult(result: result)
         }
     }
@@ -71,14 +71,14 @@ extension LearnTopicViewController: DoneHandlerProtocol {
     }
 
     func showDragToCorrectView() -> Bool {
-        dragToCorrectView.progressView.percentageComplete = topic.getPercentageComplete()
+        dragFourToCorrectView.progressView.percentageComplete = topic.getPercentageComplete()
         if topic.wordsLearned.count > 0 {
             removeAllSubviews()
-            view.addSubview(dragToCorrectView)
-            dragToCorrectView.dragView.setup()
+            view.addSubview(dragFourToCorrectView)
+            dragFourToCorrectView.dragView.setup()
             let randomIndex = Int(arc4random_uniform(UInt32(topic.wordsLearned.count)))
             let word = topic.wordsLearned[randomIndex]
-            dragToCorrectView.dragView.setText(word: word, nativeWords: getRandomWords(word: word))
+            dragFourToCorrectView.dragView.setText(word: word, nativeWords: getRandomWords(word: word))
             return true
         }
         return false
