@@ -5,6 +5,7 @@ class DragThreeToCorrectView: TopicView {
 
     var gl: CAGradientLayer!
     var colors = [AthenaPalette.lightBlue.cgColor, AthenaPalette.turquoise.cgColor]
+    
     weak var delegate: DoneHandlerProtocol? {
         didSet {
             dragView.delegate = delegate
