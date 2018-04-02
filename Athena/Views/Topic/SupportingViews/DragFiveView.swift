@@ -214,7 +214,7 @@ extension DragFiveView {
                                    options: [],
                     animations: {
                         self.alpha = 0
-                        self.delegate?.nextView(previous: .dragFourToCorrectView, result: result)
+                        self.delegate?.nextView(previous: .dragFiveToCorrectView, result: result)
                     },
                     completion: { (_) in
                         self.alpha = 1
