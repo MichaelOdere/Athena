@@ -1,11 +1,11 @@
 import UIKit
 
 class DragThreeToCorrectView: TopicView {
-    var dragView: DragFiveView!
+    var dragView: DragThreeView!
 
     var gl: CAGradientLayer!
     var colors = [AthenaPalette.lightBlue.cgColor, AthenaPalette.turquoise.cgColor]
-    
+
     weak var delegate: DoneHandlerProtocol? {
         didSet {
             dragView.delegate = delegate
@@ -22,7 +22,7 @@ class DragThreeToCorrectView: TopicView {
     func initDragFiveView() {
         let mainFrame = CGRect(x: frame.width / 10, y: frame.height / 8,
                                width: frame.width * 0.8, height: frame.height * 0.7)
-        dragView = DragFiveView(frame: mainFrame)
+        dragView = DragThreeView(frame: mainFrame)
         dragView.backgroundColor = UIColor.clear
         addSubview(dragView)
     }
