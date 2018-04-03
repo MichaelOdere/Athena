@@ -3,9 +3,12 @@ import UIKit
 class DragView: UIView {
     weak var delegate: DoneHandlerProtocol?
 
-    var labels: [UILabel] = []
+    var isValidDrag = false
 
+    var labels: [UILabel] = []
     var dragWord: UILabel!
+    var currentDrag: UILabel!
+    var currentOrigin: CGPoint!
 
     // Word in the center used as the drag word
     var word: Word!
@@ -15,8 +18,6 @@ class DragView: UIView {
     var dragCenter: CGPoint!
     var originTopLeft: CGPoint!
     var originBototmRight: CGPoint!
-
-    var isValidDrag = false
 
     let fontSize: CGFloat = 40
     let scale: CGFloat = 2.0
@@ -44,6 +45,7 @@ class DragView: UIView {
 
         return shuffled
     }
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -54,9 +56,13 @@ extension DragView {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let location = touches.first?.location(in: self) {
             if dragWord.frame.contains(location) {
-                isValidDrag = true
-                dragWord.center = location
-                addShakeAnimation()
+                setupCurrentDrag(label: dragWord, location: location)
+            }
+
+            for label in labels {
+                if label.frame.contains(location) {
+                    setupCurrentDrag(label: label, location: location)
+                }
             }
         }
     }
@@ -67,7 +73,7 @@ extension DragView {
         }
 
         if let location = touches.first?.location(in: self) {
-            dragWord.center = location
+            currentDrag.center = location
         }
     }
 
@@ -80,31 +86,64 @@ extension DragView {
         removeAllAnimations()
 
         if let location = touches.first?.location(in: self) {
-            for label in labels {
-                if label.frame.contains(location) {
-                    var result: ResultOfLearn = .incorrect(word)
-                    if label.text == word.english {
-                        result = .correct
+            if isDragWord() {
+                for label in labels {
+                    if label.frame.contains(location) {
+                        collisionDetected(collisionLabel: label)
+                        return
                     }
-                    UIView.animate(withDuration: 0.6,
-                                   delay: 0,
-                                   options: [],
-                                   animations: {
-                                    self.alpha = 0
-                                    self.delegate?.previousView(previous: .dragFiveToCorrectView, result: result)
-                    },
-                                   completion: { (_) in
-                                    self.alpha = 1
-                                    self.dragWord.frame.origin = self.dragOrigin
-                    })
+                }
+            } else {
+                if dragWord.frame.contains(location) {
+                    collisionDetected(collisionLabel: dragWord)
                     return
                 }
             }
 
             UIView.animate(withDuration: 0.2, animations: {
-                self.dragWord.frame.origin = self.dragOrigin
+                self.currentDrag.frame.origin = self.currentOrigin
             })
+
         }
+    }
+
+    func setupCurrentDrag(label: UILabel, location: CGPoint) {
+        isValidDrag = true
+        currentDrag = label
+        currentOrigin = label.frame.origin
+        currentDrag.center = location
+        addShakeAnimation()
+    }
+
+    func collisionDetected(collisionLabel: UILabel) {
+        let boolResult = getResultOfCollision(collisionLabel: collisionLabel)
+        let result: ResultOfLearn = boolResult ? .correct : .incorrect(word)
+
+        UIView.animate(withDuration: 0.6,
+                       delay: 0,
+                       options: [],
+                       animations: {
+                        self.alpha = 0
+                        self.delegate?.previousView(previous: .dragFiveToCorrectView, result: result)
+        },
+                       completion: { (_) in
+                        self.alpha = 1
+                        self.currentDrag.frame.origin = self.currentOrigin
+        })
+        return
+    }
+
+    func getResultOfCollision(collisionLabel: UILabel) -> Bool {
+        if isDragWord() {
+            return collisionLabel.text == word.english || collisionLabel.text == word.native
+        } else {
+            return currentDrag.text == word.english || currentDrag.text == word.native
+        }
+    }
+
+    // If the current label is the same as the drag center label
+    func isDragWord() -> Bool {
+        return currentDrag == dragWord
     }
 }
 
