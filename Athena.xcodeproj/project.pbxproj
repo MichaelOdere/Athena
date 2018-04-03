@@ -12,8 +12,14 @@
 		F91C1118205C588F00FD7776 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F91C1116205C588F00FD7776 /* Main.storyboard */; };
 		F91C111A205C588F00FD7776 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F91C1119205C588F00FD7776 /* Assets.xcassets */; };
 		F91C111D205C588F00FD7776 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F91C111B205C588F00FD7776 /* LaunchScreen.storyboard */; };
-		F9470BFF2061B19C000624E2 /* DragToCorrectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9470BFE2061B19C000624E2 /* DragToCorrectView.swift */; };
+		F9470BFF2061B19C000624E2 /* DragFiveToCorrectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9470BFE2061B19C000624E2 /* DragFiveToCorrectView.swift */; };
 		F9470C012061C500000624E2 /* DragFiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9470C002061C500000624E2 /* DragFiveView.swift */; };
+		F95EE947206E09F600DA2ED5 /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F95EE946206E09F600DA2ED5 /* CircleView.swift */; };
+		F96123B32071EAEC00EF8A9B /* TopicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96123B22071EAEC00EF8A9B /* TopicView.swift */; };
+		F96123B52072938000EF8A9B /* DragThreeToCorrectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96123B42072938000EF8A9B /* DragThreeToCorrectView.swift */; };
+		F96123B7207296B700EF8A9B /* DragView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96123B6207296B700EF8A9B /* DragView.swift */; };
+		F96123B92072993300EF8A9B /* DragThreeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96123B82072993300EF8A9B /* DragThreeView.swift */; };
+		F96123BF2072F7D400EF8A9B /* ResultOfLearn.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96123BE2072F7D400EF8A9B /* ResultOfLearn.swift */; };
 		F9791E3D205E4DFE0055C1F6 /* Word.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9791E3C205E4DFE0055C1F6 /* Word.swift */; };
 		F9791E40205E5C530055C1F6 /* RussianStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9791E3F205E5C530055C1F6 /* RussianStore.swift */; };
 		F9791E42205E5C6D0055C1F6 /* Topic.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9791E41205E5C6D0055C1F6 /* Topic.swift */; };
@@ -28,6 +34,8 @@
 		F985E841205E012E00B5ACB4 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F985E840205E012E00B5ACB4 /* ProfileViewController.swift */; };
 		F9881E4F205F0A390014BF07 /* AthenaPallett.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9881E4E205F0A390014BF07 /* AthenaPallett.swift */; };
 		F9B87B772062164400BAF4A7 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B87B762062164400BAF4A7 /* ProgressView.swift */; };
+		F9C11282206EBC8100423969 /* SuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C11281206EBC8100423969 /* SuccessView.swift */; };
+		F9C11286206EC3F800423969 /* FailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C11285206EC3F800423969 /* FailView.swift */; };
 		F9FFC996205E724700224EB1 /* TopicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9FFC995205E724700224EB1 /* TopicCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -41,8 +49,14 @@
 		F91C1119205C588F00FD7776 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F91C111C205C588F00FD7776 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F91C111E205C588F00FD7776 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F9470BFE2061B19C000624E2 /* DragToCorrectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragToCorrectView.swift; sourceTree = "<group>"; };
+		F9470BFE2061B19C000624E2 /* DragFiveToCorrectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragFiveToCorrectView.swift; sourceTree = "<group>"; };
 		F9470C002061C500000624E2 /* DragFiveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragFiveView.swift; sourceTree = "<group>"; };
+		F95EE946206E09F600DA2ED5 /* CircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
+		F96123B22071EAEC00EF8A9B /* TopicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicView.swift; sourceTree = "<group>"; };
+		F96123B42072938000EF8A9B /* DragThreeToCorrectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragThreeToCorrectView.swift; sourceTree = "<group>"; };
+		F96123B6207296B700EF8A9B /* DragView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragView.swift; sourceTree = "<group>"; };
+		F96123B82072993300EF8A9B /* DragThreeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragThreeView.swift; sourceTree = "<group>"; };
+		F96123BE2072F7D400EF8A9B /* ResultOfLearn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultOfLearn.swift; sourceTree = "<group>"; };
 		F9791E3C205E4DFE0055C1F6 /* Word.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Word.swift; sourceTree = "<group>"; };
 		F9791E3F205E5C530055C1F6 /* RussianStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RussianStore.swift; sourceTree = "<group>"; };
 		F9791E41205E5C6D0055C1F6 /* Topic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Topic.swift; sourceTree = "<group>"; };
@@ -57,6 +71,8 @@
 		F985E840205E012E00B5ACB4 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		F9881E4E205F0A390014BF07 /* AthenaPallett.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AthenaPallett.swift; sourceTree = "<group>"; };
 		F9B87B762062164400BAF4A7 /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
+		F9C11281206EBC8100423969 /* SuccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SuccessView.swift; path = Athena/Views/Topic/SupportingViews/Shape/SuccessView.swift; sourceTree = SOURCE_ROOT; };
+		F9C11285206EC3F800423969 /* FailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FailView.swift; sourceTree = "<group>"; };
 		F9FFC995205E724700224EB1 /* TopicCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -149,6 +165,7 @@
 			children = (
 				F9791E3C205E4DFE0055C1F6 /* Word.swift */,
 				F9791E41205E5C6D0055C1F6 /* Topic.swift */,
+				F96123BE2072F7D400EF8A9B /* ResultOfLearn.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -156,9 +173,12 @@
 		F9371249206B290300603CC5 /* SupportingViews */ = {
 			isa = PBXGroup;
 			children = (
+				F96123B6207296B700EF8A9B /* DragView.swift */,
 				F9470C002061C500000624E2 /* DragFiveView.swift */,
+				F96123B82072993300EF8A9B /* DragThreeView.swift */,
 				F9B87B762062164400BAF4A7 /* ProgressView.swift */,
 				F9FFC995205E724700224EB1 /* TopicCell.swift */,
+				F9C11287206EC40300423969 /* Shape */,
 			);
 			path = SupportingViews;
 			sourceTree = "<group>";
@@ -173,10 +193,22 @@
 			path = Stores;
 			sourceTree = "<group>";
 		};
+		F9C11287206EC40300423969 /* Shape */ = {
+			isa = PBXGroup;
+			children = (
+				F95EE946206E09F600DA2ED5 /* CircleView.swift */,
+				F9C11285206EC3F800423969 /* FailView.swift */,
+				F9C11281206EBC8100423969 /* SuccessView.swift */,
+			);
+			path = Shape;
+			sourceTree = "<group>";
+		};
 		F9FFC994205E723A00224EB1 /* Topic */ = {
 			isa = PBXGroup;
 			children = (
-				F9470BFE2061B19C000624E2 /* DragToCorrectView.swift */,
+				F96123B22071EAEC00EF8A9B /* TopicView.swift */,
+				F9470BFE2061B19C000624E2 /* DragFiveToCorrectView.swift */,
+				F96123B42072938000EF8A9B /* DragThreeToCorrectView.swift */,
 				F981135220603BFD00D3BE79 /* IntroductionToWordView.swift */,
 				F981135E20607E1900D3BE79 /* NewWordView.swift */,
 				F9371249206B290300603CC5 /* SupportingViews */,
@@ -333,21 +365,29 @@
 			buildActionMask = 2147483647;
 			files = (
 				F9470C012061C500000624E2 /* DragFiveView.swift in Sources */,
+				F96123B52072938000EF8A9B /* DragThreeToCorrectView.swift in Sources */,
 				F985E841205E012E00B5ACB4 /* ProfileViewController.swift in Sources */,
 				F981135320603BFD00D3BE79 /* IntroductionToWordView.swift in Sources */,
 				F9791E42205E5C6D0055C1F6 /* Topic.swift in Sources */,
+				F95EE947206E09F600DA2ED5 /* CircleView.swift in Sources */,
+				F96123B32071EAEC00EF8A9B /* TopicView.swift in Sources */,
 				F981135F20607E1900D3BE79 /* NewWordView.swift in Sources */,
 				F9791E3D205E4DFE0055C1F6 /* Word.swift in Sources */,
 				F9B87B772062164400BAF4A7 /* ProgressView.swift in Sources */,
 				F9881E4F205F0A390014BF07 /* AthenaPallett.swift in Sources */,
+				F9C11282206EBC8100423969 /* SuccessView.swift in Sources */,
 				F9FFC996205E724700224EB1 /* TopicCell.swift in Sources */,
 				F91C1113205C588F00FD7776 /* AppDelegate.swift in Sources */,
+				F9C11286206EC3F800423969 /* FailView.swift in Sources */,
+				F96123B92072993300EF8A9B /* DragThreeView.swift in Sources */,
 				F985E839205E005A00B5ACB4 /* TabBarController.swift in Sources */,
 				F985E83D205E010F00B5ACB4 /* TrainerViewController.swift in Sources */,
 				F985E83F205E011800B5ACB4 /* HistoryViewController.swift in Sources */,
 				F981135120602AFD00D3BE79 /* LearnTopicViewController.swift in Sources */,
+				F96123B7207296B700EF8A9B /* DragView.swift in Sources */,
 				F985E83B205E00CA00B5ACB4 /* TopicsViewController.swift in Sources */,
-				F9470BFF2061B19C000624E2 /* DragToCorrectView.swift in Sources */,
+				F9470BFF2061B19C000624E2 /* DragFiveToCorrectView.swift in Sources */,
+				F96123BF2072F7D400EF8A9B /* ResultOfLearn.swift in Sources */,
 				F9791E40205E5C530055C1F6 /* RussianStore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
