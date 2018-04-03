@@ -6,7 +6,7 @@ class DragView: UIView {
     var isValidDrag = false
 
     var labels: [UILabel] = []
-    var dragWord: UILabel!
+    var centerWord: UILabel!
     var currentDrag: UILabel!
     var currentOrigin: CGPoint!
 
@@ -55,8 +55,8 @@ class DragView: UIView {
 extension DragView {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let location = touches.first?.location(in: self) {
-            if dragWord.frame.contains(location) {
-                setupCurrentDrag(label: dragWord, location: location)
+            if centerWord.frame.contains(location) {
+                setupCurrentDrag(label: centerWord, location: location)
             }
 
             for label in labels {
@@ -86,7 +86,7 @@ extension DragView {
         removeAllAnimations()
 
         if let location = touches.first?.location(in: self) {
-            if isDragWord() {
+            if isCenterWord() {
                 for label in labels {
                     if label.frame.contains(location) {
                         collisionDetected(collisionLabel: label)
@@ -94,8 +94,8 @@ extension DragView {
                     }
                 }
             } else {
-                if dragWord.frame.contains(location) {
-                    collisionDetected(collisionLabel: dragWord)
+                if centerWord.frame.contains(location) {
+                    collisionDetected(collisionLabel: centerWord)
                     return
                 }
             }
@@ -134,7 +134,7 @@ extension DragView {
     }
 
     func getResultOfCollision(collisionLabel: UILabel) -> Bool {
-        if isDragWord() {
+        if isCenterWord() {
             return collisionLabel.text == word.english || collisionLabel.text == word.native
         } else {
             return currentDrag.text == word.english || currentDrag.text == word.native
@@ -142,8 +142,8 @@ extension DragView {
     }
 
     // If the current label is the same as the drag center label
-    func isDragWord() -> Bool {
-        return currentDrag == dragWord
+    func isCenterWord() -> Bool {
+        return currentDrag == centerWord
     }
 }
 

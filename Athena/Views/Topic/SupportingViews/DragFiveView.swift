@@ -11,7 +11,7 @@ class DragFiveView: DragView {
 
         initTopLeft()
         initTopRight()
-        initDragWord()
+        initcenterWord()
         initBottomLeft()
         initBottomRight()
 
@@ -44,15 +44,15 @@ class DragFiveView: DragView {
         addSubview(topRight)
     }
 
-    func initDragWord() {
+    func initcenterWord() {
         let initFrame = CGRect(x: dragOrigin.x, y: dragOrigin.y, width: size.width * scale, height: size.height * scale)
-        dragWord = UILabel(frame: initFrame)
-        dragWord.backgroundColor = UIColor.clear
-        dragWord.textColor = UIColor.white
-        dragWord.textAlignment = .center
-        dragWord.font = UIFont(name: "HelveticaNeue-Bold", size: fontSize + 20)
-        dragCenter = dragWord.center
-        addSubview(dragWord)
+        centerWord = UILabel(frame: initFrame)
+        centerWord.backgroundColor = UIColor.clear
+        centerWord.textColor = UIColor.white
+        centerWord.textAlignment = .center
+        centerWord.font = UIFont(name: "HelveticaNeue-Bold", size: fontSize + 20)
+        dragCenter = centerWord.center
+        addSubview(centerWord)
     }
 
     func initBottomLeft() {
@@ -86,7 +86,7 @@ class DragFiveView: DragView {
             label.text = shuffledNativeWords[count]
             count += 1
         }
-        dragWord.text = word.native
+        centerWord.text = word.native
     }
 
     required init?(coder aDecoder: NSCoder) {
