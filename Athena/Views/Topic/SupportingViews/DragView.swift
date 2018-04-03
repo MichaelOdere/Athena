@@ -82,7 +82,7 @@ extension DragView {
         if let location = touches.first?.location(in: self) {
             for label in labels {
                 if label.frame.contains(location) {
-                    var result: ResultOfLearn = .incorrect
+                    var result: ResultOfLearn = .incorrect(word)
                     if label.text == word.english {
                         result = .correct
                     }
@@ -91,7 +91,7 @@ extension DragView {
                                    options: [],
                                    animations: {
                                     self.alpha = 0
-                                    self.delegate?.nextView(previous: .dragFiveToCorrectView, result: result)
+                                    self.delegate?.previousView(previous: .dragFiveToCorrectView, result: result)
                     },
                                    completion: { (_) in
                                     self.alpha = 1

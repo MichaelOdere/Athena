@@ -12,6 +12,7 @@ class IntroductionToWordView: UIView {
 
     weak var delegate: DoneHandlerProtocol?
 
+    var word: Word!
     override init(frame: CGRect) {
         super.init(frame: frame)
 
@@ -24,6 +25,7 @@ class IntroductionToWordView: UIView {
     }
 
     func sendWord(word: Word) {
+        self.word = word
         bigNewWordView.nativeLabel.text = word.native
         bigNewWordView.englishLabel.text = word.english
 
@@ -165,15 +167,6 @@ extension IntroductionToWordView {
                 bigNewWordView.isHidden = true
                 littleNewWordView.isHidden = false
                 littleNewWordView.center = location
-
-//                let width = addLabel.frame.height * 0.9
-//                let animation = CABasicAnimation(keyPath: "bounds.size")
-//                animation.duration = 1
-//                animation.repeatCount = .infinity
-//                animation.autoreverses = true
-//                animation.fromValue = addLabel.frame.size
-//                animation.toValue = CGSize(width: width, height: width)
-//                addLabel.layer.add(animation, forKey: "size")
             }
         }
     }
@@ -204,7 +197,7 @@ extension IntroductionToWordView {
                 }) { (_) in
                     self.addLabel.alpha = 1
                     self.littleNewWordView.alpha = 1
-                    self.delegate?.nextView(previous: .introductionToWord, result: .learned)
+                    self.delegate?.previousView(previous: .introductionToWord, result: .learned(self.word))
                     self.bigNewWordView.isHidden = false
                     self.littleNewWordView.isHidden = true
                 }

@@ -60,6 +60,7 @@ class DragThreeView: DragView {
         let shuffledNativeWords = shuffleArray(arr: nativeWords)
 
         var count = 0
+
         for label in labels {
             label.text = shuffledNativeWords[count]
             count += 1
