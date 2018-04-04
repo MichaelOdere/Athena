@@ -50,7 +50,7 @@ class Topic {
             let randomIndex = Int(arc4random_uniform(UInt32(self.wordsLearned.count)))
             let randomWord = self.wordsLearned[randomIndex]
 
-            if !indexes.contains(randomIndex) && !words.contains{$0.native == randomWord.native} {
+            if !indexes.contains(randomIndex) && !words.contains {$0.native == randomWord.native} {
                 words.append(randomWord)
                 indexes.append(randomIndex)
             }
@@ -67,7 +67,7 @@ class Topic {
             let randomIndex = Int(arc4random_uniform(UInt32(self.wordsToLearn.count)))
             let randomWord = self.wordsToLearn[randomIndex]
 
-            if !indexes.contains(randomIndex) && !words.contains{$0.native == randomWord.native} {
+            if !indexes.contains(randomIndex) && !words.contains {$0.native == randomWord.native} {
                 words.append(randomWord)
                 indexes.append(randomIndex)
             }
@@ -75,7 +75,7 @@ class Topic {
 
         return words
     }
-    
+
     func getNativeString(words: [Word]) -> [String] {
         var wordsString: [String] = []
         for word in words {
@@ -91,7 +91,7 @@ class Topic {
         }
         return wordsString
     }
-    
+
     func getTransliterationString(words: [Word]) -> [String] {
         var wordsString: [String] = []
         for word in words {
@@ -99,7 +99,7 @@ class Topic {
         }
         return wordsString
     }
-    
+
     func canShowIntroductionToWordView() -> Bool {
         return self.wordsToLearn.count > 0
     }
