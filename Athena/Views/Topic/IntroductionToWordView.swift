@@ -6,7 +6,7 @@ class IntroductionToWordView: UIView {
     var littleNewWordView: NewWordView!
     // we only want to drag if it has been initiated in the bigNewWord view
     var isValidDrag = false
-    var addLabel: UILabel!
+    var addLabel: DragLabel!
 
     var gl: CAGradientLayer!
 
@@ -42,13 +42,11 @@ class IntroductionToWordView: UIView {
     }
 
     func initAddLabel() {
-        addLabel = UILabel()
+        addLabel = DragLabel()
         addLabel.layer.cornerRadius = 20
         addLabel.layer.masksToBounds = true
 
         addLabel.text = "Drag to me to add!"
-        addLabel.textColor = UIColor.white
-        addLabel.textAlignment = .center
         addLabel.font = UIFont(name: "HelveticaNeue-Bold", size: 14)
 
         addLabel.backgroundColor = UIColor.black.withAlphaComponent(0.2)
