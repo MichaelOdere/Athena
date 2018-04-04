@@ -25,14 +25,20 @@ class Topic {
     }
 
     func getRandomWord() -> Word {
-        let randomIndex = Int(arc4random_uniform(UInt32(self.wordsLearned.count)))
-        let randomWord = self.wordsLearned[randomIndex]
+        if wordsLearned.count > 0 {
+            let randomIndex = Int(arc4random_uniform(UInt32(self.wordsLearned.count)))
+            let randomWord = self.wordsLearned[randomIndex]
+            return randomWord
+        }
+
+        let randomIndex = Int(arc4random_uniform(UInt32(self.wordsToLearn.count)))
+        let randomWord = self.wordsToLearn[randomIndex]
         return randomWord
     }
     // Get random words from words learned
     // If words learned does not have enough, get the remainder from words not yet learned
-    func getRandomWords(word: Word, amount: Int) -> [String] {
-        var words: [String] = [word.english]
+    func getRandomWords(word: Word, amount: Int) -> [Word] {
+        var words: [Word] = [word]
         var indexes: [Int] = []
 
         if let index = self.wordsLearned.index(where: {$0.english == word.english}) {
@@ -42,10 +48,10 @@ class Topic {
         // Get random words while we don't have 4 and wordsLearned still has unused words
         while words.count < amount && indexes.count < self.wordsLearned.count {
             let randomIndex = Int(arc4random_uniform(UInt32(self.wordsLearned.count)))
-            let english = self.wordsLearned[randomIndex].english
+            let randomWord = self.wordsLearned[randomIndex]
 
-            if !indexes.contains(randomIndex) && !words.contains(english) {
-                words.append(english)
+            if !indexes.contains(randomIndex) && !words.contains{$0.native == randomWord.native} {
+                words.append(randomWord)
                 indexes.append(randomIndex)
             }
         }
@@ -59,17 +65,41 @@ class Topic {
         // Get random words while we don't have 4 and wordsToLearn still  has unused words
         while words.count < amount && indexes.count < self.wordsToLearn.count {
             let randomIndex = Int(arc4random_uniform(UInt32(self.wordsToLearn.count)))
-            let english = self.wordsToLearn[randomIndex].english
+            let randomWord = self.wordsToLearn[randomIndex]
 
-            if !indexes.contains(randomIndex) && !words.contains(english) {
-                words.append(english)
+            if !indexes.contains(randomIndex) && !words.contains{$0.native == randomWord.native} {
+                words.append(randomWord)
                 indexes.append(randomIndex)
             }
         }
 
         return words
     }
+    
+    func getNativeString(words: [Word]) -> [String] {
+        var wordsString: [String] = []
+        for word in words {
+            wordsString.append(word.native)
+        }
+        return wordsString
+    }
 
+    func getEnglishString(words: [Word]) -> [String] {
+        var wordsString: [String] = []
+        for word in words {
+            wordsString.append(word.english)
+        }
+        return wordsString
+    }
+    
+    func getTransliterationString(words: [Word]) -> [String] {
+        var wordsString: [String] = []
+        for word in words {
+            wordsString.append(word.transliteration)
+        }
+        return wordsString
+    }
+    
     func canShowIntroductionToWordView() -> Bool {
         return self.wordsToLearn.count > 0
     }
