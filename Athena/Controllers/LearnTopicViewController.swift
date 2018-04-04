@@ -48,6 +48,7 @@ class LearnTopicViewController: UIViewController {
 		swipeWordView = SwipeWordView(frame: view.frame)
 		swipeWordView.progressView.topicTitle = topic.name
 		swipeWordView.delegate = self
+
         previousView(previous: .reset, result: .none)
     }
 }

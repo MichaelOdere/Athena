@@ -121,8 +121,7 @@ class SwipeWordView: TopicView {
 	}
 
 	func getResult(userSelected: Bool) -> ResultOfLearn {
-		return .incorrect(word)
-//		return userSelected == match ? .correct : .incorrect(word)
+		return userSelected == match ? .correct : .incorrect(word)
 	}
 
     required init?(coder aDecoder: NSCoder) {
