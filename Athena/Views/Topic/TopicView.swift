@@ -6,10 +6,23 @@ class TopicView: UIView {
 
     var gl: CAGradientLayer!
 
+    let animationDuration = 0.4
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         horizontalPadding = frame.width * 0.1
         initProgressView()
+    }
+
+    func animateView() {
+        guard let progressView = progressView else {
+            return
+        }
+
+        progressView.frame.origin.y += frame.height
+        UIView.animate(withDuration: 0.4, delay: 0, options: .curveEaseOut, animations: {
+            progressView.frame.origin.y -= self.frame.height
+        }, completion: nil)
     }
 
     func initProgressView() {
