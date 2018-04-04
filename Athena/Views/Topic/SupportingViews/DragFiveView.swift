@@ -1,10 +1,10 @@
 import UIKit
 
 class DragFiveView: DragView {
-    var topLeft: UILabel!
-    var topRight: UILabel!
-    var bottomLeft: UILabel!
-    var bottomRight: UILabel!
+    var topLeft: DragLabel!
+    var topRight: DragLabel!
+    var bottomLeft: DragLabel!
+    var bottomRight: DragLabel!
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -26,30 +26,19 @@ class DragFiveView: DragView {
 
     func initTopLeft() {
         let initFrame = CGRect(x: originTopLeft.x, y: originTopLeft.y, width: size.width, height: size.height)
-        topLeft = UILabel(frame: initFrame)
-        topLeft.backgroundColor = UIColor.clear
-        topLeft.textColor = UIColor.white
-        topLeft.textAlignment = .center
-        topLeft.font = UIFont(name: "HelveticaNeue-Bold", size: fontSize)
+        topLeft = DragLabel(frame: initFrame)
         addSubview(topLeft)
     }
 
     func initTopRight() {
         let initFrame = CGRect(x: originBototmRight.x, y: originTopLeft.y, width: size.width, height: size.height)
-        topRight = UILabel(frame: initFrame)
-        topRight.backgroundColor = UIColor.clear
-        topRight.textColor = UIColor.white
-        topRight.textAlignment = .center
-        topRight.font = UIFont(name: "HelveticaNeue-Bold", size: fontSize)
+        topRight = DragLabel(frame: initFrame)
         addSubview(topRight)
     }
 
     func initcenterWord() {
         let initFrame = CGRect(x: dragOrigin.x, y: dragOrigin.y, width: size.width * scale, height: size.height * scale)
-        centerWord = UILabel(frame: initFrame)
-        centerWord.backgroundColor = UIColor.clear
-        centerWord.textColor = UIColor.white
-        centerWord.textAlignment = .center
+        centerWord = DragLabel(frame: initFrame)
         centerWord.font = UIFont(name: "HelveticaNeue-Bold", size: fontSize + 20)
         dragCenter = centerWord.center
         addSubview(centerWord)
@@ -57,21 +46,13 @@ class DragFiveView: DragView {
 
     func initBottomLeft() {
         let initFrame = CGRect(x: originTopLeft.x, y: originBototmRight.y, width: size.width, height: size.height)
-        bottomLeft = UILabel(frame: initFrame)
-        bottomLeft.backgroundColor = UIColor.clear
-        bottomLeft.textColor = UIColor.white
-        bottomLeft.textAlignment = .center
-        bottomLeft.font = UIFont(name: "HelveticaNeue-Bold", size: fontSize)
+        bottomLeft = DragLabel(frame: initFrame)
         addSubview(bottomLeft)
     }
 
     func initBottomRight() {
         let initFrame = CGRect(x: originBototmRight.x, y: originBototmRight.y, width: size.width, height: size.height)
-        bottomRight = UILabel(frame: initFrame)
-        bottomRight.backgroundColor = UIColor.clear
-        bottomRight.textColor = UIColor.white
-        bottomRight.textAlignment = .center
-        bottomRight.font = UIFont(name: "HelveticaNeue-Bold", size: fontSize)
+        bottomRight = DragLabel(frame: initFrame)
         addSubview(bottomRight)
     }
 

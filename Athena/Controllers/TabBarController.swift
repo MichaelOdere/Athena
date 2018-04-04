@@ -34,7 +34,7 @@ class TabBarController: UITabBarController {
 
 extension TabBarController: UITabBarControllerDelegate {
     func tabBarController(_ tabBarController: UITabBarController,
-                                shouldSelect viewController: UIViewController) -> Bool {
+                          shouldSelect viewController: UIViewController) -> Bool {
 
         if selectedViewController == nil || viewController == selectedViewController {
             return false

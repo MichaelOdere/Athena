@@ -43,7 +43,6 @@ class IntroductionToWordView: UIView {
 
     func initAddLabel() {
         addLabel = UILabel()
-
         addLabel.layer.cornerRadius = 20
         addLabel.layer.masksToBounds = true
 
