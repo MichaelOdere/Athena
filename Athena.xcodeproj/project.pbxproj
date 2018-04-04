@@ -39,6 +39,7 @@
 		F9B87B772062164400BAF4A7 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B87B762062164400BAF4A7 /* ProgressView.swift */; };
 		F9C11282206EBC8100423969 /* SuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C11281206EBC8100423969 /* SuccessView.swift */; };
 		F9C11286206EC3F800423969 /* FailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C11285206EC3F800423969 /* FailView.swift */; };
+		F9C8D36120748A8200884130 /* SwipeWordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C8D36020748A8200884130 /* SwipeWordView.swift */; };
 		F9FFC996205E724700224EB1 /* TopicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9FFC995205E724700224EB1 /* TopicCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -93,6 +94,7 @@
 		F9B87B762062164400BAF4A7 /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
 		F9C11281206EBC8100423969 /* SuccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SuccessView.swift; path = Athena/Views/Topic/SupportingViews/Shape/SuccessView.swift; sourceTree = SOURCE_ROOT; };
 		F9C11285206EC3F800423969 /* FailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FailView.swift; sourceTree = "<group>"; };
+		F9C8D36020748A8200884130 /* SwipeWordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeWordView.swift; sourceTree = "<group>"; };
 		F9FFC995205E724700224EB1 /* TopicCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -254,6 +256,7 @@
 				F96123B42072938000EF8A9B /* DragThreeToCorrectView.swift */,
 				F981135220603BFD00D3BE79 /* IntroductionToWordView.swift */,
 				F981135E20607E1900D3BE79 /* NewWordView.swift */,
+				F9C8D36020748A8200884130 /* SwipeWordView.swift */,
 				F9371249206B290300603CC5 /* SupportingViews */,
 			);
 			path = Topic;
@@ -514,6 +517,7 @@
 				F985E83B205E00CA00B5ACB4 /* TopicsViewController.swift in Sources */,
 				F9470BFF2061B19C000624E2 /* DragFiveToCorrectView.swift in Sources */,
 				F96123BF2072F7D400EF8A9B /* ResultOfLearn.swift in Sources */,
+				F9C8D36120748A8200884130 /* SwipeWordView.swift in Sources */,
 				F9791E40205E5C530055C1F6 /* RussianStore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

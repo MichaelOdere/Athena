@@ -4,6 +4,8 @@ class TopicView: UIView {
     var progressView: ProgresView!
     var horizontalPadding: CGFloat = 0
 
+    var gl: CAGradientLayer!
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         horizontalPadding = frame.width * 0.1

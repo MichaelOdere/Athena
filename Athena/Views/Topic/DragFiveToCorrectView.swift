@@ -3,7 +3,6 @@ import UIKit
 class DragFiveToCorrectView: TopicView {
     var dragView: DragFiveView!
 
-    var gl: CAGradientLayer!
     var colors = [AthenaPalette.lightBlue.cgColor, AthenaPalette.turquoise.cgColor]
 
     weak var delegate: DoneHandlerProtocol? {

@@ -3,7 +3,6 @@ import UIKit
 class DragThreeToCorrectView: TopicView {
     var dragView: DragThreeView!
 
-    var gl: CAGradientLayer!
     var colors = [AthenaPalette.lightBlue.cgColor, AthenaPalette.turquoise.cgColor]
 
     weak var delegate: DoneHandlerProtocol? {
