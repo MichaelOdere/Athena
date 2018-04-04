@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C460E2F0DC7A08DA387C73D2 /* Pods_Athena.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 001FE25276A635BBC0FAD8CB /* Pods_Athena.framework */; };
+		D83E541983F1C54F25489B9D /* Pods_AthenaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B940622C37BE8F0593559823 /* Pods_AthenaTests.framework */; };
 		F91C1113205C588F00FD7776 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91C1112205C588F00FD7776 /* AppDelegate.swift */; };
 		F91C1118205C588F00FD7776 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F91C1116205C588F00FD7776 /* Main.storyboard */; };
 		F91C111A205C588F00FD7776 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F91C1119205C588F00FD7776 /* Assets.xcassets */; };
@@ -20,6 +21,7 @@
 		F96123B7207296B700EF8A9B /* DragView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96123B6207296B700EF8A9B /* DragView.swift */; };
 		F96123B92072993300EF8A9B /* DragThreeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96123B82072993300EF8A9B /* DragThreeView.swift */; };
 		F96123BF2072F7D400EF8A9B /* ResultOfLearn.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96123BE2072F7D400EF8A9B /* ResultOfLearn.swift */; };
+		F96123C720742C8C00EF8A9B /* ModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96123C620742C8C00EF8A9B /* ModelTests.swift */; };
 		F9791E3D205E4DFE0055C1F6 /* Word.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9791E3C205E4DFE0055C1F6 /* Word.swift */; };
 		F9791E40205E5C530055C1F6 /* RussianStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9791E3F205E5C530055C1F6 /* RussianStore.swift */; };
 		F9791E42205E5C6D0055C1F6 /* Topic.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9791E41205E5C6D0055C1F6 /* Topic.swift */; };
@@ -39,10 +41,23 @@
 		F9FFC996205E724700224EB1 /* TopicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9FFC995205E724700224EB1 /* TopicCell.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		F96123C920742C8C00EF8A9B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F91C1107205C588F00FD7776 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F91C110E205C588F00FD7776;
+			remoteInfo = Athena;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		001FE25276A635BBC0FAD8CB /* Pods_Athena.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Athena.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE541FDDB751A1C880FA1BD6 /* Pods-Athena.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Athena.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Athena/Pods-Athena.debug.xcconfig"; sourceTree = "<group>"; };
+		B940622C37BE8F0593559823 /* Pods_AthenaTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AthenaTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BBF41225A81166BE633E1A4D /* Pods-AthenaTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AthenaTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AthenaTests/Pods-AthenaTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C09D605D312CB43228324C55 /* Pods-Athena.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Athena.release.xcconfig"; path = "Pods/Target Support Files/Pods-Athena/Pods-Athena.release.xcconfig"; sourceTree = "<group>"; };
+		DDA2E2F51568BB5910ABE606 /* Pods-AthenaTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AthenaTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AthenaTests/Pods-AthenaTests.release.xcconfig"; sourceTree = "<group>"; };
 		F91C110F205C588F00FD7776 /* Athena.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Athena.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F91C1112205C588F00FD7776 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F91C1117205C588F00FD7776 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -57,10 +72,13 @@
 		F96123B6207296B700EF8A9B /* DragView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragView.swift; sourceTree = "<group>"; };
 		F96123B82072993300EF8A9B /* DragThreeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragThreeView.swift; sourceTree = "<group>"; };
 		F96123BE2072F7D400EF8A9B /* ResultOfLearn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultOfLearn.swift; sourceTree = "<group>"; };
+		F96123C420742C8C00EF8A9B /* AthenaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AthenaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F96123C620742C8C00EF8A9B /* ModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelTests.swift; sourceTree = "<group>"; };
+		F96123C820742C8C00EF8A9B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F9791E3C205E4DFE0055C1F6 /* Word.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Word.swift; sourceTree = "<group>"; };
 		F9791E3F205E5C530055C1F6 /* RussianStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RussianStore.swift; sourceTree = "<group>"; };
 		F9791E41205E5C6D0055C1F6 /* Topic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Topic.swift; sourceTree = "<group>"; };
-		F981135020602AFD00D3BE79 /* LearnTopicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnTopicViewController.swift; sourceTree = "<group>"; };
+		F981135020602AFD00D3BE79 /* LearnTopicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnTopicViewController.swift; sourceTree = "<group>"; usesTabs = 1; };
 		F981135220603BFD00D3BE79 /* IntroductionToWordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroductionToWordView.swift; sourceTree = "<group>"; };
 		F981135C206059AB00D3BE79 /* Russian.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Russian.json; sourceTree = "<group>"; };
 		F981135E20607E1900D3BE79 /* NewWordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewWordView.swift; sourceTree = "<group>"; };
@@ -85,6 +103,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F96123C120742C8C00EF8A9B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D83E541983F1C54F25489B9D /* Pods_AthenaTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -92,6 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				001FE25276A635BBC0FAD8CB /* Pods_Athena.framework */,
+				B940622C37BE8F0593559823 /* Pods_AthenaTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -101,6 +128,8 @@
 			children = (
 				AE541FDDB751A1C880FA1BD6 /* Pods-Athena.debug.xcconfig */,
 				C09D605D312CB43228324C55 /* Pods-Athena.release.xcconfig */,
+				BBF41225A81166BE633E1A4D /* Pods-AthenaTests.debug.xcconfig */,
+				DDA2E2F51568BB5910ABE606 /* Pods-AthenaTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -109,6 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				F91C1111205C588F00FD7776 /* Athena */,
+				F96123C520742C8C00EF8A9B /* AthenaTests */,
 				F91C1110205C588F00FD7776 /* Products */,
 				4284A25BBB6E4EDB51F089B1 /* Pods */,
 				27F3C065992800366AD0EC61 /* Frameworks */,
@@ -119,6 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				F91C110F205C588F00FD7776 /* Athena.app */,
+				F96123C420742C8C00EF8A9B /* AthenaTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -183,6 +214,15 @@
 			path = SupportingViews;
 			sourceTree = "<group>";
 		};
+		F96123C520742C8C00EF8A9B /* AthenaTests */ = {
+			isa = PBXGroup;
+			children = (
+				F96123C620742C8C00EF8A9B /* ModelTests.swift */,
+				F96123C820742C8C00EF8A9B /* Info.plist */,
+			);
+			path = AthenaTests;
+			sourceTree = "<group>";
+		};
 		F9791E3B205E4DC90055C1F6 /* Stores */ = {
 			isa = PBXGroup;
 			children = (
@@ -240,6 +280,27 @@
 			productReference = F91C110F205C588F00FD7776 /* Athena.app */;
 			productType = "com.apple.product-type.application";
 		};
+		F96123C320742C8C00EF8A9B /* AthenaTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F96123CD20742C8C00EF8A9B /* Build configuration list for PBXNativeTarget "AthenaTests" */;
+			buildPhases = (
+				3903ED9FD96389A9EAE3EADA /* [CP] Check Pods Manifest.lock */,
+				F96123C020742C8C00EF8A9B /* Sources */,
+				F96123C120742C8C00EF8A9B /* Frameworks */,
+				F96123C220742C8C00EF8A9B /* Resources */,
+				B2D83ACD052A8C3BA4C0191E /* [CP] Embed Pods Frameworks */,
+				974C27B720B5D1642416775E /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F96123CA20742C8C00EF8A9B /* PBXTargetDependency */,
+			);
+			name = AthenaTests;
+			productName = AthenaTests;
+			productReference = F96123C420742C8C00EF8A9B /* AthenaTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -249,13 +310,18 @@
 				KnownAssetTags = (
 					New,
 				);
-				LastSwiftUpdateCheck = 0920;
+				LastSwiftUpdateCheck = 0930;
 				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = michaelodere;
 				TargetAttributes = {
 					F91C110E205C588F00FD7776 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
+					};
+					F96123C320742C8C00EF8A9B = {
+						CreatedOnToolsVersion = 9.3;
+						ProvisioningStyle = Automatic;
+						TestTargetID = F91C110E205C588F00FD7776;
 					};
 				};
 			};
@@ -273,6 +339,7 @@
 			projectRoot = "";
 			targets = (
 				F91C110E205C588F00FD7776 /* Athena */,
+				F96123C320742C8C00EF8A9B /* AthenaTests */,
 			);
 		};
 /* End PBXProject section */
@@ -286,6 +353,13 @@
 				F981135D206059AB00D3BE79 /* Russian.json in Resources */,
 				F91C111A205C588F00FD7776 /* Assets.xcassets in Resources */,
 				F91C1118205C588F00FD7776 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F96123C220742C8C00EF8A9B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -323,6 +397,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Athena/Pods-Athena-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3903ED9FD96389A9EAE3EADA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AthenaTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		974C27B720B5D1642416775E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AthenaTests/Pods-AthenaTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B2D83ACD052A8C3BA4C0191E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AthenaTests/Pods-AthenaTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F84CBFAFA38EC2A991832D53 /* [CP] Check Pods Manifest.lock */ = {
@@ -392,7 +514,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F96123C020742C8C00EF8A9B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F96123C720742C8C00EF8A9B /* ModelTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F96123CA20742C8C00EF8A9B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F91C110E205C588F00FD7776 /* Athena */;
+			targetProxy = F96123C920742C8C00EF8A9B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		F91C1116205C588F00FD7776 /* Main.storyboard */ = {
@@ -553,6 +691,48 @@
 			};
 			name = Release;
 		};
+		F96123CB20742C8C00EF8A9B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BBF41225A81166BE633E1A4D /* Pods-AthenaTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8FX99Z8DDE;
+				INFOPLIST_FILE = AthenaTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.michaelodere.AthenaTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Athena.app/Athena";
+			};
+			name = Debug;
+		};
+		F96123CC20742C8C00EF8A9B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DDA2E2F51568BB5910ABE606 /* Pods-AthenaTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8FX99Z8DDE;
+				INFOPLIST_FILE = AthenaTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.michaelodere.AthenaTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Athena.app/Athena";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -570,6 +750,15 @@
 			buildConfigurations = (
 				F91C1122205C588F00FD7776 /* Debug */,
 				F91C1123205C588F00FD7776 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F96123CD20742C8C00EF8A9B /* Build configuration list for PBXNativeTarget "AthenaTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F96123CB20742C8C00EF8A9B /* Debug */,
+				F96123CC20742C8C00EF8A9B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

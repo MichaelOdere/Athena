@@ -149,12 +149,8 @@ extension LearnTopicViewController {
         dragThreeToCorrectView.dragView.setup()
 
         if dragWord == nil {
-            let randomIndex = Int(arc4random_uniform(UInt32(topic.wordsLearned.count)))
-            let randomWord = topic.wordsLearned[randomIndex]
+            let randomWord = topic.getRandomWord()
             let words =  topic.getRandomWords(word: randomWord, amount: 2)
-//            if let index = words.index(where: { $0.native == randomWord.native}) {
-//                return words[index]
-//            }
             dragThreeToCorrectView.dragView.setText(word: randomWord, nativeWords: words)
         } else {
             let words = topic.getRandomWords(word: dragWord!, amount: 2)

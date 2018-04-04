@@ -24,6 +24,11 @@ class Topic {
         }
     }
 
+    func getRandomWord() -> Word {
+        let randomIndex = Int(arc4random_uniform(UInt32(self.wordsLearned.count)))
+        let randomWord = self.wordsLearned[randomIndex]
+        return randomWord
+    }
     // Get random words from words learned
     // If words learned does not have enough, get the remainder from words not yet learned
     func getRandomWords(word: Word, amount: Int) -> [String] {
