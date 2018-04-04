@@ -1,5 +1,9 @@
 import UIKit
 
+enum Direction {
+	case right
+	case left
+}
 class SwipeWordView: TopicView {
 
     var card: NewWordView!
@@ -18,6 +22,7 @@ class SwipeWordView: TopicView {
 
         initGradientColor(colors: colors)
 		initCard()
+		initSwipes()
 		initIncorrect()
 		initCorrect()
     }
@@ -38,6 +43,16 @@ class SwipeWordView: TopicView {
 		self.match = match
 		card.nativeLabel.text = native
 		card.englishLabel.text = english
+	}
+
+	func initSwipes() {
+		let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(selectIncorrect))
+		swipeLeft.direction = UISwipeGestureRecognizerDirection.left
+		addGestureRecognizer(swipeLeft)
+
+		let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(selectCorrect))
+		swipeRight.direction = UISwipeGestureRecognizerDirection.right
+		addGestureRecognizer(swipeRight)
 	}
 
 	func initIncorrect() {
@@ -67,16 +82,47 @@ class SwipeWordView: TopicView {
 		correct.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(selectCorrect)))
 	}
 
+	func animateCardDismiss(direction: Direction) {
+		let origin = card.frame.origin
+		let displacement = self.frame.width
+
+		var xDisplacement: CGFloat!
+		var rotation: CGFloat = CGFloat.pi / 4
+
+		switch direction {
+		case .right:
+			xDisplacement = displacement
+		case .left:
+			xDisplacement = -displacement
+			rotation = -rotation
+		}
+
+		UIView.animate(withDuration: animationDuration, animations: {
+			// Origin needs to be moves before transform
+			self.card.frame.origin = CGPoint(x: origin.x + xDisplacement, y: origin.y)
+			self.card.transform =  CGAffineTransform(rotationAngle: rotation)
+			self.card.alpha = 0
+		}) { (success) in
+			// Transform needs to be set to identiy before origin is set
+			self.card.transform = CGAffineTransform.identity
+			self.card.alpha = 1
+			self.card.frame.origin = origin
+		}
+	}
+
 	@objc func selectIncorrect() {
+		animateCardDismiss(direction: .left)
 		delegate?.previousView(previous: .swipeWordView, result: getResult(userSelected: false))
 	}
 
 	@objc func selectCorrect() {
+		animateCardDismiss(direction: .right)
 		delegate?.previousView(previous: .swipeWordView, result: getResult(userSelected: true))
 	}
 
 	func getResult(userSelected: Bool) -> ResultOfLearn {
-		return userSelected == match ? .correct : .incorrect(word)
+		return .incorrect(word)
+//		return userSelected == match ? .correct : .incorrect(word)
 	}
 
     required init?(coder aDecoder: NSCoder) {
