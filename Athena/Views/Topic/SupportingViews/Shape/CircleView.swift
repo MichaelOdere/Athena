@@ -4,7 +4,7 @@ class CircleView: UIView {
 
     var circle: CAShapeLayer!
     let group = CAAnimationGroup()
-    let duration = 0.6
+    let duration = Constants.duration
 
     override init(frame: CGRect) {
         super.init(frame: frame)
