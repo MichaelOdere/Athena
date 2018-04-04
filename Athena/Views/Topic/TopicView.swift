@@ -6,7 +6,7 @@ class TopicView: UIView {
 
     var gl: CAGradientLayer!
 
-    let animationDuration = 0.4
+    let animationDuration = Constants.duration
 
     override init(frame: CGRect) {
         super.init(frame: frame)
