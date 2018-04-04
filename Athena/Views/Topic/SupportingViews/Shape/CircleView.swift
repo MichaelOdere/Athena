@@ -16,11 +16,11 @@ class CircleView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 
+    // MARK: - Circle Setup
     func initCircle() {
-        // MARK: - Circle Setup
-        let radius: CGFloat = 100.0
         circle = CAShapeLayer()
         circle.frame = frame
+        let radius: CGFloat = frame.width / 2.0
         let circleCenter = center
 
         let twoPi = 2.0 * Double.pi
@@ -35,11 +35,17 @@ class CircleView: UIView {
         circle.fillColor = UIColor.white.cgColor
         circle.strokeColor = UIColor.white.cgColor
         circle.lineWidth = 5
+
+        self.layer.addSublayer(circle)
     }
 
+    // MARK: - Animations
     func initAnimations(vc: LearnTopicViewController) {
-        // MARK: - Animations
+        group.delegate = vc
+        initAnimations()
+    }
 
+    func initAnimations() {
         let keytimes: [NSNumber] = [0, 0.1, 0.9, 1]
 
         // Create scale animation
@@ -54,13 +60,10 @@ class CircleView: UIView {
         secondScale.keyTimes = keytimes
         secondScale.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn)
 
-        group.delegate = vc
-
         // Create group animation to store the scale and opcacity animation
         group.duration = duration
         group.repeatCount = 1
         group.animations = [scaleAnimation, secondScale]
         circle.add(group, forKey: "group")
-        self.layer.addSublayer(circle)
     }
 }

@@ -2,71 +2,56 @@ import UIKit
 
 class SuccessView: UIView {
     var circleView: CircleView!
-    var checkMarkRight: CAShapeLayer!
-    var checkMarkLeft: CAShapeLayer!
+    var checkMark: CAShapeLayer!
 
     var height: CGFloat!
     var width: CGFloat!
-    var top: CGFloat!
-    var bottom: CGFloat!
-    var left: CGFloat!
-    var right: CGFloat!
 
     override init(frame: CGRect) {
         super.init(frame: frame)
 
         initCircle()
         initVariables(size: frame.size)
-        initSlantLeft()
-        initSlantRight()
+        initCheckMark()
     }
 
     func initCircle() {
-        circleView = CircleView(frame: frame)
+        circleView = CircleView(frame: CGRect(x: 0, y: 0, width: frame.width, height: frame.height))
         self.addSubview(circleView)
     }
-    // swiftlint:disable shorthand_operator
+
     func initVariables(size: CGSize) {
-        height = frame.height * 0.01
-        width = frame.width * 0.05
-        top = frame.height * 0.45
-        bottom = frame.height - top
-        left = frame.width * 0.4
-        right = frame.width - left
-        left = left + 0.5 * width
-        right = right + 0.5 * width
+        height = frame.height * 0.05
+        width = frame.width * 0.1
     }
 
-    func initSlantLeft() {
-        let slope = ((bottom) - (top + height) ) / ((left + width) - (right))
-        let intercept = -1 * (slope * right - (top + height))
+    func initCheckMark() {
+        print("init")
+
+        let origin = CGPoint(x: frame.width / 2 - width, y: frame.height / 2 + 2 * height)
+        let bottomLeft = CGPoint(x: origin.x - 2 * width, y: origin.y - 2 * height)
+        let topRight = CGPoint(x: origin.x + 3 * width, y: origin.y - 6 * height)
+
         let path = UIBezierPath()
-        path.move(to: CGPoint(x: left + 1 * width, y: ((left + 1 * width) * slope + intercept)))
-        path.addLine(to: CGPoint(x: left + 0.4 * width, y: ((left + 0.4 * width) * slope + intercept)))
-        path.addLine(to: CGPoint(x: 0.9 * left, y: ((0.9 * left) * slope + intercept - 65)))
-        path.addLine(to: CGPoint(x: left, y: ((left) * slope + intercept - 65)))
+        // bottom center
+        path.move(to: CGPoint(x: origin.x, y: origin.y + height))
+        // left bottom
+        path.addLine(to: CGPoint(x: bottomLeft.x, y: bottomLeft.y))
+        // left top
+        path.addLine(to: CGPoint(x: bottomLeft.x + width, y: bottomLeft.y - height))
+        // top center
+        path.addLine(to: CGPoint(x: origin.x, y: origin.y - height))
+        // right top
+        path.addLine(to: CGPoint(x: topRight.x, y: topRight.y))
+        // right bottom
+        path.addLine(to: CGPoint(x: topRight.x + width, y: topRight.y + height))
         path.close()
 
-        checkMarkLeft = CAShapeLayer()
-        checkMarkLeft.frame = self.bounds
-        checkMarkLeft.path = path.cgPath
-        checkMarkLeft.fillColor = AthenaPalette.parisGreen.cgColor
-        circleView.circle.addSublayer(checkMarkLeft)
-    }
-
-    func initSlantRight() {
-        let path = UIBezierPath()
-        path.move(to: CGPoint(x: right, y: top + height))
-        path.addLine(to: CGPoint(x: right - width, y: top))
-        path.addLine(to: CGPoint(x: left, y: bottom - height))
-        path.addLine(to: CGPoint(x: left + width, y: bottom))
-        path.close()
-
-        checkMarkRight = CAShapeLayer()
-        checkMarkRight.frame = self.bounds
-        checkMarkRight.path = path.cgPath
-        checkMarkRight.fillColor = AthenaPalette.parisGreen.cgColor
-        circleView.circle.addSublayer(checkMarkRight)
+        checkMark = CAShapeLayer()
+        checkMark.frame = self.bounds
+        checkMark.path = path.cgPath
+        checkMark.fillColor = AthenaPalette.parisGreen.cgColor
+        circleView.circle.addSublayer(checkMark)
     }
 
     required init?(coder aDecoder: NSCoder) {

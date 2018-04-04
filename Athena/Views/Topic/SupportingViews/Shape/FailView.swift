@@ -23,16 +23,16 @@ class FailView: UIView {
     }
 
     func initCircle() {
-        circleView = CircleView(frame: frame)
+        circleView = CircleView(frame: CGRect(x: 0, y: 0, width: frame.width, height: frame.height))
         self.addSubview(circleView)
     }
 
     func initVariables(size: CGSize) {
         height = frame.height * 0.01
         width = frame.width * 0.05
-        top = frame.height * 0.45
+        top = frame.height * 0.3
         bottom = frame.height - top
-        left = frame.width * 0.4
+        left = frame.width * 0.3
         right = frame.width - left
     }
 
