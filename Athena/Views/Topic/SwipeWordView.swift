@@ -3,6 +3,7 @@ import UIKit
 class SwipeWordView: TopicView {
 
     var card: NewWordView!
+	var word: Word!
 	var match: Bool!
 
     var incorrect: FailView!
@@ -32,7 +33,8 @@ class SwipeWordView: TopicView {
 	}
 
 	// Let Learn Topic VC decide if this is going to be a match or not
-	func setText(native: String, english: String, match: Bool) {
+	func setText(word: Word, native: String, english: String, match: Bool) {
+		self.word = word
 		self.match = match
 		card.nativeLabel.text = native
 		card.englishLabel.text = english
@@ -47,6 +49,8 @@ class SwipeWordView: TopicView {
 		incorrect.slantLeft.fillColor = UIColor.white.cgColor
 		incorrect.slantRight.fillColor = UIColor.white.cgColor
 		addSubview(incorrect)
+
+		incorrect.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(selectIncorrect)))
 	}
 
 	func initCorrect() {
@@ -60,6 +64,19 @@ class SwipeWordView: TopicView {
 		correct.checkMark.strokeColor = UIColor.white.cgColor
 		addSubview(correct)
 
+		correct.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(selectCorrect)))
+	}
+
+	@objc func selectIncorrect() {
+		delegate?.previousView(previous: .swipeWordView, result: getResult(userSelected: false))
+	}
+
+	@objc func selectCorrect() {
+		delegate?.previousView(previous: .swipeWordView, result: getResult(userSelected: true))
+	}
+
+	func getResult(userSelected: Bool) -> ResultOfLearn {
+		return userSelected == match ? .correct : .incorrect(word)
 	}
 
     required init?(coder aDecoder: NSCoder) {
