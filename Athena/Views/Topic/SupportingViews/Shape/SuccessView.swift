@@ -26,8 +26,6 @@ class SuccessView: UIView {
     }
 
     func initCheckMark() {
-        print("init")
-
         let origin = CGPoint(x: frame.width / 2 - width, y: frame.height / 2 + 2 * 5 * height)
         let bottomLeft = CGPoint(x: origin.x - 2 * width, y: origin.y - 10 * height)
         let topRight = CGPoint(x: origin.x + 3 * width, y: origin.y - 30 * height)
