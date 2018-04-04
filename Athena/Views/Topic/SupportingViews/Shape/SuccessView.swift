@@ -21,24 +21,24 @@ class SuccessView: UIView {
     }
 
     func initVariables(size: CGSize) {
-        height = frame.height * 0.05
-        width = frame.width * 0.1
+        height = frame.height * 0.01
+        width = frame.width * 0.05
     }
 
     func initCheckMark() {
         print("init")
 
-        let origin = CGPoint(x: frame.width / 2 - width, y: frame.height / 2 + 2 * height)
-        let bottomLeft = CGPoint(x: origin.x - 2 * width, y: origin.y - 2 * height)
-        let topRight = CGPoint(x: origin.x + 3 * width, y: origin.y - 6 * height)
+        let origin = CGPoint(x: frame.width / 2 - width, y: frame.height / 2 + 2 * 5 * height)
+        let bottomLeft = CGPoint(x: origin.x - 2 * width, y: origin.y - 10 * height)
+        let topRight = CGPoint(x: origin.x + 3 * width, y: origin.y - 30 * height)
 
         let path = UIBezierPath()
         // bottom center
-        path.move(to: CGPoint(x: origin.x, y: origin.y + height))
+        path.move(to: CGPoint(x: origin.x, y: origin.y + 5 * height))
         // left bottom
         path.addLine(to: CGPoint(x: bottomLeft.x, y: bottomLeft.y))
         // left top
-        path.addLine(to: CGPoint(x: bottomLeft.x + width, y: bottomLeft.y - height))
+        path.addLine(to: CGPoint(x: bottomLeft.x + width, y: bottomLeft.y - 5 * height))
         // top center
         path.addLine(to: CGPoint(x: origin.x, y: origin.y - height))
         // right top
