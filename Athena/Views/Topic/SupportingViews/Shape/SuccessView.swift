@@ -38,7 +38,7 @@ class SuccessView: UIView {
         // left top
         path.addLine(to: CGPoint(x: bottomLeft.x + width, y: bottomLeft.y - 5 * height))
         // top center
-        path.addLine(to: CGPoint(x: origin.x, y: origin.y - height))
+        path.addLine(to: CGPoint(x: origin.x, y: origin.y - 5 * height))
         // right top
         path.addLine(to: CGPoint(x: topRight.x, y: topRight.y))
         // right bottom
