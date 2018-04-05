@@ -4,17 +4,15 @@ import SwiftyJSON
 struct Word {
     var english: String
     var native: String
-    var language: Language
     var transliteration: String
     var audioFile: String?
     var icon: String?
 
     init(english: String, native: String,
-         language: Language, transliteration: String, audioFile: String?) {
+        transliteration: String, audioFile: String?) {
 
         self.english = english
         self.native = native
-        self.language = language
         self.transliteration = transliteration
         self.audioFile = audioFile
     }
@@ -32,11 +30,6 @@ extension Word {
             return nil
         }
 
-        guard let language = json["language"].language else {
-            print("Error parsing game object for key: language")
-            return nil
-        }
-
         guard let transliteration = json["transliteration"].string else {
             print("Error parsing game object for key: transliteration")
             return nil
@@ -47,32 +40,8 @@ extension Word {
             return nil
         }
 
-        self.init(english: english, native: native, language: language,
+        self.init(english: english, native: native,
                     transliteration: transliteration, audioFile: audioFile)
     }
 
-}
-
-extension JSON {
-    public var language: Language? {
-        get {
-            if self.string == Language.english.rawValue {
-                return .english
-            }
-
-            if self.string == Language.hebrew.rawValue {
-                return .hebrew
-            }
-
-            if self.string == Language.russian.rawValue {
-                return .russian
-            }
-
-            if self.string == Language.spanish.rawValue {
-                return .spanish
-            }
-
-            return nil
-        }
-    }
 }

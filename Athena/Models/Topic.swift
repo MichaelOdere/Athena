@@ -3,12 +3,14 @@ import SwiftyJSON
 class Topic {
     var name: String
     var icon: String
+    var language: Language
     var wordsLearned: [Word]
     var wordsToLearn: [Word]
 
-    init(name: String, icon: String, wordsLearned: [Word], wordsToLearn: [Word]) {
+    init(name: String, icon: String, language: Language, wordsLearned: [Word], wordsToLearn: [Word]) {
         self.name = name
         self.icon = icon
+        self.language = language
         self.wordsLearned = wordsLearned
         self.wordsToLearn = wordsToLearn
     }
@@ -128,6 +130,11 @@ extension Topic {
             return nil
         }
 
+        guard let language = json["language"].language else {
+            print("Error parsing game object for key: language")
+            return nil
+        }
+        
         guard let icon = json["icon"].string else {
             print("Error parsing game object for key: icon")
             return nil
@@ -146,7 +153,30 @@ extension Topic {
         }
 
         // Initialize words learned to empty and load what has been learned from CoreData
-        self.init(name: name, icon: icon, wordsLearned: [], wordsToLearn: words)
+        self.init(name: name, icon: icon, language: language, wordsLearned: [], wordsToLearn: words)
     }
+}
 
+extension JSON {
+    public var language: Language? {
+        get {
+            if self.string == Language.english.rawValue {
+                return .english
+            }
+            
+            if self.string == Language.hebrew.rawValue {
+                return .hebrew
+            }
+            
+            if self.string == Language.russian.rawValue {
+                return .russian
+            }
+            
+            if self.string == Language.spanish.rawValue {
+                return .spanish
+            }
+            
+            return nil
+        }
+    }
 }
