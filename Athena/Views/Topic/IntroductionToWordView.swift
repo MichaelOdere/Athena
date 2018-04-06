@@ -27,9 +27,11 @@ class IntroductionToWordView: UIView {
     func sendWord(word: Word) {
         self.word = word
         bigNewWordView.nativeLabel.text = word.native
+        bigNewWordView.transliterationLabel.text = word.transliteration
         bigNewWordView.englishLabel.text = word.english
 
         littleNewWordView.nativeLabel.text = word.native
+        littleNewWordView.transliterationLabel.text = word.transliteration
         littleNewWordView.englishLabel.text = word.english
     }
 
