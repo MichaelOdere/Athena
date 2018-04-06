@@ -12,6 +12,7 @@ class TopicsViewController: UIViewController {
     var hasLoaded: Bool = false
     override func viewDidLoad() {
         initTableView()
+        scrollToBottom()
     }
 
     func initTableView() {
@@ -34,6 +35,13 @@ class TopicsViewController: UIViewController {
         tableView.sectionHeaderHeight = 0.0
         tableView.separatorStyle = UITableViewCellSeparatorStyle.none
         tableView.register(TopicCell.self, forCellReuseIdentifier: "TopicCell")
+    }
+
+    func scrollToBottom() {
+        DispatchQueue.main.async {
+            let indexPath = IndexPath(row: self.store.topics.count-1, section: 0)
+            self.tableView.scrollToRow(at: indexPath, at: .bottom, animated: false)
+        }
     }
 }
 
