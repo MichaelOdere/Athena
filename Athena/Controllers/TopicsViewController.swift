@@ -9,10 +9,17 @@ class TopicsViewController: UIViewController {
                   AthenaPalette.rasberryPink,
                   AthenaPalette.maximumRed]
 
-    var hasLoaded: Bool = false
+    var lastIndex: IndexPath!
     override func viewDidLoad() {
         initTableView()
         scrollToBottom()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        guard let index = lastIndex else {
+            return
+        }
+        tableView.reloadRows(at: [index], with: .none)
     }
 
     func initTableView() {
@@ -47,6 +54,7 @@ class TopicsViewController: UIViewController {
 
 extension TopicsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        lastIndex = indexPath
         let vc = LearnTopicViewController()
         vc.topic = store.topics[indexPath.row]
         vc.hidesBottomBarWhenPushed = true
