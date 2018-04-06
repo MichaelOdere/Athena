@@ -63,6 +63,7 @@ extension LearnTopicViewController: DoneHandlerProtocol {
             nextView = previousViewInitial()
             showNextView(centerWord: result.getWord())
         case .introductionToWord:
+            topic.incrementProgress()
             nextView = previousViewIntroduction(result: result)
             showNextView(centerWord: result.getWord())
         case .dragFiveToCorrectView:
@@ -71,7 +72,7 @@ extension LearnTopicViewController: DoneHandlerProtocol {
         case .dragThreeToCorrectView:
             nextView = previousViewDrag(result: result)
             showResult(result: result)
-		case .swipeWordView:
+        case .swipeWordView:
 			nextView = previousSwipeView(result: result)
 			showResult(result: result)
         }
@@ -146,7 +147,6 @@ extension LearnTopicViewController {
         removeAllSubviews()
         view.addSubview(introductionToWordView)
         introductionToWordView.sendWord(word: topic.wordsToLearn[0])
-        topic.incrementProgress()
     }
 
     func showDragFiveToCorrectView(centerWord: Word?) {
