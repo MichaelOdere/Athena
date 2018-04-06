@@ -134,14 +134,14 @@ extension Topic {
             print("Error parsing game object for key: language")
             return nil
         }
-        
+
         guard let icon = json["icon"].string else {
             print("Error parsing game object for key: icon")
             return nil
         }
 
-        guard let wordsData = json["words"].array else {
-            print("Error parsing game object for key: language")
+        guard let wordsData = json["wordsToLearn"].array else {
+            print("Error parsing game object for key: wordsToLearn")
             return nil
         }
 
@@ -163,19 +163,19 @@ extension JSON {
             if self.string == Language.english.rawValue {
                 return .english
             }
-            
+
             if self.string == Language.hebrew.rawValue {
                 return .hebrew
             }
-            
+
             if self.string == Language.russian.rawValue {
                 return .russian
             }
-            
+
             if self.string == Language.spanish.rawValue {
                 return .spanish
             }
-            
+
             return nil
         }
     }

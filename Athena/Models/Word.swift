@@ -5,16 +5,14 @@ struct Word {
     var english: String
     var native: String
     var transliteration: String
-    var audioFile: String?
     var icon: String?
 
     init(english: String, native: String,
-        transliteration: String, audioFile: String?) {
+         transliteration: String) {
 
         self.english = english
         self.native = native
         self.transliteration = transliteration
-        self.audioFile = audioFile
     }
 }
 
@@ -35,13 +33,7 @@ extension Word {
             return nil
         }
 
-        guard let audioFile = json["audioFile"].string else {
-            print("Error parsing game object for key: audioFile")
-            return nil
-        }
-
         self.init(english: english, native: native,
-                    transliteration: transliteration, audioFile: audioFile)
+                    transliteration: transliteration)
     }
-
 }
