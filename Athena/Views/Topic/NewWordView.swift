@@ -1,8 +1,9 @@
 import UIKit
 
 class NewWordView: UIView {
-    var nativeLabel: UILabel!
-    var englishLabel: UILabel!
+    var nativeLabel: DragLabel!
+    var transliterationLabel: DragLabel!
+    var englishLabel: DragLabel!
     let fontSize: CGFloat = 80
     let fontMultiplier: CGFloat = 0.6
 
@@ -11,14 +12,11 @@ class NewWordView: UIView {
 
         initNativeLabel()
         initEnglishLabel()
+        initTransliterationLabelLabel()
     }
 
     func initNativeLabel() {
-        nativeLabel = UILabel()
-        nativeLabel.backgroundColor = UIColor.clear
-        nativeLabel.textColor = UIColor.white
-        nativeLabel.textAlignment = .center
-        nativeLabel.font = UIFont(name: "HelveticaNeue-Bold", size: fontSize)
+        nativeLabel = DragLabel()
         addSubview(nativeLabel)
 
         nativeLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -61,11 +59,7 @@ class NewWordView: UIView {
     }
 
     func initEnglishLabel() {
-        englishLabel = UILabel()
-        englishLabel.backgroundColor = UIColor.clear
-        englishLabel.textColor = UIColor.white
-        englishLabel.textAlignment = .center
-        englishLabel.font = UIFont(name: "HelveticaNeue-Bold", size: fontSize * fontMultiplier)
+        englishLabel = DragLabel()
         addSubview(englishLabel)
 
         englishLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -98,6 +92,49 @@ class NewWordView: UIView {
         leading.isActive = true
 
         let trailing = NSLayoutConstraint(item: englishLabel,
+                                          attribute: .trailing,
+                                          relatedBy: .equal,
+                                          toItem: self,
+                                          attribute: .trailing,
+                                          multiplier: 1,
+                                          constant: 0)
+        trailing.isActive = true
+    }
+
+    func initTransliterationLabelLabel() {
+        transliterationLabel = DragLabel()
+        addSubview(transliterationLabel)
+
+        transliterationLabel.translatesAutoresizingMaskIntoConstraints = false
+
+        let top = NSLayoutConstraint(item: transliterationLabel,
+                                        attribute: .top,
+                                        relatedBy: .equal,
+                                        toItem: nativeLabel,
+                                        attribute: .bottom,
+                                        multiplier: 1,
+                                        constant: 1)
+        top.isActive = true
+
+        let bottom = NSLayoutConstraint(item: transliterationLabel,
+                                        attribute: .bottom,
+                                        relatedBy: .equal,
+                                        toItem: englishLabel,
+                                        attribute: .top,
+                                        multiplier: 1,
+                                        constant: -1)
+        bottom.isActive = true
+
+        let leading = NSLayoutConstraint(item: transliterationLabel,
+                                         attribute: .leading,
+                                         relatedBy: .equal,
+                                         toItem: self,
+                                         attribute: .leading,
+                                         multiplier: 1,
+                                         constant: 0)
+        leading.isActive = true
+
+        let trailing = NSLayoutConstraint(item: transliterationLabel,
                                           attribute: .trailing,
                                           relatedBy: .equal,
                                           toItem: self,
