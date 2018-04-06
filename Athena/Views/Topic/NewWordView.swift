@@ -4,6 +4,7 @@ class NewWordView: UIView {
     var nativeLabel: DragLabel!
     var transliterationLabel: DragLabel!
     var englishLabel: DragLabel!
+
     let fontSize: CGFloat = 80
     let fontMultiplier: CGFloat = 0.6
 
