@@ -20,17 +20,27 @@ class DragView: UIView {
     var originBototmRight: CGPoint!
 
     let fontSize: CGFloat = 40
+
+    // scale for the center label
     let scale: CGFloat = 2.0
 
     override init(frame: CGRect) {
         super.init(frame: frame)
 
-        size = CGSize(width: frame.width / 3, height: frame.height / 8)
+        size = CGSize(width: frame.width / 2.1, height: frame.height / 8)
         let centerX = frame.width / 2 - size.width * scale / 2
         let centerY = frame.height / 2 - size.height * scale / 2
         dragOrigin = CGPoint(x: centerX, y: centerY)
         originTopLeft = CGPoint(x: 0, y: 0)
         originBototmRight = CGPoint(x: frame.width - size.width, y: frame.height - size.height)
+    }
+
+    func initcenterWord() {
+        let initFrame = CGRect(x: dragOrigin.x, y: dragOrigin.y, width: size.width * scale, height: size.height * scale)
+        centerWord = DragLabel(frame: initFrame)
+        centerWord.font = UIFont(name: "HelveticaNeue-Bold", size: fontSize + 20)
+        dragCenter = centerWord.center
+        addSubview(centerWord)
     }
 
     func shuffleArray(arr: [String]) -> [String] {

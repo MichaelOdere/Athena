@@ -34,14 +34,6 @@ class DragThreeView: DragView {
         addSubview(bottom)
     }
 
-    func initcenterWord() {
-        let initFrame = CGRect(x: dragOrigin.x, y: dragOrigin.y, width: size.width * scale, height: size.height * scale)
-        centerWord = DragLabel(frame: initFrame)
-        centerWord.font = UIFont(name: "HelveticaNeue-Bold", size: fontSize + 20)
-        dragCenter = centerWord.center
-        addSubview(centerWord)
-    }
-
     // nativeWords includes the native word of the word we are sent
     func setText(word: Word, nativeWords: [String]) {
         self.word = word

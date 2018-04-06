@@ -40,6 +40,7 @@
 		F9C11282206EBC8100423969 /* SuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C11281206EBC8100423969 /* SuccessView.swift */; };
 		F9C11286206EC3F800423969 /* FailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C11285206EC3F800423969 /* FailView.swift */; };
 		F9C8D36120748A8200884130 /* SwipeWordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C8D36020748A8200884130 /* SwipeWordView.swift */; };
+		F9C8D3632075948600884130 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C8D3622075948600884130 /* Constants.swift */; };
 		F9FFC996205E724700224EB1 /* TopicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9FFC995205E724700224EB1 /* TopicCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -80,7 +81,7 @@
 		F9791E3C205E4DFE0055C1F6 /* Word.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Word.swift; sourceTree = "<group>"; };
 		F9791E3F205E5C530055C1F6 /* RussianStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RussianStore.swift; sourceTree = "<group>"; };
 		F9791E41205E5C6D0055C1F6 /* Topic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Topic.swift; sourceTree = "<group>"; };
-		F981135020602AFD00D3BE79 /* LearnTopicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnTopicViewController.swift; sourceTree = "<group>"; usesTabs = 1; };
+		F981135020602AFD00D3BE79 /* LearnTopicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnTopicViewController.swift; sourceTree = "<group>"; usesTabs = 0; };
 		F981135220603BFD00D3BE79 /* IntroductionToWordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroductionToWordView.swift; sourceTree = "<group>"; };
 		F981135C206059AB00D3BE79 /* Russian.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Russian.json; sourceTree = "<group>"; };
 		F981135E20607E1900D3BE79 /* NewWordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewWordView.swift; sourceTree = "<group>"; };
@@ -94,7 +95,8 @@
 		F9B87B762062164400BAF4A7 /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
 		F9C11281206EBC8100423969 /* SuccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SuccessView.swift; path = Athena/Views/Topic/SupportingViews/Shape/SuccessView.swift; sourceTree = SOURCE_ROOT; };
 		F9C11285206EC3F800423969 /* FailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FailView.swift; sourceTree = "<group>"; };
-		F9C8D36020748A8200884130 /* SwipeWordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeWordView.swift; sourceTree = "<group>"; };
+		F9C8D36020748A8200884130 /* SwipeWordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeWordView.swift; sourceTree = "<group>"; usesTabs = 1; };
+		F9C8D3622075948600884130 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		F9FFC995205E724700224EB1 /* TopicCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -234,6 +236,7 @@
 				F981135C206059AB00D3BE79 /* Russian.json */,
 				F9791E3F205E5C530055C1F6 /* RussianStore.swift */,
 				F9881E4E205F0A390014BF07 /* AthenaPallett.swift */,
+				F9C8D3622075948600884130 /* Constants.swift */,
 			);
 			path = Stores;
 			sourceTree = "<group>";
@@ -503,6 +506,7 @@
 				F981135F20607E1900D3BE79 /* NewWordView.swift in Sources */,
 				F9791E3D205E4DFE0055C1F6 /* Word.swift in Sources */,
 				F9B87B772062164400BAF4A7 /* ProgressView.swift in Sources */,
+				F9C8D3632075948600884130 /* Constants.swift in Sources */,
 				F9881E4F205F0A390014BF07 /* AthenaPallett.swift in Sources */,
 				F9C11282206EBC8100423969 /* SuccessView.swift in Sources */,
 				F9FFC996205E724700224EB1 /* TopicCell.swift in Sources */,

@@ -36,14 +36,6 @@ class DragFiveView: DragView {
         addSubview(topRight)
     }
 
-    func initcenterWord() {
-        let initFrame = CGRect(x: dragOrigin.x, y: dragOrigin.y, width: size.width * scale, height: size.height * scale)
-        centerWord = DragLabel(frame: initFrame)
-        centerWord.font = UIFont(name: "HelveticaNeue-Bold", size: fontSize + 20)
-        dragCenter = centerWord.center
-        addSubview(centerWord)
-    }
-
     func initBottomLeft() {
         let initFrame = CGRect(x: originTopLeft.x, y: originBototmRight.y, width: size.width, height: size.height)
         bottomLeft = DragLabel(frame: initFrame)
