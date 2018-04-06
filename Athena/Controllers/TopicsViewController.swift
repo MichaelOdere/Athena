@@ -9,6 +9,7 @@ class TopicsViewController: UIViewController {
                   AthenaPalette.rasberryPink,
                   AthenaPalette.maximumRed]
 
+    var hasLoaded: Bool = false
     override func viewDidLoad() {
         initTableView()
     }
@@ -56,7 +57,7 @@ extension TopicsViewController: UITableViewDelegate, UITableViewDataSource {
         }
 
         cell.title.text = topic.name
-        cell.progress.progress = 0.55
+        cell.progress.progress = topic.getPercentageComplete()
 
         cell.backgroundColor = colors[indexPath.row % colors.count]
         return cell
