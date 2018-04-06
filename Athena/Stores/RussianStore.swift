@@ -20,8 +20,8 @@ struct RussianStore {
             let data = try Data(contentsOf: url)
             let jsonData = JSON(data)
 
-            guard let topicsData = jsonData["topics"].array else {
-                fatalError("Cannot parse Russian topics data")
+            guard let topicsData = jsonData.array else {
+                fatalError("Cannot parse Russian array")
             }
 
             for topicJson in topicsData {

@@ -1,127 +1,2132 @@
-{
-  "topics": [
-    {
-      "name": "Alphabet1",
-      "icon": "settings",
-      "words": [
-        {
-          "english": "ah",
-          "native": "A",
-          "language": "russian",
-          "transliteration": "ah",
-          "audioFile": "nil"
-        },
-        {
-          "english": "b",
-          "native": "Б (б)",
-          "language": "russian",
-          "transliteration": "b",
-          "audioFile": "nil"
-        },
-        {
-          "english": "v",
-          "native": "В (в)",
-          "language": "russian",
-          "transliteration": "v",
-          "audioFile": "nil"
-        },
-        {
-          "english": "g",
-          "native": "Г (г)",
-          "language": "russian",
-          "transliteration": "g",
-          "audioFile": "nil"
-        },
-        {
-          "english": "d",
-          "native": "Д (д)",
-          "language": "russian",
-          "transliteration": "d",
-          "audioFile": "nil"
-        }
-      ]
-    },
-    {
-      "name": "Alphabet",
-      "icon": "settings",
-      "words": [
-        {
-          "english": "ah",
-          "native": "A",
-          "language": "russian",
-          "transliteration": "ah",
-          "audioFile": "nil"
-        },
-        {
-          "english": "b",
-          "native": "Б (б)",
-          "language": "russian",
-          "transliteration": "b",
-          "audioFile": "nil"
-        },
-        {
-          "english": "v",
-          "native": "В (в)",
-          "language": "russian",
-          "transliteration": "v",
-          "audioFile": "nil"
-        },
-        {
-          "english": "g",
-          "native": "Г (г)",
-          "language": "russian",
-          "transliteration": "g",
-          "audioFile": "nil"
-        },
-        {
-          "english": "d",
-          "native": "Д (д)",
-          "language": "russian",
-          "transliteration": "d",
-          "audioFile": "nil"
-        }
-      ]
-    },
-    {
-      "name": "Alphabet",
-      "icon": "settings",
-      "words": [
-        {
-          "english": "ah",
-          "native": "A",
-          "language": "russian",
-          "transliteration": "ah",
-          "audioFile": "nil"
-        },
-        {
-          "english": "b",
-          "native": "Б (б)",
-          "language": "russian",
-          "transliteration": "b",
-          "audioFile": "nil"
-        },
-        {
-          "english": "v",
-          "native": "В (в)",
-          "language": "russian",
-          "transliteration": "v",
-          "audioFile": "nil"
-        },
-        {
-          "english": "g",
-          "native": "Г (г)",
-          "language": "russian",
-          "transliteration": "g",
-          "audioFile": "nil"
-        },
-        {
-          "english": "d",
-          "native": "Д (д)",
-          "language": "russian",
-          "transliteration": "d",
-          "audioFile": "nil"
-        }
-      ]
-    }
-  ]
-}
+ [{
+  "wordsToLearn": [
+                   {
+                   "native": "Автобус",
+                   "transliteration": "ahvtohboos",
+                   "english": "Bus"
+                   },
+                   {
+                   "native": "Аэропорт",
+                   "transliteration": "ahehrohpohrt",
+                   "english": "Airport"
+                   },
+                   {
+                   "native": "Билет",
+                   "transliteration": "byeelyeht",
+                   "english": "Ticket"
+                   },
+                   {
+                   "native": "Близко",
+                   "transliteration": "blyeezekoh",
+                   "english": "Close/near"
+                   },
+                   {
+                   "native": "Велосипед",
+                   "transliteration": "vyehlohsyeepyehd",
+                   "english": "Bicycle"
+                   },
+                   {
+                   "native": "Вертолёт",
+                   "transliteration": "vyehrtohlyoht",
+                   "english": "Helicopter"
+                   },
+                   {
+                   "native": "Внизу",
+                   "transliteration": "vnyeezeoo",
+                   "english": "Down there"
+                   },
+                   {
+                   "native": "Во сколько когда прибывает поезда?",
+                   "transliteration": "voh skohlsign softkoh kohgdah pryeebeevahyeht pohyehzedah",
+                   "english": "When does the train arrive?"
+                   },
+                   {
+                   "native": "Вокзал",
+                   "transliteration": "vohkzeahl",
+                   "english": "Railway station"
+                   },
+                   {
+                   "native": "Грузовик",
+                   "transliteration": "groozeohvyeek",
+                   "english": "Semi/Lorry/18-wheeler"
+                   },
+                   {
+                   "native": "Далеко",
+                   "transliteration": "dahlyehkoh",
+                   "english": "Far"
+                   },
+                   {
+                   "native": "За поворотом",
+                   "transliteration": "zeah pohvohrohtohm",
+                   "english": "Behind the turn/corner"
+                   },
+                   {
+                   "native": "Здесь",
+                   "transliteration": "zedyehssign soft",
+                   "english": "Here"
+                   },
+                   {
+                   "native": "Идти пешком",
+                   "transliteration": "yeedtyee pyehshkohm",
+                   "english": "To go by foot"
+                   },
+                   {
+                   "native": "Когда отправляется поезд?",
+                   "transliteration": "kohgdah ohtprahvlyahyehtsyah pohyehzed",
+                   "english": "When does the train depart?"
+                   },
+                   {
+                   "native": "Корабль",
+                   "transliteration": "kohrahblsign soft",
+                   "english": "Ship"
+                   },
+                   {
+                   "native": "Космический корабль",
+                   "transliteration": "kohsmyeechyehskyeey kohrahblsign soft",
+                   "english": "Space ship"
+                   },
+                   {
+                   "native": "Лево",
+                   "transliteration": "lyehvoh",
+                   "english": "Left"
+                   },
+                   {
+                   "native": "Маршрутка",
+                   "transliteration": "mahrshrootkah",
+                   "english": "Minibus/shuttle"
+                   },
+                   {
+                   "native": "Машина",
+                   "transliteration": "mahshyeenah",
+                   "english": "Car"
+                   },
+                   {
+                   "native": "Метро",
+                   "transliteration": "myehtroh",
+                   "english": "Subway"
+                   },
+                   {
+                   "native": "Мой автобус уходит...",
+                   "transliteration": "mohy ahvtohboos ookhohdyeet",
+                   "english": "My bus leaves at..."
+                   },
+                   {
+                   "native": "Мой поезд уходит...",
+                   "transliteration": "mohy pohyehzed ookhohdyeet",
+                   "english": "My train leaves at..."
+                   },
+                   {
+                   "native": "Мой самолет уходит...",
+                   "transliteration": "mohy sahmohlyeht ookhohdyeet",
+                   "english": "My plane leaves at..."
+                   },
+                   {
+                   "native": "Мой/моя (transport) в (place) уходит в (time).",
+                   "transliteration": "mohymohyah  v  ookhohdyeet v ",
+                   "english": " leaving at (time)."
+                   },
+                   {
+                   "native": "Мотоцикл",
+                   "transliteration": "mohtohtsyeekl",
+                   "english": "Motorcycle"
+                   },
+                   {
+                   "native": "Наверху",
+                   "transliteration": "nahvyehrkhoo",
+                   "english": "Up there"
+                   },
+                   {
+                   "native": "Наземный",
+                   "transliteration": "nahzeyehmneey",
+                   "english": "Above ground"
+                   },
+                   {
+                   "native": "Остановка",
+                   "transliteration": "ohstahnohvkah",
+                   "english": "Stop (Ex: a bus)"
+                   },
+                   {
+                   "native": "Перекрёсток",
+                   "transliteration": "pyehryehkryohstohk",
+                   "english": "Crossroad/intersection"
+                   },
+                   {
+                   "native": "пешеходный переход",
+                   "transliteration": "pyehshyehkhohdneey pyehryehkhohd",
+                   "english": "Cross walk"
+                   },
+                   {
+                   "native": "Подземный",
+                   "transliteration": "pohdzeyehmneey",
+                   "english": "Under ground"
+                   },
+                   {
+                   "native": "Поезд",
+                   "transliteration": "pohyehzed",
+                   "english": "Train"
+                   },
+                   {
+                   "native": "Поездка",
+                   "transliteration": "pohyehzedkah",
+                   "english": "A trip"
+                   },
+                   {
+                   "native": "Позади",
+                   "transliteration": "pohzeahdyee",
+                   "english": "Behind"
+                   },
+                   {
+                   "native": "Право",
+                   "transliteration": "prahvoh",
+                   "english": "Right"
+                   },
+                   {
+                   "native": "Прямо",
+                   "transliteration": "pryahmoh",
+                   "english": "Straight ahead"
+                   },
+                   {
+                   "native": "Самолёт",
+                   "transliteration": "sahmohlyoht",
+                   "english": "Plane"
+                   },
+                   {
+                   "native": "Светофор",
+                   "transliteration": "svyehtohfohr",
+                   "english": "Traffic light/s"
+                   },
+                   {
+                   "native": "скорая помощь",
+                   "transliteration": "skohrahyah pohmohshsign soft",
+                   "english": "Ambulance"
+                   },
+                   {
+                   "native": "Следующая",
+                   "transliteration": "slyehdooyoushahyah",
+                   "english": "Next"
+                   },
+                   {
+                   "native": "Станция",
+                   "transliteration": "stahntsyeeyah",
+                   "english": "Train station"
+                   },
+                   {
+                   "native": "Такси",
+                   "transliteration": "tahksyee",
+                   "english": "Taxi"
+                   },
+                   {
+                   "native": "Там",
+                   "transliteration": "tahm",
+                   "english": "There"
+                   },
+                   {
+                   "native": "Трамвай",
+                   "transliteration": "trahmvahy",
+                   "english": "Tram"
+                   },
+                   {
+                   "native": "Транспорт",
+                   "transliteration": "trahnspohrt",
+                   "english": "Transport"
+                   },
+                   {
+                   "native": "Троллейбус",
+                   "transliteration": "trohllyehyboos",
+                   "english": "Trolleybus"
+                   },
+                   {
+                   "native": "Улица",
+                   "transliteration": "oolyeetsah",
+                   "english": "Street"
+                   },
+                   {
+                   "native": "Я вижу ____.",
+                   "transliteration": "yah vyeezheoo ",
+                   "english": "I see ____."
+                   }
+                   ],
+  "wordsLearned": [],
+  "name": "Transportation",
+  "language": "russian",
+  "icon": "nil"
+  },{
+  "wordsToLearn": [
+                   {
+                   "native": "балкон",
+                   "transliteration": "bahlkohn",
+                   "english": "balcony"
+                   },
+                   {
+                   "native": "в каком городе",
+                   "transliteration": "v kahkohm gohrohdyeh",
+                   "english": "in what city"
+                   },
+                   {
+                   "native": "ванна",
+                   "transliteration": "vahnnah",
+                   "english": "bathtub"
+                   },
+                   {
+                   "native": "ванная",
+                   "transliteration": "vahnnahyah",
+                   "english": "bathroom (room with bathtub/shower)"
+                   },
+                   {
+                   "native": "внизу",
+                   "transliteration": "vnyeezeoo",
+                   "english": "downstairs"
+                   },
+                   {
+                   "native": "где ты живёшь",
+                   "transliteration": "gdyeh tee zheyeevyohshsign soft",
+                   "english": "where do you live"
+                   },
+                   {
+                   "native": "гора",
+                   "transliteration": "gohrah",
+                   "english": "mountain"
+                   },
+                   {
+                   "native": "дверь",
+                   "transliteration": "dvyehrsign soft",
+                   "english": "door"
+                   },
+                   {
+                   "native": "диван",
+                   "transliteration": "dyeevahn",
+                   "english": "sofa"
+                   },
+                   {
+                   "native": "дом",
+                   "transliteration": "dohm",
+                   "english": "house"
+                   },
+                   {
+                   "native": "душ",
+                   "transliteration": "doosh",
+                   "english": "shower"
+                   },
+                   {
+                   "native": "зал",
+                   "transliteration": "zeahl",
+                   "english": "living room"
+                   },
+                   {
+                   "native": "зеркало",
+                   "transliteration": "zeyehrkahloh",
+                   "english": "mirror"
+                   },
+                   {
+                   "native": "картина",
+                   "transliteration": "kahrtyeenah",
+                   "english": "picture"
+                   },
+                   {
+                   "native": "кватира",
+                   "transliteration": "kvahtyeerah",
+                   "english": "apartment"
+                   },
+                   {
+                   "native": "ковёр",
+                   "transliteration": "kohvyohr",
+                   "english": "carpet"
+                   },
+                   {
+                   "native": "колесо",
+                   "transliteration": "kohlyehsoh",
+                   "english": "wheel"
+                   },
+                   {
+                   "native": "комната",
+                   "transliteration": "kohmnahtah",
+                   "english": "room"
+                   },
+                   {
+                   "native": "коридор",
+                   "transliteration": "kohryeedohr",
+                   "english": "hall (not entrance)"
+                   },
+                   {
+                   "native": "красиво",
+                   "transliteration": "krahsyeevoh",
+                   "english": "pretty"
+                   },
+                   {
+                   "native": "кровать",
+                   "transliteration": "krohvahtsign soft",
+                   "english": "bed"
+                   },
+                   {
+                   "native": "крыша",
+                   "transliteration": "kreeshah",
+                   "english": "roof"
+                   },
+                   {
+                   "native": "кухня",
+                   "transliteration": "kookhnyah",
+                   "english": "kitchen"
+                   },
+                   {
+                   "native": "лампа",
+                   "transliteration": "lahmpah",
+                   "english": "lamp"
+                   },
+                   {
+                   "native": "лестница",
+                   "transliteration": "lyehstnyeetsah",
+                   "english": "stairs"
+                   },
+                   {
+                   "native": "лодка",
+                   "transliteration": "lohdkah",
+                   "english": "boat"
+                   },
+                   {
+                   "native": "мебель",
+                   "transliteration": "myehbyehlsign soft",
+                   "english": "furniture"
+                   },
+                   {
+                   "native": "Мне нравится",
+                   "transliteration": "mnyeh nrahvyeetsyah",
+                   "english": "I like"
+                   },
+                   {
+                   "native": "мыло",
+                   "transliteration": "meeloh",
+                   "english": "soap"
+                   },
+                   {
+                   "native": "на какой улице",
+                   "transliteration": "nah kahkohy oolyeetsyeh",
+                   "english": "what street"
+                   },
+                   {
+                   "native": "наверху",
+                   "transliteration": "nahvyehrkhoo",
+                   "english": "upstairs"
+                   },
+                   {
+                   "native": "необычные",
+                   "transliteration": "nyehohbeechneeyeh",
+                   "english": "unusual"
+                   },
+                   {
+                   "native": "окно",
+                   "transliteration": "ohknoh",
+                   "english": "window"
+                   },
+                   {
+                   "native": "плита",
+                   "transliteration": "plyeetah",
+                   "english": "stove"
+                   },
+                   {
+                   "native": "подвал",
+                   "transliteration": "pohdvahl",
+                   "english": "basement"
+                   },
+                   {
+                   "native": "пол",
+                   "transliteration": "pohl",
+                   "english": "floor"
+                   },
+                   {
+                   "native": "полка",
+                   "transliteration": "pohlkah",
+                   "english": "shelf"
+                   },
+                   {
+                   "native": "полотенце",
+                   "transliteration": "pohlohtyehntsyeh",
+                   "english": "towel"
+                   },
+                   {
+                   "native": "посуда",
+                   "transliteration": "pohsoodah",
+                   "english": "dishes"
+                   },
+                   {
+                   "native": "соседи",
+                   "transliteration": "sohsyehdyee",
+                   "english": "neighbors"
+                   },
+                   {
+                   "native": "спальня",
+                   "transliteration": "spahlsign softnyah",
+                   "english": "bedroom"
+                   },
+                   {
+                   "native": "стена",
+                   "transliteration": "styehnah",
+                   "english": "wall"
+                   },
+                   {
+                   "native": "стол",
+                   "transliteration": "stohl",
+                   "english": "table"
+                   },
+                   {
+                   "native": "столовая",
+                   "transliteration": "stohlohvahyah",
+                   "english": "dining room"
+                   },
+                   {
+                   "native": "странный",
+                   "transliteration": "strahnneey",
+                   "english": "weird"
+                   },
+                   {
+                   "native": "стул",
+                   "transliteration": "stool",
+                   "english": "chair"
+                   },
+                   {
+                   "native": "телефон",
+                   "transliteration": "tyehlyehfohn",
+                   "english": "telephone"
+                   },
+                   {
+                   "native": "тихо",
+                   "transliteration": "tyeekhoh",
+                   "english": "quiet"
+                   },
+                   {
+                   "native": "угол",
+                   "transliteration": "oogohl",
+                   "english": "corner"
+                   },
+                   {
+                   "native": "удобно",
+                   "transliteration": "oodohbnoh",
+                   "english": "comfy"
+                   },
+                   {
+                   "native": "холодильник",
+                   "transliteration": "khohlohdyeelsign softnyeek",
+                   "english": "fridge"
+                   },
+                   {
+                   "native": "часы",
+                   "transliteration": "chahsee",
+                   "english": "clock"
+                   },
+                   {
+                   "native": "шкаф",
+                   "transliteration": "shkahf",
+                   "english": "closet"
+                   },
+                   {
+                   "native": "шумно",
+                   "transliteration": "shoomnoh",
+                   "english": "noisy"
+                   }
+                   ],
+  "wordsLearned": [],
+  "name": "House",
+  "language": "russian",
+  "icon": "nil"
+  },{
+  "wordsToLearn": [
+                   {
+                   "native": "АНАНАС",
+                   "transliteration": "ahnahnahs",
+                   "english": "PINEAPPLE"
+                   },
+                   {
+                   "native": "АПЕЛЬСИН",
+                   "transliteration": "ahpyehlsign softsyeen",
+                   "english": "ORANGE"
+                   },
+                   {
+                   "native": "АРБУЗ",
+                   "transliteration": "ahrbooze",
+                   "english": "WATERMELON"
+                   },
+                   {
+                   "native": "БАКЛАЖАНЫ",
+                   "transliteration": "bahklahzheahnee",
+                   "english": "AUBERGINE"
+                   },
+                   {
+                   "native": "БАНАНЫ",
+                   "transliteration": "bahnahnee",
+                   "english": "BANANAS"
+                   },
+                   {
+                   "native": "БЛИНЫ",
+                   "transliteration": "blyeenee",
+                   "english": "CREPES"
+                   },
+                   {
+                   "native": "БОРЩ",
+                   "transliteration": "bohrsh",
+                   "english": "BORSCHT"
+                   },
+                   {
+                   "native": "БУТЕРБРОД",
+                   "transliteration": "bootyehrbrohd",
+                   "english": "sandwich"
+                   },
+                   {
+                   "native": "ВИЛКА",
+                   "transliteration": "vyeelkah",
+                   "english": "FORK"
+                   },
+                   {
+                   "native": "ВИНОГРАД",
+                   "transliteration": "vyeenohgrahd",
+                   "english": "GRAPES"
+                   },
+                   {
+                   "native": "ВОДА",
+                   "transliteration": "vohdah",
+                   "english": "WATER"
+                   },
+                   {
+                   "native": "ГРИБ",
+                   "transliteration": "gryeeb",
+                   "english": "MUSHROOM"
+                   },
+                   {
+                   "native": "ГРУША",
+                   "transliteration": "grooshah",
+                   "english": "PEAR"
+                   },
+                   {
+                   "native": "ДЕСЕРТ",
+                   "transliteration": "dyehsyehrt",
+                   "english": "DESSERT"
+                   },
+                   {
+                   "native": "ДЫНЯ",
+                   "transliteration": "deenyah",
+                   "english": "MELON"
+                   },
+                   {
+                   "native": "ЕДА",
+                   "transliteration": "yehdah",
+                   "english": "FOOD"
+                   },
+                   {
+                   "native": "И́ОГУРТ",
+                   "transliteration": "yeeohgoort",
+                   "english": "YOGHURT"
+                   },
+                   {
+                   "native": "КАПУ́СТА",
+                   "transliteration": "kahpoostah",
+                   "english": "cabbage"
+                   },
+                   {
+                   "native": "КАРТОФЕЛЬ",
+                   "transliteration": "kahrtohfyehlsign soft",
+                   "english": "POTATO"
+                   },
+                   {
+                   "native": "КЕТЧУП",
+                   "transliteration": "kyehtchoop",
+                   "english": "KETCHUP"
+                   },
+                   {
+                   "native": "КЛУБНИКА",
+                   "transliteration": "kloobnyeekah",
+                   "english": "STRAWBERRY"
+                   },
+                   {
+                   "native": "КОЛБАСА",
+                   "transliteration": "kohlbahsah",
+                   "english": "sausage"
+                   },
+                   {
+                   "native": "КОНФЕТА",
+                   "transliteration": "kohnfyehtah",
+                   "english": "CANDY"
+                   },
+                   {
+                   "native": "КОФЕ",
+                   "transliteration": "kohfyeh",
+                   "english": "COFFEE"
+                   },
+                   {
+                   "native": "КУКУРУЗА",
+                   "transliteration": "kookooroozeah",
+                   "english": "CORN"
+                   },
+                   {
+                   "native": "ЛИМОН",
+                   "transliteration": "lyeemohn",
+                   "english": "LEMON"
+                   },
+                   {
+                   "native": "ЛОЖКА",
+                   "transliteration": "lohzhekah",
+                   "english": "SPOON"
+                   },
+                   {
+                   "native": "ЛУК",
+                   "transliteration": "look",
+                   "english": "ONION"
+                   },
+                   {
+                   "native": "МАЙОНЕЗ",
+                   "transliteration": "mahyohnyehze",
+                   "english": "MAYO"
+                   },
+                   {
+                   "native": "МАНГО",
+                   "transliteration": "mahngoh",
+                   "english": "MANGO"
+                   },
+                   {
+                   "native": "МАСЛО",
+                   "transliteration": "mahsloh",
+                   "english": "BUTTER"
+                   },
+                   {
+                   "native": "МОЛОКО",
+                   "transliteration": "mohlohkoh",
+                   "english": "MILK"
+                   },
+                   {
+                   "native": "МОРКОВКА",
+                   "transliteration": "mohrkohvkah",
+                   "english": "CARROT"
+                   },
+                   {
+                   "native": "МОРОЖЕНОЕ",
+                   "transliteration": "mohrohzheyehnohyeh",
+                   "english": "ICE CREAM"
+                   },
+                   {
+                   "native": "МЯ́СО",
+                   "transliteration": "myahsoh",
+                   "english": "meat"
+                   },
+                   {
+                   "native": "НАПИТОК",
+                   "transliteration": "nahpyeetohk",
+                   "english": "DRINK"
+                   },
+                   {
+                   "native": "НОЖ",
+                   "transliteration": "nohzhe",
+                   "english": "KNIFE"
+                   },
+                   {
+                   "native": "ОВОЩИ",
+                   "transliteration": "ohvohshyee",
+                   "english": "VEGETABLES"
+                   },
+                   {
+                   "native": "ОГУРЕЦ",
+                   "transliteration": "ohgooryehts",
+                   "english": "CUCUMBER"
+                   },
+                   {
+                   "native": "ОЛИ́ВКОВОЕ МÁСЛО",
+                   "transliteration": "ohlyeevkohvohyeh msloh",
+                   "english": "OLIVE OIL"
+                   },
+                   {
+                   "native": "ПЕЛЬМЕНИ",
+                   "transliteration": "pyehlsign softmyehnyee",
+                   "english": "PELMENI / RUSSIAN RAVIOLI"
+                   },
+                   {
+                   "native": "ПЕРЕЦ",
+                   "transliteration": "pyehryehts",
+                   "english": "PAPRIKA"
+                   },
+                   {
+                   "native": "ПЕРЕЦ",
+                   "transliteration": "pyehryehts",
+                   "english": "PEPPER"
+                   },
+                   {
+                   "native": "ПЕЧЕНЬЕ",
+                   "transliteration": "pyehchyehnsign softyeh",
+                   "english": "COOKIES"
+                   },
+                   {
+                   "native": "ПИЦЦА",
+                   "transliteration": "pyeetstsah",
+                   "english": "PIZZA"
+                   },
+                   {
+                   "native": "ПОДСОЛНЕЧНОЕ МАСЛО",
+                   "transliteration": "pohdsohlnyehchnohyeh mahsloh",
+                   "english": "OIL"
+                   },
+                   {
+                   "native": "ПОМИДОР",
+                   "transliteration": "pohmyeedohr",
+                   "english": "TOMATO"
+                   },
+                   {
+                   "native": "РИС",
+                   "transliteration": "ryees",
+                   "english": "RICE"
+                   },
+                   {
+                   "native": "САЛАТ",
+                   "transliteration": "sahlaht",
+                   "english": "LETTUCE or SALAD"
+                   },
+                   {
+                   "native": "САЛФЕТКА",
+                   "transliteration": "sahlfyehtkah",
+                   "english": "NAPKIN"
+                   },
+                   {
+                   "native": "САХАР",
+                   "transliteration": "sahkhahr",
+                   "english": "SUGAR"
+                   },
+                   {
+                   "native": "СМЕТАНА",
+                   "transliteration": "smyehtahnah",
+                   "english": "SOUR CREAM"
+                   },
+                   {
+                   "native": "СОК",
+                   "transliteration": "sohk",
+                   "english": "JUICE"
+                   },
+                   {
+                   "native": "СОЛЬ",
+                   "transliteration": "sohlsign soft",
+                   "english": "SALT"
+                   },
+                   {
+                   "native": "СПАГЕТТИ",
+                   "transliteration": "spahgyehttyee",
+                   "english": "SPAGHETTI"
+                   },
+                   {
+                   "native": "СТАКАН",
+                   "transliteration": "stahkahn",
+                   "english": "GLASS"
+                   },
+                   {
+                   "native": "СТОЛ",
+                   "transliteration": "stohl",
+                   "english": "TABLE"
+                   },
+                   {
+                   "native": "СУП",
+                   "transliteration": "soop",
+                   "english": "SOUP"
+                   },
+                   {
+                   "native": "СЫР",
+                   "transliteration": "seer",
+                   "english": "cheese"
+                   },
+                   {
+                   "native": "ТАРЕЛКА",
+                   "transliteration": "tahryehlkah",
+                   "english": "PLATE"
+                   },
+                   {
+                   "native": "ТОРТ",
+                   "transliteration": "tohrt",
+                   "english": "CAKE"
+                   },
+                   {
+                   "native": "ФРУКТЫ",
+                   "transliteration": "frooktee",
+                   "english": "FRUIT"
+                   },
+                   {
+                   "native": "ХЛЕБ",
+                   "transliteration": "khlyehb",
+                   "english": "BREAD"
+                   },
+                   {
+                   "native": "ЧАЙ",
+                   "transliteration": "chahy",
+                   "english": "TEA"
+                   },
+                   {
+                   "native": "ЧАШКА",
+                   "transliteration": "chahshkah",
+                   "english": "CUP"
+                   },
+                   {
+                   "native": "ЧЕРНИКА",
+                   "transliteration": "chyehrnyeekah",
+                   "english": "BLUEBERRY"
+                   },
+                   {
+                   "native": "ЧЕСНОК",
+                   "transliteration": "chyehsnohk",
+                   "english": "GARLIC"
+                   },
+                   {
+                   "native": "ЯБЛОКО",
+                   "transliteration": "yahblohkoh",
+                   "english": "APPLE"
+                   },
+                   {
+                   "native": "ЯГОДЫ",
+                   "transliteration": "yahgohdee",
+                   "english": "BERRIES"
+                   },
+                   {
+                   "native": "Я́И́ЦA",
+                   "transliteration": "yahyeets",
+                   "english": "EGGS"
+                   }
+                   ],
+  "wordsLearned": [],
+  "name": "Food",
+  "language": "russian",
+  "icon": "nil"
+  },{
+  "wordsToLearn": [
+                   {
+                   "native": "вода",
+                   "transliteration": "vohdah",
+                   "english": "water"
+                   },
+                   {
+                   "native": "чай",
+                   "transliteration": "chahy",
+                   "english": "tea"
+                   },
+                   {
+                   "native": "сок",
+                   "transliteration": "sohk",
+                   "english": "juice"
+                   },
+                   {
+                   "native": "кофе",
+                   "transliteration": "kohfyeh",
+                   "english": "coffee"
+                   },
+                   {
+                   "native": "какао",
+                   "transliteration": "kahkahoh",
+                   "english": "cocoa"
+                   },
+                   {
+                   "native": "кола",
+                   "transliteration": "kohlah",
+                   "english": "Coke"
+                   },
+                   {
+                   "native": "молоко",
+                   "transliteration": "mohlohkoh",
+                   "english": "milk"
+                   },
+                   {
+                   "native": "лимонад",
+                   "transliteration": "lyeemohnahd",
+                   "english": "lemonade"
+                   },
+                   {
+                   "native": "ликер",
+                   "transliteration": "lyeekyehr",
+                   "english": "liquor"
+                   },
+                   {
+                   "native": "вино",
+                   "transliteration": "vyeenoh",
+                   "english": "wine"
+                   },
+                   {
+                   "native": "пиво",
+                   "transliteration": "pyeevoh",
+                   "english": "beer"
+                   },
+                   {
+                   "native": "водка",
+                   "transliteration": "vohdkah",
+                   "english": "vodka"
+                   },
+                   {
+                   "native": "шампанское",
+                   "transliteration": "shahmpahnskohyeh",
+                   "english": "champagne"
+                   },
+                   {
+                   "native": "текила",
+                   "transliteration": "tyehkyeelah",
+                   "english": "tequila"
+                   },
+                   {
+                   "native": "ром",
+                   "transliteration": "rohm",
+                   "english": "rum"
+                   },
+                   {
+                   "native": "виски",
+                   "transliteration": "vyeeskyee",
+                   "english": "whiskey"
+                   },
+                   {
+                   "native": "коньяк",
+                   "transliteration": "kohnsign softyahk",
+                   "english": "cognac"
+                   },
+                   {
+                   "native": "мартини",
+                   "transliteration": "mahrtyeenyee",
+                   "english": "martini"
+                   },
+                   {
+                   "native": "напиток",
+                   "transliteration": "nahpyeetohk",
+                   "english": "beverage"
+                   },
+                   {
+                   "native": "бренди",
+                   "transliteration": "bryehndyee",
+                   "english": "brandy"
+                   }
+                   ],
+  "wordsLearned": [],
+  "name": "Drinks",
+  "language": "russian",
+  "icon": "nil"
+  },{
+  "wordsToLearn": [
+                   {
+                   "native": "Восемнадцать",
+                   "transliteration": "vohsyehmnahdtsahtsign soft",
+                   "english": "Eighteen"
+                   },
+                   {
+                   "native": "Восемь",
+                   "transliteration": "vohsyehmsign soft",
+                   "english": "Eight"
+                   },
+                   {
+                   "native": "восемьдесят",
+                   "transliteration": "vohsyehmsign softdyehsyaht",
+                   "english": "Eighty"
+                   },
+                   {
+                   "native": "восемьсот",
+                   "transliteration": "vohsyehmsign softsoht",
+                   "english": "Eight hundred"
+                   },
+                   {
+                   "native": "Два",
+                   "transliteration": "dvah",
+                   "english": "Two"
+                   },
+                   {
+                   "native": "двадцать один",
+                   "transliteration": "dvahdtsahtsign soft ohdyeen",
+                   "english": "Twenty-one"
+                   },
+                   {
+                   "native": "двадцать",
+                   "transliteration": "dvahdtsahtsign soft",
+                   "english": "Twenty"
+                   },
+                   {
+                   "native": "Двенадцать",
+                   "transliteration": "dvyehnahdtsahtsign soft",
+                   "english": "Twelve"
+                   },
+                   {
+                   "native": "двести",
+                   "transliteration": "dvyehstyee",
+                   "english": "Two hundred"
+                   },
+                   {
+                   "native": "девяносто",
+                   "transliteration": "dyehvyahnohstoh",
+                   "english": "Ninety"
+                   },
+                   {
+                   "native": "Девятнадцать",
+                   "transliteration": "dyehvyahtnahdtsahtsign soft",
+                   "english": "Nineteen"
+                   },
+                   {
+                   "native": "Девять",
+                   "transliteration": "dyehvyahtsign soft",
+                   "english": "Nine"
+                   },
+                   {
+                   "native": "девятьсот",
+                   "transliteration": "dyehvyahtsign softsoht",
+                   "english": "Nine hundred"
+                   },
+                   {
+                   "native": "десять",
+                   "transliteration": "dyehsyahtsign soft",
+                   "english": "Ten"
+                   },
+                   {
+                   "native": "миллиард",
+                   "transliteration": "myeellyeeahrd",
+                   "english": "One billion"
+                   },
+                   {
+                   "native": "миллион",
+                   "transliteration": "myeellyeeohn",
+                   "english": "One million"
+                   },
+                   {
+                   "native": "Один",
+                   "transliteration": "ohdyeen",
+                   "english": "One"
+                   },
+                   {
+                   "native": "Одиннадцать",
+                   "transliteration": "ohdyeennahdtsahtsign soft",
+                   "english": "Eleven"
+                   },
+                   {
+                   "native": "Пяатдесят",
+                   "transliteration": "pyahahtdyehsyaht",
+                   "english": "Fifty"
+                   },
+                   {
+                   "native": "Пятнадцать",
+                   "transliteration": "pyahtnahdtsahtsign soft",
+                   "english": "Fifteen"
+                   },
+                   {
+                   "native": "Пять",
+                   "transliteration": "pyahtsign soft",
+                   "english": "Five"
+                   },
+                   {
+                   "native": "пятьсот",
+                   "transliteration": "pyahtsign softsoht",
+                   "english": "Five hundred"
+                   },
+                   {
+                   "native": "Семнадцать",
+                   "transliteration": "syehmnahdtsahtsign soft",
+                   "english": "Seventeen"
+                   },
+                   {
+                   "native": "Семь",
+                   "transliteration": "syehmsign soft",
+                   "english": "Seven"
+                   },
+                   {
+                   "native": "семьдесят",
+                   "transliteration": "syehmsign softdyehsyaht",
+                   "english": "Seventy"
+                   },
+                   {
+                   "native": "семьсот",
+                   "transliteration": "syehmsign softsoht",
+                   "english": "Seven hundred"
+                   },
+                   {
+                   "native": "Сорок один",
+                   "transliteration": "sohrohk ohdyeen",
+                   "english": "Forty-one"
+                   },
+                   {
+                   "native": "Сорок",
+                   "transliteration": "sohrohk",
+                   "english": "Forty"
+                   },
+                   {
+                   "native": "Сто",
+                   "transliteration": "stoh",
+                   "english": "One hundred"
+                   },
+                   {
+                   "native": "Три",
+                   "transliteration": "tryee",
+                   "english": "Three"
+                   },
+                   {
+                   "native": "Тридцать",
+                   "transliteration": "tryeedtsahtsign soft",
+                   "english": "Thirty-one"
+                   },
+                   {
+                   "native": "Тринадцать",
+                   "transliteration": "tryeenahdtsahtsign soft",
+                   "english": "Thirteen"
+                   },
+                   {
+                   "native": "триста",
+                   "transliteration": "tryeestah",
+                   "english": "Three hundred"
+                   },
+                   {
+                   "native": "тысяча",
+                   "transliteration": "teesyahchah",
+                   "english": "One thousand"
+                   },
+                   {
+                   "native": "четыре",
+                   "transliteration": "chyehteeryeh",
+                   "english": "Four"
+                   },
+                   {
+                   "native": "четыреста",
+                   "transliteration": "chyehteeryehstah",
+                   "english": "Four hundred"
+                   },
+                   {
+                   "native": "Четырнадцать",
+                   "transliteration": "chyehteernahdtsahtsign soft",
+                   "english": "Fourteen"
+                   },
+                   {
+                   "native": "Шестнадцать",
+                   "transliteration": "shyehstnahdtsahtsign soft",
+                   "english": "Sixteen"
+                   },
+                   {
+                   "native": "Шесть",
+                   "transliteration": "shyehstsign soft",
+                   "english": "Six"
+                   },
+                   {
+                   "native": "шестьдесят",
+                   "transliteration": "shyehstsign softdyehsyaht",
+                   "english": "Sixty"
+                   },
+                   {
+                   "native": "шестьсот",
+                   "transliteration": "shyehstsign softsoht",
+                   "english": "Six hundred"
+                   }
+                   ],
+  "wordsLearned": [],
+  "name": "Numbers",
+  "language": "russian",
+  "icon": "nil"
+  },{
+  "wordsToLearn": [
+                   {
+                   "native": "блу́зка",
+                   "transliteration": "bloozekah",
+                   "english": "blouse"
+                   },
+                   {
+                   "native": "боти́нки",
+                   "transliteration": "bohtyeenkyee",
+                   "english": " shoes"
+                   },
+                   {
+                   "native": "браслéт",
+                   "transliteration": "brahslt",
+                   "english": "bracelet"
+                   },
+                   {
+                   "native": "брю́ки",
+                   "transliteration": "bryoukyee",
+                   "english": "pants"
+                   },
+                   {
+                   "native": "бу́сы",
+                   "transliteration": "boosee",
+                   "english": "necklace"
+                   },
+                   {
+                   "native": "гáлстук",
+                   "transliteration": "glstook",
+                   "english": "tie"
+                   },
+                   {
+                   "native": "джи́нсы",
+                   "transliteration": "dzheyeensee",
+                   "english": "jeans"
+                   },
+                   {
+                   "native": "костю́м",
+                   "transliteration": "kohstyoum",
+                   "english": "suit"
+                   },
+                   {
+                   "native": "кофта",
+                   "transliteration": "kohftah",
+                   "english": " sweater"
+                   },
+                   {
+                   "native": "кроссóвки",
+                   "transliteration": "krohssvkyee",
+                   "english": "sneakers"
+                   },
+                   {
+                   "native": "ку́ртка",
+                   "transliteration": "koortkah",
+                   "english": "jacket (windbreaker)"
+                   },
+                   {
+                   "native": "легинсы",
+                   "transliteration": "lyehgyeensee",
+                   "english": "leggins"
+                   },
+                   {
+                   "native": "мáйка",
+                   "transliteration": "mykah",
+                   "english": "undershirt / tshirt"
+                   },
+                   {
+                   "native": "надевáть. Я надевáю...",
+                   "transliteration": "nahdyehvtsign soft yah nahdyehvyou",
+                   "english": "to put something on. I put on..."
+                   },
+                   {
+                   "native": "ножнóй браслéт",
+                   "transliteration": "nohzheny brahslt",
+                   "english": "anklet"
+                   },
+                   {
+                   "native": "носи́ть. Я ношу́...",
+                   "transliteration": "nohsyeetsign soft yah nohshoo",
+                   "english": "to wear. I wear"
+                   },
+                   {
+                   "native": "носки́",
+                   "transliteration": "nohskyee",
+                   "english": "socks"
+                   },
+                   {
+                   "native": "очки́",
+                   "transliteration": "ohchkyee",
+                   "english": "glasses"
+                   },
+                   {
+                   "native": "пóяс",
+                   "transliteration": "pyahs",
+                   "english": "belt"
+                   },
+                   {
+                   "native": "пальтó",
+                   "transliteration": "pahlsign softt",
+                   "english": "coat"
+                   },
+                   {
+                   "native": "перчáтки",
+                   "transliteration": "pyehrchtkyee",
+                   "english": "gloves"
+                   },
+                   {
+                   "native": "пиджáк",
+                   "transliteration": "pyeedzhek",
+                   "english": "suit jacket"
+                   },
+                   {
+                   "native": "плáтье",
+                   "transliteration": "pltsign softyeh",
+                   "english": "dress"
+                   },
+                   {
+                   "native": "рубáшка",
+                   "transliteration": "roobshkah",
+                   "english": "shirt"
+                   },
+                   {
+                   "native": "рюкзáк",
+                   "transliteration": "ryoukzek",
+                   "english": "backpack"
+                   },
+                   {
+                   "native": "сандали",
+                   "transliteration": "sahndahlyee",
+                   "english": "sandals"
+                   },
+                   {
+                   "native": "сапоги́",
+                   "transliteration": "sahpohgyee",
+                   "english": "long boots"
+                   },
+                   {
+                   "native": "сви́тер",
+                   "transliteration": "svyeetyehr",
+                   "english": "sweater"
+                   },
+                   {
+                   "native": "серёжки",
+                   "transliteration": "syehryohzhekyee",
+                   "english": "earrings"
+                   },
+                   {
+                   "native": "сланцы",
+                   "transliteration": "slahntsee",
+                   "english": "flip-flops"
+                   },
+                   {
+                   "native": "су́мка",
+                   "transliteration": "soomkah",
+                   "english": " bag"
+                   },
+                   {
+                   "native": "тáпочки",
+                   "transliteration": "tpohchkyee",
+                   "english": " slippers"
+                   },
+                   {
+                   "native": "ту́фли",
+                   "transliteration": "tooflyee",
+                   "english": "shoes"
+                   },
+                   {
+                   "native": "футбóлка",
+                   "transliteration": "footblkah",
+                   "english": "t-shirt"
+                   },
+                   {
+                   "native": "часы́",
+                   "transliteration": "chahsee",
+                   "english": "watch"
+                   },
+                   {
+                   "native": "шáпка",
+                   "transliteration": "shpkah",
+                   "english": "hat (warm)"
+                   },
+                   {
+                   "native": "шарф",
+                   "transliteration": "shahrf",
+                   "english": "scarf"
+                   },
+                   {
+                   "native": "ю́бка",
+                   "transliteration": "youbkah",
+                   "english": "skirt"
+                   }
+                   ],
+  "wordsLearned": [],
+  "name": "Clothing",
+  "language": "russian",
+  "icon": "nil"
+  },{
+  "wordsToLearn": [
+                   {
+                   "native": "брат",
+                   "transliteration": "braht",
+                   "english": "brother"
+                   },
+                   {
+                   "native": "внук",
+                   "transliteration": "vnook",
+                   "english": "grandson"
+                   },
+                   {
+                   "native": "внучка",
+                   "transliteration": "vnoochkah",
+                   "english": "granddaughter"
+                   },
+                   {
+                   "native": "двоюродная сестра",
+                   "transliteration": "dvohyourohdnahyah syehstrah",
+                   "english": "cousin sister"
+                   },
+                   {
+                   "native": "двоюродный брат",
+                   "transliteration": "dvohyourohdneey braht",
+                   "english": "cousin male"
+                   },
+                   {
+                   "native": "дочь",
+                   "transliteration": "dohchsign soft",
+                   "english": "daughter"
+                   },
+                   {
+                   "native": "дядя",
+                   "transliteration": "dyahdyah",
+                   "english": "uncle"
+                   },
+                   {
+                   "native": "жена",
+                   "transliteration": "zheyehnah",
+                   "english": "wife"
+                   },
+                   {
+                   "native": "мачеха",
+                   "transliteration": "mahchyehkhah",
+                   "english": "step mother"
+                   },
+                   {
+                   "native": "муж",
+                   "transliteration": "moozhe",
+                   "english": "husband"
+                   },
+                   {
+                   "native": "отчим",
+                   "transliteration": "ohtchyeem",
+                   "english": "step father"
+                   },
+                   {
+                   "native": "племянник",
+                   "transliteration": "plyehmyahnnyeek",
+                   "english": "nephew"
+                   },
+                   {
+                   "native": "племянница",
+                   "transliteration": "plyehmyahnnyeetsah",
+                   "english": "niece"
+                   },
+                   {
+                   "native": "сводная сестра",
+                   "transliteration": "svohdnahyah syehstrah",
+                   "english": "step sister"
+                   },
+                   {
+                   "native": "сводный брат",
+                   "transliteration": "svohdneey braht",
+                   "english": "step brother"
+                   },
+                   {
+                   "native": "сын",
+                   "transliteration": "seen",
+                   "english": "son"
+                   },
+                   {
+                   "native": "тётя",
+                   "transliteration": "tyohtyah",
+                   "english": "aunt"
+                   }
+                   ],
+  "wordsLearned": [],
+  "name": "Family",
+  "language": "russian",
+  "icon": "nil"
+  },{
+  "wordsToLearn": [
+                   {
+                   "native": "был туман",
+                   "transliteration": "beel toomahn",
+                   "english": "it was misty"
+                   },
+                   {
+                   "native": "была гроза",
+                   "transliteration": "beelah grohzeah",
+                   "english": "there was a storm"
+                   },
+                   {
+                   "native": "было прохладно",
+                   "transliteration": "beeloh prohkhlahdnoh",
+                   "english": "it was cool"
+                   },
+                   {
+                   "native": "ветер дует",
+                   "transliteration": "vyehtyehr dooyeht",
+                   "english": "the wind's blowing"
+                   },
+                   {
+                   "native": "ветер дул",
+                   "transliteration": "vyehtyehr dool",
+                   "english": "the wind was blowing"
+                   },
+                   {
+                   "native": "гроза",
+                   "transliteration": "grohzeah",
+                   "english": "there's a storm"
+                   },
+                   {
+                   "native": "идёт снег",
+                   "transliteration": "yeedyoht snyehg",
+                   "english": "it's snowing"
+                   },
+                   {
+                   "native": "прохладно",
+                   "transliteration": "prohkhlahdnoh",
+                   "english": "it's cool"
+                   },
+                   {
+                   "native": "солнце светило",
+                   "transliteration": "sohlntsyeh svyehtyeeloh",
+                   "english": "the sun shone"
+                   },
+                   {
+                   "native": "солнце светит",
+                   "transliteration": "sohlntsyeh svyehtyeet",
+                   "english": "the sun's shining"
+                   },
+                   {
+                   "native": "туман",
+                   "transliteration": "toomahn",
+                   "english": "it's misty"
+                   },
+                   {
+                   "native": "шёл снег",
+                   "transliteration": "shyohl snyehg",
+                   "english": "it was snowing"
+                   }
+                   ],
+  "wordsLearned": [],
+  "name": "Weather",
+  "language": "russian",
+  "icon": "nil"
+  },{
+  "wordsToLearn": [
+                   {
+                   "native": "cобака",
+                   "transliteration": "ohbahkah",
+                   "english": "dog"
+                   },
+                   {
+                   "native": "белка",
+                   "transliteration": "byehlkah",
+                   "english": "squirrel"
+                   },
+                   {
+                   "native": "бобёр",
+                   "transliteration": "bohbyohr",
+                   "english": "beaver"
+                   },
+                   {
+                   "native": "волк",
+                   "transliteration": "vohlk",
+                   "english": "wolf"
+                   },
+                   {
+                   "native": "гиена",
+                   "transliteration": "gyeeyehnah",
+                   "english": "hyena"
+                   },
+                   {
+                   "native": "гиппопотам",
+                   "transliteration": "gyeeppohpohtahm",
+                   "english": "hippopotamus"
+                   },
+                   {
+                   "native": "горилла",
+                   "transliteration": "gohryeellah",
+                   "english": "gorilla"
+                   },
+                   {
+                   "native": "домашнее животное",
+                   "transliteration": "dohmahshnyehyeh zheyeevohtnohyeh",
+                   "english": "pet"
+                   },
+                   {
+                   "native": "животные",
+                   "transliteration": "zheyeevohtneeyeh",
+                   "english": "animals"
+                   },
+                   {
+                   "native": "кенгуру",
+                   "transliteration": "kyehngooroo",
+                   "english": "kangaroo"
+                   },
+                   {
+                   "native": "кит",
+                   "transliteration": "kyeet",
+                   "english": "whale"
+                   },
+                   {
+                   "native": "котёнок",
+                   "transliteration": "kohtyohnohk",
+                   "english": "kitten"
+                   },
+                   {
+                   "native": "кошка",
+                   "transliteration": "kohshkah",
+                   "english": "cat"
+                   },
+                   {
+                   "native": "коэа",
+                   "transliteration": "kohehah",
+                   "english": "goat"
+                   },
+                   {
+                   "native": "кролик",
+                   "transliteration": "krohlyeek",
+                   "english": "rabbit"
+                   },
+                   {
+                   "native": "крыса",
+                   "transliteration": "kreesah",
+                   "english": "rat"
+                   },
+                   {
+                   "native": "лама",
+                   "transliteration": "lahmah",
+                   "english": "llama"
+                   },
+                   {
+                   "native": "леопард",
+                   "transliteration": "lyehohpahrd",
+                   "english": "leopard"
+                   },
+                   {
+                   "native": "лиса",
+                   "transliteration": "lyeesah",
+                   "english": "fox"
+                   },
+                   {
+                   "native": "лошадь",
+                   "transliteration": "lohshahdsign soft",
+                   "english": "horse"
+                   },
+                   {
+                   "native": "медведь",
+                   "transliteration": "myehdvyehdsign soft",
+                   "english": "bear"
+                   },
+                   {
+                   "native": "мышь",
+                   "transliteration": "meeshsign soft",
+                   "english": "mouse"
+                   },
+                   {
+                   "native": "носорог",
+                   "transliteration": "nohsohrohg",
+                   "english": "rhino"
+                   },
+                   {
+                   "native": "обеэьяна",
+                   "transliteration": "ohbyehehsign softyahnah",
+                   "english": "monkey"
+                   },
+                   {
+                   "native": "овца",
+                   "transliteration": "ohvtsah",
+                   "english": "sheep"
+                   },
+                   {
+                   "native": "панда",
+                   "transliteration": "pahndah",
+                   "english": "panda"
+                   },
+                   {
+                   "native": "пингвин",
+                   "transliteration": "pyeengvyeen",
+                   "english": "penguin"
+                   },
+                   {
+                   "native": "рыба",
+                   "transliteration": "reebah",
+                   "english": "fish"
+                   },
+                   {
+                   "native": "слон",
+                   "transliteration": "slohn",
+                   "english": "elephant"
+                   },
+                   {
+                   "native": "тигр",
+                   "transliteration": "tyeegr",
+                   "english": "tiger"
+                   },
+                   {
+                   "native": "шимпанэе",
+                   "transliteration": "shyeempahnehyeh",
+                   "english": "chimpanzee"
+                   },
+                   {
+                   "native": "щенок",
+                   "transliteration": "shyehnohk",
+                   "english": "puppy"
+                   },
+                   {
+                   "native": "эевра",
+                   "transliteration": "ehyehvrah",
+                   "english": "zebra"
+                   }
+                   ],
+  "wordsLearned": [],
+  "name": "Animals",
+  "language": "russian",
+  "icon": "nil"
+  },{
+  "wordsToLearn": [
+                   {
+                   "native": "домашнее животное",
+                   "transliteration": "dohmahshnyehyeh zheyeevohtnohyeh",
+                   "english": "pet"
+                   },
+                   {
+                   "native": "ёжик",
+                   "transliteration": "yohzheyeek",
+                   "english": "hedgehog"
+                   },
+                   {
+                   "native": "змея",
+                   "transliteration": "zemyehyah",
+                   "english": "snake"
+                   },
+                   {
+                   "native": "кот",
+                   "transliteration": "koht",
+                   "english": "cat (male)"
+                   },
+                   {
+                   "native": "котёнок",
+                   "transliteration": "kohtyohnohk",
+                   "english": "kitten"
+                   },
+                   {
+                   "native": "кошка",
+                   "transliteration": "kohshkah",
+                   "english": "cat (female)"
+                   },
+                   {
+                   "native": "кролик",
+                   "transliteration": "krohlyeek",
+                   "english": "rabbit"
+                   },
+                   {
+                   "native": "крыса",
+                   "transliteration": "kreesah",
+                   "english": "rat"
+                   },
+                   {
+                   "native": "лошадь",
+                   "transliteration": "lohshahdsign soft",
+                   "english": "horse"
+                   },
+                   {
+                   "native": "морская свинка",
+                   "transliteration": "mohrskahyah svyeenkah",
+                   "english": "guinea pig"
+                   },
+                   {
+                   "native": "мышь",
+                   "transliteration": "meeshsign soft",
+                   "english": "mouse"
+                   },
+                   {
+                   "native": "птица",
+                   "transliteration": "ptyeetsah",
+                   "english": "bird"
+                   },
+                   {
+                   "native": "рыбка",
+                   "transliteration": "reebkah",
+                   "english": "fish"
+                   },
+                   {
+                   "native": "собака",
+                   "transliteration": "sohbahkah",
+                   "english": "dog"
+                   },
+                   {
+                   "native": "хомяк",
+                   "transliteration": "khohmyahk",
+                   "english": "hamster"
+                   },
+                   {
+                   "native": "черепаха",
+                   "transliteration": "chyehryehpahkhah",
+                   "english": "turtle"
+                   },
+                   {
+                   "native": "щенок",
+                   "transliteration": "shyehnohk",
+                   "english": "puppy"
+                   }
+                   ],
+  "wordsLearned": [],
+  "name": "Pet",
+  "language": "russian",
+  "icon": "nil"
+  },{
+  "wordsToLearn": [
+                   {
+                   "native": "arrow",
+                   "transliteration": "",
+                   "english": "стрела"
+                   },
+                   {
+                   "native": "automatic",
+                   "transliteration": "",
+                   "english": "автоматический"
+                   },
+                   {
+                   "native": "click",
+                   "transliteration": "",
+                   "english": "щелчок"
+                   },
+                   {
+                   "native": "close",
+                   "transliteration": "",
+                   "english": "Закрыть"
+                   },
+                   {
+                   "native": "computer",
+                   "transliteration": "",
+                   "english": "компьютер"
+                   },
+                   {
+                   "native": "delete",
+                   "transliteration": "",
+                   "english": "Удалить"
+                   },
+                   {
+                   "native": "double click",
+                   "transliteration": " ",
+                   "english": "Двойной клик"
+                   },
+                   {
+                   "native": "file",
+                   "transliteration": "",
+                   "english": "файл"
+                   },
+                   {
+                   "native": "folder",
+                   "transliteration": "",
+                   "english": "папка"
+                   },
+                   {
+                   "native": "internet",
+                   "transliteration": "",
+                   "english": "интернет"
+                   },
+                   {
+                   "native": "key",
+                   "transliteration": "",
+                   "english": "кнопка"
+                   },
+                   {
+                   "native": "keyboard",
+                   "transliteration": "",
+                   "english": "клавиатура"
+                   },
+                   {
+                   "native": "open",
+                   "transliteration": "",
+                   "english": "открытый"
+                   },
+                   {
+                   "native": "page",
+                   "transliteration": "",
+                   "english": "страница"
+                   },
+                   {
+                   "native": "refresh",
+                   "transliteration": "",
+                   "english": "обновление"
+                   },
+                   {
+                   "native": "right click",
+                   "transliteration": " ",
+                   "english": "правый клик"
+                   },
+                   {
+                   "native": "screen",
+                   "transliteration": "",
+                   "english": "экран"
+                   },
+                   {
+                   "native": "search",
+                   "transliteration": "",
+                   "english": "искать"
+                   },
+                   {
+                   "native": "type",
+                   "transliteration": "",
+                   "english": "тип"
+                   },
+                   {
+                   "native": "website",
+                   "transliteration": "",
+                   "english": "Веб-сайт"
+                   },
+                   {
+                   "native": "window",
+                   "transliteration": "",
+                   "english": "окно"
+                   }
+                   ],
+  "wordsLearned": [],
+  "name": "Computers",
+  "language": "russian",
+  "icon": "nil"
+  },{
+  "wordsToLearn": [
+                   {
+                   "native": "eraser",
+                   "transliteration": "",
+                   "english": "резинка"
+                   },
+                   {
+                   "native": "folders",
+                   "transliteration": "",
+                   "english": "папки"
+                   },
+                   {
+                   "native": "glue",
+                   "transliteration": "",
+                   "english": "клей"
+                   },
+                   {
+                   "native": "highlighters",
+                   "transliteration": "",
+                   "english": "фломасстер"
+                   },
+                   {
+                   "native": "hole punch",
+                   "transliteration": " ",
+                   "english": "дырокол"
+                   },
+                   {
+                   "native": "markers",
+                   "transliteration": "",
+                   "english": "маркер"
+                   },
+                   {
+                   "native": "notebook",
+                   "transliteration": "",
+                   "english": "тетрадь"
+                   },
+                   {
+                   "native": "paper clip",
+                   "transliteration": " ",
+                   "english": "скрепка"
+                   },
+                   {
+                   "native": "paper",
+                   "transliteration": "",
+                   "english": "бумага"
+                   },
+                   {
+                   "native": "pen",
+                   "transliteration": "",
+                   "english": "ручка"
+                   },
+                   {
+                   "native": "pencil sharpener",
+                   "transliteration": " ",
+                   "english": "точилка"
+                   },
+                   {
+                   "native": "pencil",
+                   "transliteration": "",
+                   "english": "карандаш"
+                   },
+                   {
+                   "native": "ruler",
+                   "transliteration": "",
+                   "english": "линейка"
+                   },
+                   {
+                   "native": "scissors",
+                   "transliteration": "",
+                   "english": "ножницы"
+                   },
+                   {
+                   "native": "staple remover",
+                   "transliteration": " ",
+                   "english": "анти степлер"
+                   },
+                   {
+                   "native": "stapler",
+                   "transliteration": "",
+                   "english": "степлер"
+                   },
+                   {
+                   "native": "staples",
+                   "transliteration": "",
+                   "english": "скрепки"
+                   },
+                   {
+                   "native": "tape",
+                   "transliteration": "",
+                   "english": "скоч"
+                   },
+                   {
+                   "native": "thumb tack",
+                   "transliteration": " ",
+                   "english": "кнопка"
+                   }
+                   ],
+  "wordsLearned": [],
+  "name": "School",
+  "language": "russian",
+  "icon": "nil"
+  },{
+  "wordsToLearn": [
+                   {
+                   "native": "белый",
+                   "transliteration": "byehleey",
+                   "english": "white"
+                   },
+                   {
+                   "native": "голувой",
+                   "transliteration": "gohloovohy",
+                   "english": "light blue"
+                   },
+                   {
+                   "native": "жёлтый",
+                   "transliteration": "zheyohlteey",
+                   "english": "yellow"
+                   },
+                   {
+                   "native": "зелёный",
+                   "transliteration": "zeyehlyohneey",
+                   "english": "green"
+                   },
+                   {
+                   "native": "золотой",
+                   "transliteration": "zeohlohtohy",
+                   "english": "gold"
+                   },
+                   {
+                   "native": "коричневый",
+                   "transliteration": "kohryeechnyehveey",
+                   "english": "brown"
+                   },
+                   {
+                   "native": "красный",
+                   "transliteration": "krahsneey",
+                   "english": "red"
+                   },
+                   {
+                   "native": "оранжевый",
+                   "transliteration": "ohrahnzheyehveey",
+                   "english": "orange"
+                   },
+                   {
+                   "native": "пупурный",
+                   "transliteration": "poopoorneey",
+                   "english": "(deeper) purple"
+                   },
+                   {
+                   "native": "розовый",
+                   "transliteration": "rohzeohveey",
+                   "english": "pink"
+                   },
+                   {
+                   "native": "светлый",
+                   "transliteration": "svyehtleey",
+                   "english": "light"
+                   },
+                   {
+                   "native": "серебряный",
+                   "transliteration": "syehryehbryahneey",
+                   "english": "silver"
+                   },
+                   {
+                   "native": "серый",
+                   "transliteration": "syehreey",
+                   "english": "gray"
+                   },
+                   {
+                   "native": "синий",
+                   "transliteration": "syeenyeey",
+                   "english": "dark blue"
+                   },
+                   {
+                   "native": "тёмный",
+                   "transliteration": "tyohmneey",
+                   "english": "dark"
+                   },
+                   {
+                   "native": "фиолетовый",
+                   "transliteration": "fyeeohlyehtohveey",
+                   "english": "violet"
+                   },
+                   {
+                   "native": "чёрный",
+                   "transliteration": "chyohrneey",
+                   "english": "black"
+                   }
+                   ], 
+  "wordsLearned": [],
+  "name": "Colors",
+  "language": "russian",
+  "icon": "nil"
+  }]
