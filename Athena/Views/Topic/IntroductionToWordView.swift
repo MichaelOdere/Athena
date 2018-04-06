@@ -142,9 +142,12 @@ class IntroductionToWordView: UIView {
         littleNewWordView = NewWordView(frame: littleFrame)
 
         let fontSize = littleNewWordView.fontSize
-        let fontMultiplier = littleNewWordView.fontMultiplier
+        let multiplier = littleNewWordView.fontMultiplier
+        let smallFont = UIFont(name: "HelveticaNeue-Bold", size: (fontSize * multiplier) / 4)
+
         littleNewWordView.nativeLabel.font = UIFont(name: "HelveticaNeue-Bold", size: fontSize / 4)
-        littleNewWordView.englishLabel.font = UIFont(name: "HelveticaNeue-Bold", size: (fontSize * fontMultiplier) / 4)
+        littleNewWordView.transliterationLabel.font = smallFont
+        littleNewWordView.englishLabel.font = smallFont
 
         littleNewWordView.backgroundColor = UIColor.clear
         addSubview(littleNewWordView)
