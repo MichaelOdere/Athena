@@ -4,25 +4,61 @@ import SwiftyJSON
 
 class ModelTests: XCTestCase {
 
-    var store: RussianStore!
+    var topic: Topic!
 
     override func setUp() {
         super.setUp()
-        store = RussianStore()
+
+        let jsonData: [String: Any] = [
+
+            "name": "Test",
+            "icon": "settings",
+            "language": "russian",
+            "wordsToLearn": [
+                [
+                    "english": "Bus",
+                    "native": "Автобус",
+                    "transliteration": "ahvtohboos"
+                ],
+                [
+                    "english": "Airport",
+                    "native": "Аэропорт",
+                    "transliteration": "ahehrohpohrt"
+                ],
+                [
+                    "english": "Ticket",
+                    "native": "byeelyeht",
+                    "transliteration": "byeelyeht"
+                ],
+                [
+                    "english": "Close/near",
+                    "native": "Близко",
+                    "transliteration": "vyehlohsyeepyehd"
+                ]
+            ]
+        ]
+
+        let json = JSON(jsonData)
+
+        guard let initTopic = Topic(json: json) else {
+            XCTFail("Failed to parse Topic")
+            return
+        }
+
+        initTopic.resetUserDefaults()
+        self.topic = initTopic
     }
 
     override func tearDown() {
         super.tearDown()
-        store = nil
+        topic = nil
     }
 
     func testWordJSONInitializing() {
         let jsonData = [
             "english": "d",
             "native": "Д (д)",
-            "language": "russian",
-            "transliteration": "d",
-            "audioFile": "nil"
+            "transliteration": "d"
         ]
 
         let json = JSON(jsonData)
@@ -34,63 +70,18 @@ class ModelTests: XCTestCase {
 
         XCTAssertEqual(word.english, "d", "Word: Incorrect atribute english")
         XCTAssertEqual(word.native, "Д (д)", "Word: Incorrect atribute native")
-        XCTAssertEqual(word.language, .russian, "Word: Incorrect atribute language")
         XCTAssertEqual(word.transliteration, "d", "Word: Incorrect atribute transliteration")
-        XCTAssertEqual(word.audioFile, "nil", "Word: Incorrect atribute audioFile")
     }
 
     func testTopicJSONInitializing() {
-        let jsonData: [String: Any] = [
 
-            "name": "AlphabetTest",
-            "icon": "settings",
-            "words": [
-                [
-                    "english": "ah",
-                    "native": "A",
-                    "language": "russian",
-                    "transliteration": "ah",
-                    "audioFile": "nil"
-                ],
-                [
-                    "english": "b",
-                    "native": "Б (б)",
-                    "language": "russian",
-                    "transliteration": "b",
-                    "audioFile": "nil"
-                ],
-                [
-                    "english": "b",
-                    "native": "Б (б)",
-                    "language": "russian",
-                    "transliteration": "b",
-                    "audioFile": "nil"
-                ],
-                [
-                    "english": "b",
-                    "native": "Б (б)",
-                    "language": "russian",
-                    "transliteration": "b",
-                    "audioFile": "nil"
-                ]
-            ]
-        ]
-
-        let json = JSON(jsonData)
-
-        guard let topic = Topic(json: json) else {
-            XCTFail("Failed to parse Topic")
-            return
-        }
-
-        XCTAssertEqual(topic.name, "AlphabetTest", "Topic: Incorrect atribute name")
+        XCTAssertEqual(topic.name, "Test", "Topic: Incorrect atribute name")
         XCTAssertEqual(topic.icon, "settings", "Topic: Incorrect atribute icon")
+        XCTAssertEqual(topic.language, .russian, "Topic: Incorrect language")
         XCTAssertEqual(topic.wordsToLearn.count, 4, "Topic: Incorrect atribute words.count")
     }
 
     func testTopicCanShow() {
-        let topic = store.topics[0]
-
         XCTAssertEqual(topic.canShowIntroductionToWordView(), true)
         XCTAssertEqual(topic.canShowDragFiveCorrectView(), false)
         XCTAssertEqual(topic.canShowDragThreeCorrectView(), false)
@@ -105,8 +96,6 @@ class ModelTests: XCTestCase {
     }
 
     func testGetRandomWords() {
-        let topic = store.topics[1]
-
         topic.incrementProgress()
 
         let randomWord = topic.getRandomWord()
