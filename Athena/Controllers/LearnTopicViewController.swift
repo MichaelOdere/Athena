@@ -1,6 +1,6 @@
 import UIKit
 
-enum LearnView {
+enum LearnView: String {
     case reset
     case introductionToWord
     case dragFiveToCorrectView
@@ -19,14 +19,13 @@ class LearnTopicViewController: UIViewController {
     var dragThreeToCorrectView: DragThreeToCorrectView!
 	var swipeWordView: SwipeWordView!
 
+    var topic: Topic!
+
     var nextView: LearnView!
+    var lastResult: ResultOfLearn!
 
     var successView: SuccessView!
     var failView: FailView!
-
-    var lastResult: ResultOfLearn!
-
-    var topic: Topic!
 
     override func viewDidLoad() {
 		let resultRect = CGRect(x: 0, y: view.frame.height / 2 - view.frame.width / 2,
@@ -49,7 +48,8 @@ class LearnTopicViewController: UIViewController {
 		swipeWordView.progressView.topicTitle = topic.name
 		swipeWordView.delegate = self
 
-        previousView(previous: .reset, result: .none)
+        nextView = topic.lastTopicView
+        showNextView(centerWord: nil)
     }
 }
 
@@ -127,6 +127,7 @@ extension LearnTopicViewController {
 // MARK: - Show Next View Logic
 extension LearnTopicViewController {
     func showNextView(centerWord: Word?) {
+        topic.lastTopicView = nextView
         switch nextView {
         case .reset:
             previousView(previous: .reset, result: .none)
@@ -156,8 +157,7 @@ extension LearnTopicViewController {
         dragFiveToCorrectView.dragView.setup()
 
         if centerWord == nil {
-            let randomIndex = Int(arc4random_uniform(UInt32(topic.wordsLearned.count)))
-            let randomWord = topic.wordsLearned[randomIndex]
+            let randomWord = topic.getRandomWord()
             let words =  topic.getRandomWords(word: randomWord, amount: 4)
             dragFiveToCorrectView.dragView.setText(word: randomWord, nativeWords: topic.getEnglishString(words: words))
         } else {

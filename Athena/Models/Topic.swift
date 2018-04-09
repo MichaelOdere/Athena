@@ -1,29 +1,53 @@
 import SwiftyJSON
 
+public enum Language: String {
+    case english
+    case hebrew
+    case russian
+    case spanish
+}
+
 class Topic {
     var name: String
     var icon: String
     var language: Language
     var wordsLearned: [Word]
     var wordsToLearn: [Word]
+    var lastTopicView: LearnView {
+        didSet {
+            let defaults = UserDefaults.standard
+            defaults.set(lastTopicView.rawValue, forKey: getLastViewKey())
+        }
+    }
 
-    init(name: String, icon: String, language: Language, wordsLearned: [Word], wordsToLearn: [Word]) {
+    init(name: String, icon: String, language: Language, wordsLearned: [Word], wordsToLearn: [Word],
+         lastTopicView: LearnView) {
+
         self.name = name
         self.icon = icon
         self.language = language
         self.wordsLearned = wordsLearned
         self.wordsToLearn = wordsToLearn
+        self.lastTopicView = lastTopicView
     }
 
     func incrementProgress() {
         let defaults = UserDefaults.standard
-        let current = defaults.integer(forKey: self.name)
-        defaults.set(current + 1, forKey: self.name)
+        let current = defaults.integer(forKey: getProgressKey())
+        defaults.set(current + 1, forKey: getProgressKey())
 
         if self.wordsToLearn.count > 0 {
             self.wordsLearned.append(self.wordsToLearn[0])
             self.wordsToLearn.remove(at: 0)
         }
+    }
+
+    func getProgressKey() -> String {
+        return "\(self.name)-progress"
+    }
+
+    func getLastViewKey() -> String {
+        return "\(self.name)-last-view"
     }
 
     func getRandomWord() -> Word {
@@ -37,6 +61,7 @@ class Topic {
         let randomWord = self.wordsToLearn[randomIndex]
         return randomWord
     }
+
     // Get random words from words learned
     // If words learned does not have enough, get the remainder from words not yet learned
     func getRandomWords(word: Word, amount: Int) -> [Word] {
@@ -130,8 +155,13 @@ extension Topic {
             return nil
         }
 
-        guard let language = json["language"].language else {
+        guard let languageStr = json["language"].string else {
             print("Error parsing game object for key: language")
+            return nil
+        }
+
+        guard let language = Language(rawValue: languageStr) else {
+            print("Error creating Language Enum from rawValue")
             return nil
         }
 
@@ -153,30 +183,7 @@ extension Topic {
         }
 
         // Initialize words learned to empty and load what has been learned from CoreData
-        self.init(name: name, icon: icon, language: language, wordsLearned: [], wordsToLearn: words)
-    }
-}
-
-extension JSON {
-    public var language: Language? {
-        get {
-            if self.string == Language.english.rawValue {
-                return .english
-            }
-
-            if self.string == Language.hebrew.rawValue {
-                return .hebrew
-            }
-
-            if self.string == Language.russian.rawValue {
-                return .russian
-            }
-
-            if self.string == Language.spanish.rawValue {
-                return .spanish
-            }
-
-            return nil
-        }
+        self.init(name: name, icon: icon, language: language, wordsLearned: [], wordsToLearn: words,
+                  lastTopicView: .introductionToWord)
     }
 }

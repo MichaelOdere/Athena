@@ -3,12 +3,13 @@ import SwiftyJSON
 
 struct RussianStore {
     var topics: [Topic] = []
+    let defaults = UserDefaults.standard
 
     init() {
         populateTopics()
         // Reset defaults so that we start with clean slate each time for testing
-        resetDefaults()
-        setWordsLearnedOnInit()
+//        resetProgress()
+//        resetView()
     }
 
     mutating func populateTopics() {
@@ -26,6 +27,7 @@ struct RussianStore {
 
             for topicJson in topicsData {
                 if let topic = Topic(json: topicJson) {
+                    topicSetupFromDefaults(topic: topic)
                     topics.append(topic)
                 }
             }
@@ -34,25 +36,46 @@ struct RussianStore {
         }
     }
 
-    func setWordsLearnedOnInit() {
-        let defaults = UserDefaults.standard
-        for topic in topics {
-            let progress = defaults.integer(forKey: topic.name)
-            for count in 0..<topic.wordsToLearn.count {
-                if count == progress {
-                    break
-                }
-                topic.wordsLearned.append(topic.wordsToLearn[0])
-                topic.wordsToLearn.remove(at: 0)
+    func topicSetupFromDefaults(topic: Topic) {
+        setWordsLearnedOnInit(topic: topic)
+        setLastViewOnInit(topic: topic)
+    }
+
+    func setWordsLearnedOnInit(topic: Topic) {
+        let progress = defaults.integer(forKey: topic.getProgressKey())
+        for count in 0..<topic.wordsToLearn.count {
+            if count == progress {
+                break
             }
+            topic.wordsLearned.append(topic.wordsToLearn[0])
+            topic.wordsToLearn.remove(at: 0)
         }
     }
 
-    func resetDefaults() {
-        let defaults = UserDefaults.standard
+    func setLastViewOnInit(topic: Topic) {
+        guard let lastView = defaults.string(forKey: topic.getLastViewKey()) else {
+            print("\(topic.getLastViewKey()) not found")
+            return
+        }
+
+        guard let lastTopicView = LearnView(rawValue: lastView) else {
+            print("\(lastView) not valid LearnView type")
+            return
+        }
+
+        topic.lastTopicView = lastTopicView
+    }
+
+    func resetProgress() {
         for topic in topics {
-            defaults.set(0, forKey: topic.name)
+            defaults.set(0, forKey: topic.getProgressKey())
         }
     }
 
+    func resetView() {
+        for topic in topics {
+            defaults.set(LearnView.introductionToWord.rawValue, forKey: topic.getLastViewKey())
+            topic.lastTopicView = .introductionToWord
+        }
+    }
 }
