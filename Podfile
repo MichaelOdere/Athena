@@ -1,4 +1,4 @@
- platform :ios, '11.1'
+platform :ios, '11.1'
 
 target 'Athena' do
   use_frameworks!
