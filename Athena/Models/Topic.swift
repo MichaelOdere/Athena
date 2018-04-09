@@ -146,6 +146,17 @@ class Topic {
     func getWordCount() -> Int {
         return wordsToLearn.count + wordsLearned.count
     }
+
+    func resetUserDefaults() {
+        let defaults = UserDefaults.standard
+
+        // Reset progress
+        defaults.set(0, forKey: self.getProgressKey())
+
+        // Reset the last view the user was on
+        defaults.set(LearnView.introductionToWord.rawValue, forKey: self.getLastViewKey())
+        self.lastTopicView = .introductionToWord
+    }
 }
 
 extension Topic {

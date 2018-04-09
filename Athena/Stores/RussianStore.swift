@@ -8,8 +8,6 @@ struct RussianStore {
     init() {
         populateTopics()
         // Reset defaults so that we start with clean slate each time for testing
-//        resetProgress()
-//        resetView()
     }
 
     mutating func populateTopics() {
@@ -27,6 +25,7 @@ struct RussianStore {
 
             for topicJson in topicsData {
                 if let topic = Topic(json: topicJson) {
+                    topic.resetUserDefaults()
                     topicSetupFromDefaults(topic: topic)
                     topics.append(topic)
                 }
@@ -66,16 +65,4 @@ struct RussianStore {
         topic.lastTopicView = lastTopicView
     }
 
-    func resetProgress() {
-        for topic in topics {
-            defaults.set(0, forKey: topic.getProgressKey())
-        }
-    }
-
-    func resetView() {
-        for topic in topics {
-            defaults.set(LearnView.introductionToWord.rawValue, forKey: topic.getLastViewKey())
-            topic.lastTopicView = .introductionToWord
-        }
-    }
 }
