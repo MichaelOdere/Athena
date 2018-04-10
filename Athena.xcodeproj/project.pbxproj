@@ -36,6 +36,7 @@
 		F985E841205E012E00B5ACB4 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F985E840205E012E00B5ACB4 /* ProfileViewController.swift */; };
 		F9881E4F205F0A390014BF07 /* AthenaPallett.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9881E4E205F0A390014BF07 /* AthenaPallett.swift */; };
 		F9A5D7C7207475F20078AEEE /* DragLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A5D7C6207475F20078AEEE /* DragLabel.swift */; };
+		F9AC474A207C130D00ABB976 /* WordStatsModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F9AC4748207C130D00ABB976 /* WordStatsModel.xcdatamodeld */; };
 		F9B87B772062164400BAF4A7 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B87B762062164400BAF4A7 /* ProgressView.swift */; };
 		F9C11282206EBC8100423969 /* SuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C11281206EBC8100423969 /* SuccessView.swift */; };
 		F9C11286206EC3F800423969 /* FailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C11285206EC3F800423969 /* FailView.swift */; };
@@ -92,6 +93,7 @@
 		F985E840205E012E00B5ACB4 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		F9881E4E205F0A390014BF07 /* AthenaPallett.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AthenaPallett.swift; sourceTree = "<group>"; };
 		F9A5D7C6207475F20078AEEE /* DragLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragLabel.swift; sourceTree = "<group>"; };
+		F9AC4749207C130D00ABB976 /* WordStatsModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WordStatsModel.xcdatamodel; sourceTree = "<group>"; };
 		F9B87B762062164400BAF4A7 /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
 		F9C11281206EBC8100423969 /* SuccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SuccessView.swift; path = Athena/Views/Topic/SupportingViews/Shape/SuccessView.swift; sourceTree = SOURCE_ROOT; };
 		F9C11285206EC3F800423969 /* FailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FailView.swift; sourceTree = "<group>"; };
@@ -172,6 +174,7 @@
 				F91C1119205C588F00FD7776 /* Assets.xcassets */,
 				F91C111B205C588F00FD7776 /* LaunchScreen.storyboard */,
 				F91C111E205C588F00FD7776 /* Info.plist */,
+				F9AC4748207C130D00ABB976 /* WordStatsModel.xcdatamodeld */,
 			);
 			path = Athena;
 			sourceTree = "<group>";
@@ -519,6 +522,7 @@
 				F981135120602AFD00D3BE79 /* LearnTopicViewController.swift in Sources */,
 				F96123B7207296B700EF8A9B /* DragView.swift in Sources */,
 				F985E83B205E00CA00B5ACB4 /* TopicsViewController.swift in Sources */,
+				F9AC474A207C130D00ABB976 /* WordStatsModel.xcdatamodeld in Sources */,
 				F9470BFF2061B19C000624E2 /* DragFiveToCorrectView.swift in Sources */,
 				F96123BF2072F7D400EF8A9B /* ResultOfLearn.swift in Sources */,
 				F9C8D36120748A8200884130 /* SwipeWordView.swift in Sources */,
@@ -780,6 +784,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		F9AC4748207C130D00ABB976 /* WordStatsModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				F9AC4749207C130D00ABB976 /* WordStatsModel.xcdatamodel */,
+			);
+			currentVersion = F9AC4749207C130D00ABB976 /* WordStatsModel.xcdatamodel */;
+			path = WordStatsModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = F91C1107205C588F00FD7776 /* Project object */;
 }

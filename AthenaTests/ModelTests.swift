@@ -13,7 +13,7 @@ class ModelTests: XCTestCase {
 
     func createTopic() {
         let jsonData: [String: Any] = [
-            
+
             "name": "Test",
             "icon": "settings",
             "language": "russian",
@@ -40,9 +40,9 @@ class ModelTests: XCTestCase {
                 ]
             ]
         ]
-        
+
         let json = JSON(jsonData)
-        
+
         guard let initTopic = Topic(json: json) else {
             XCTFail("Failed to parse Topic")
             return
@@ -51,7 +51,7 @@ class ModelTests: XCTestCase {
         initTopic.resetUserDefaults()
         self.topic = initTopic
     }
-    
+
     override func tearDown() {
         super.tearDown()
         topic = nil
