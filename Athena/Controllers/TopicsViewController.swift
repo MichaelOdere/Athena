@@ -94,13 +94,13 @@ extension TopicsViewController: UITableViewDelegate, UITableViewDataSource {
         return 0
     }
 
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        lastIndex = indexPath
-//        let vc = LearnTopicViewController()
-//        vc.topic = store.topics[indexPath.row]
-//        vc.hidesBottomBarWhenPushed = true
-//        self.navigationController?.pushViewController(vc, animated: true)
-//    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        lastIndex = indexPath
+        let vc = LearnTopicViewController()
+        vc.topic = fetchedResultsController.object(at: indexPath)
+        vc.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellOptional = tableView.dequeueReusableCell(withIdentifier: "TopicCell") as? TopicCell

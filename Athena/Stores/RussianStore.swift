@@ -3,8 +3,6 @@ import SwiftyJSON
 import CoreData
 
 public enum Language: String {
-    case english
-    case hebrew
     case russian
     case spanish
 }
@@ -33,7 +31,6 @@ struct RussianStore {
     }
 
     func checkForNewData() {
-
         guard let url = Bundle.main.url(forResource: "Russian", withExtension: "json") else {
             fatalError("Cannot find Russian.json")
         }
@@ -164,6 +161,105 @@ struct RussianStore {
         word.correctCount = 0
 
         return word
+    }
 
+    // Return all the words that follow the given predicates
+    func getWordsFromTopic(predicates: [NSPredicate]) -> [Word] {
+        let predicate = NSCompoundPredicate(type: NSCompoundPredicate.LogicalType.and,
+                                            subpredicates: predicates)
+        let fetchRequestSender = NSFetchRequest<NSFetchRequestResult>(entityName: "Word")
+        fetchRequestSender.predicate = predicate
+
+        var words: [Word] = []
+
+        do {
+            let entities = try context.fetch(fetchRequestSender)
+
+            for e in entities {
+                if let word = e as? Word {
+                    words.append(word)
+                }
+            }
+        } catch {
+            print("error executing fetch request: \(error)")
+        }
+
+        return words
+    }
+
+    func getRandomLearnedWordFromTopic(topicName: String, learned: Bool) -> Word? {
+        let namePredicate = NSPredicate(format: "topic.name == %@", topicName)
+        let learnedPredicate = NSPredicate(format: "learned == %@", NSNumber(value: learned))
+        let predicates = [namePredicate, learnedPredicate]
+
+        let words = getWordsFromTopic(predicates: predicates)
+
+        if words.count < 1 {
+            return nil
+        }
+
+        let randomIndex = Int(arc4random_uniform(UInt32(words.count)))
+        return words[randomIndex]
+    }
+
+    func getRandomWords(topicName: String, word: Word, amount: Int) -> [Word] {
+        var words: [Word] = [word]
+        var indexes: [Int] = []
+
+        let namePredicate = NSPredicate(format: "topic.name == %@", topicName)
+        let learnedPredicate = NSPredicate(format: "learned == %@", NSNumber(value: true))
+        let notLearnedPredicate = NSPredicate(format: "learned == %@", NSNumber(value: false))
+
+        var predicates = [namePredicate, learnedPredicate]
+        let learnedWords = getWordsFromTopic(predicates: predicates)
+
+        predicates = [namePredicate, notLearnedPredicate]
+        let notLearned = getWordsFromTopic(predicates: predicates)
+
+        // Get random words while we don't have 4 and wordsLearned still has unused words
+        while words.count < amount && indexes.count < learnedWords.count {
+            let randomIndex = Int(arc4random_uniform(UInt32(learnedWords.count)))
+            let randomWord = learnedWords[randomIndex]
+
+            if !indexes.contains(randomIndex) && !words.contains {$0.native == randomWord.native} {
+                words.append(randomWord)
+                indexes.append(randomIndex)
+            }
+        }
+
+        indexes = []
+
+        // Get random words while we don't have 4 and wordsToLearn still  has unused words
+        while words.count < amount && indexes.count < notLearned.count {
+            let randomIndex = Int(arc4random_uniform(UInt32(notLearned.count)))
+            let randomWord = notLearned[randomIndex]
+
+            if !indexes.contains(randomIndex) && !words.contains {$0.native == randomWord.native} {
+                words.append(randomWord)
+                indexes.append(randomIndex)
+            }
+        }
+
+        return words
+    }
+
+    func getNativeString(words: [Word]) -> [String] {
+        var wordsString: [String] = []
+        for word in words {
+            wordsString.append(word.native!)
+        }
+        return wordsString
+    }
+
+    func getEnglishString(words: [Word]) -> [String] {
+        var wordsString: [String] = []
+        for word in words {
+            wordsString.append(word.english!)
+        }
+        return wordsString
+    }
+
+    func getTopicPercentageComplete(topic: Topic) -> Float {
+        return Float(topic.learnedWordsCount) / Float(topic.totalWordsCount)
     }
 }
