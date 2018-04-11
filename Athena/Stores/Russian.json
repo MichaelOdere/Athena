@@ -1,4 +1,5 @@
  [{
+  "name": "Transportation",
   "wordsToLearn": [
                    {
                    "native": "Автобус",
@@ -246,11 +247,12 @@
                    "english": "I see ____."
                    }
                    ],
-  "wordsLearned": [],
-  "name": "Transportation",
+  "level": 12,
   "language": "russian",
+  "wordsLearned": [],
   "icon": "nil"
   },{
+  "name": "House",
   "wordsToLearn": [
                    {
                    "native": "балкон",
@@ -523,11 +525,12 @@
                    "english": "noisy"
                    }
                    ],
-  "wordsLearned": [],
-  "name": "House",
+  "level": 7,
   "language": "russian",
+  "wordsLearned": [],
   "icon": "nil"
   },{
+  "name": "Food",
   "wordsToLearn": [
                    {
                    "native": "АНАНАС",
@@ -880,11 +883,12 @@
                    "english": "EGGS"
                    }
                    ],
-  "wordsLearned": [],
-  "name": "Food",
+  "level": 3,
   "language": "russian",
+  "wordsLearned": [],
   "icon": "nil"
   },{
+  "name": "Drinks",
   "wordsToLearn": [
                    {
                    "native": "вода",
@@ -987,11 +991,12 @@
                    "english": "brandy"
                    }
                    ],
-  "wordsLearned": [],
-  "name": "Drinks",
+  "level": 2,
   "language": "russian",
+  "wordsLearned": [],
   "icon": "nil"
   },{
+  "name": "Numbers",
   "wordsToLearn": [
                    {
                    "native": "Восемнадцать",
@@ -1199,11 +1204,12 @@
                    "english": "Six hundred"
                    }
                    ],
-  "wordsLearned": [],
-  "name": "Numbers",
+  "level": 8,
   "language": "russian",
+  "wordsLearned": [],
   "icon": "nil"
   },{
+  "name": "Clothing",
   "wordsToLearn": [
                    {
                    "native": "блу́зка",
@@ -1396,11 +1402,12 @@
                    "english": "skirt"
                    }
                    ],
-  "wordsLearned": [],
-  "name": "Clothing",
+  "level": 0,
   "language": "russian",
+  "wordsLearned": [],
   "icon": "nil"
   },{
+  "name": "Family",
   "wordsToLearn": [
                    {
                    "native": "брат",
@@ -1488,11 +1495,12 @@
                    "english": "aunt"
                    }
                    ],
-  "wordsLearned": [],
-  "name": "Family",
+  "level": 5,
   "language": "russian",
+  "wordsLearned": [],
   "icon": "nil"
   },{
+  "name": "Weather",
   "wordsToLearn": [
                    {
                    "native": "был туман",
@@ -1555,11 +1563,12 @@
                    "english": "it was snowing"
                    }
                    ],
-  "wordsLearned": [],
-  "name": "Weather",
+  "level": 6,
   "language": "russian",
+  "wordsLearned": [],
   "icon": "nil"
   },{
+  "name": "Animals",
   "wordsToLearn": [
                    {
                    "native": "cобака",
@@ -1727,11 +1736,12 @@
                    "english": "zebra"
                    }
                    ],
-  "wordsLearned": [],
-  "name": "Animals",
+  "level": 10,
   "language": "russian",
+  "wordsLearned": [],
   "icon": "nil"
   },{
+  "name": "Pet",
   "wordsToLearn": [
                    {
                    "native": "домашнее животное",
@@ -1819,11 +1829,12 @@
                    "english": "puppy"
                    }
                    ],
-  "wordsLearned": [],
-  "name": "Pet",
+  "level": 1,
   "language": "russian",
+  "wordsLearned": [],
   "icon": "nil"
   },{
+  "name": "Computers",
   "wordsToLearn": [
                    {
                    "native": "arrow",
@@ -1931,11 +1942,12 @@
                    "english": "окно"
                    }
                    ],
-  "wordsLearned": [],
-  "name": "Computers",
+  "level": 4,
   "language": "russian",
+  "wordsLearned": [],
   "icon": "nil"
   },{
+  "name": "School",
   "wordsToLearn": [
                    {
                    "native": "eraser",
@@ -2033,11 +2045,12 @@
                    "english": "кнопка"
                    }
                    ],
-  "wordsLearned": [],
-  "name": "School",
+  "level": 11,
   "language": "russian",
+  "wordsLearned": [],
   "icon": "nil"
   },{
+  "name": "Colors",
   "wordsToLearn": [
                    {
                    "native": "белый",
@@ -2124,9 +2137,9 @@
                    "transliteration": "chyohrneey",
                    "english": "black"
                    }
-                   ], 
-  "wordsLearned": [],
-  "name": "Colors",
+                   ],
+  "level": 9,
   "language": "russian",
+  "wordsLearned": [],
   "icon": "nil"
   }]

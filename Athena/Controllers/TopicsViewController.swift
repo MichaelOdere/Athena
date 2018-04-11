@@ -1,4 +1,5 @@
 import UIKit
+import CoreData
 
 class TopicsViewController: UIViewController {
     var tableView: UITableView!
@@ -10,7 +11,10 @@ class TopicsViewController: UIViewController {
                   AthenaPalette.maximumRed]
 
     var lastIndex: IndexPath!
+    var fetchedResultsController: NSFetchedResultsController<Topic>!
+
     override func viewDidLoad() {
+        initFetchedResultsController()
         initTableView()
         scrollToBottom()
     }
@@ -20,6 +24,24 @@ class TopicsViewController: UIViewController {
             return
         }
         tableView.reloadRows(at: [index], with: .none)
+    }
+
+    func initFetchedResultsController() {
+        let topicRequests: NSFetchRequest<Topic> = Topic.fetchRequest()
+        let sortDescriptor = NSSortDescriptor(key: "level", ascending: false)
+        topicRequests.sortDescriptors = [sortDescriptor]
+
+        fetchedResultsController = NSFetchedResultsController(fetchRequest: topicRequests,
+                                                              managedObjectContext: store.context,
+                                                              sectionNameKeyPath: nil,
+                                                              cacheName: nil)
+//        fetchedResultsController.delegate = self
+
+        do {
+            try fetchedResultsController.performFetch()
+        } catch {
+            print(error.localizedDescription)
+        }
     }
 
     func initTableView() {
@@ -46,36 +68,79 @@ class TopicsViewController: UIViewController {
 
     func scrollToBottom() {
         DispatchQueue.main.async {
-            let indexPath = IndexPath(row: self.store.topics.count-1, section: 0)
+            guard let count = self.fetchedResultsController.fetchedObjects?.count else {
+                print("Can't get fetchedResultsController.fetchedObjects")
+                return
+            }
+
+            if count < 1 {
+                return
+            }
+
+            let indexPath = IndexPath(row: count-1, section: 0)
             self.tableView.scrollToRow(at: indexPath, at: .bottom, animated: false)
         }
     }
 }
 
 extension TopicsViewController: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        lastIndex = indexPath
-        let vc = LearnTopicViewController()
-        vc.topic = store.topics[indexPath.row]
-        vc.hidesBottomBarWhenPushed = true
-        self.navigationController?.pushViewController(vc, animated: true)
-    }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return store.topics.count
+        if let sections = fetchedResultsController.sections {
+            let sectionInfo = sections[section]
+            return sectionInfo.numberOfObjects
+        }
+
+        return 0
     }
 
-   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        lastIndex = indexPath
+//        let vc = LearnTopicViewController()
+//        vc.topic = store.topics[indexPath.row]
+//        vc.hidesBottomBarWhenPushed = true
+//        self.navigationController?.pushViewController(vc, animated: true)
+//    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellOptional = tableView.dequeueReusableCell(withIdentifier: "TopicCell") as? TopicCell
-        let topic = store.topics[indexPath.row]
+        let topic = fetchedResultsController.object(at: indexPath)
+
         guard let cell =  cellOptional else {
             fatalError("TopicCell not found.")
         }
-
         cell.title.text = topic.name
-        cell.progress.progress = topic.getPercentageComplete()
+        cell.progress.progress = Float(topic.learnedWordsCount) / Float(topic.totalWordsCount)
 
         cell.backgroundColor = colors[indexPath.row % colors.count]
         return cell
     }
 }
+
+//
+//extension TopicsViewController: UITableViewDelegate, UITableViewDataSource {
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        lastIndex = indexPath
+//        let vc = LearnTopicViewController()
+//        vc.topic = store.topics[indexPath.row]
+//        vc.hidesBottomBarWhenPushed = true
+//        self.navigationController?.pushViewController(vc, animated: true)
+//    }
+//
+//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        return store.topics.count
+//    }
+//
+//   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        let cellOptional = tableView.dequeueReusableCell(withIdentifier: "TopicCell") as? TopicCell
+//        let topic = store.topics[indexPath.row]
+//        guard let cell =  cellOptional else {
+//            fatalError("TopicCell not found.")
+//        }
+//        cell.title.text = topic.name
+////        cell.progress.progress = topic.getPercentageComplete()
+//
+//        cell.backgroundColor = colors[indexPath.row % colors.count]
+//        return cell
+//    }
+//}
