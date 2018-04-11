@@ -97,7 +97,8 @@ extension TopicsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         lastIndex = indexPath
         let vc = LearnTopicViewController()
-        vc.topic = fetchedResultsController.object(at: indexPath)
+        let topic = fetchedResultsController.object(at: indexPath)
+        vc.topic = TopicWrapper(topic: topic, context: store.context)
         vc.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(vc, animated: true)
     }

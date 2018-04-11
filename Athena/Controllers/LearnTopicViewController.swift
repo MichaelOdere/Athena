@@ -19,8 +19,7 @@ class LearnTopicViewController: UIViewController {
     var dragThreeToCorrectView: DragThreeToCorrectView!
     var swipeWordView: SwipeWordView!
 
-    let store = RussianStore()
-    var topic: Topic!
+    var topic: TopicWrapper!
 
     var nextView: LearnView!
     var lastResult: ResultOfLearn!
@@ -49,7 +48,7 @@ class LearnTopicViewController: UIViewController {
         swipeWordView.progressView.topicTitle = topic.name
         swipeWordView.delegate = self
 
-        nextView = LearnView(rawValue: topic.lastTopicView!)
+        nextView = LearnView(rawValue: topic.topic.lastTopicView!)
         showNextView(centerWord: nil)
     }
 }
@@ -59,13 +58,13 @@ extension LearnTopicViewController: DoneHandlerProtocol {
     // Determine what the next view should be and set the value of the nextView variable
     func previousView(previous: LearnView, result: ResultOfLearn) {
         lastResult = result
-        store.saveContext()
+        topic.saveContext()
         switch previous {
         case .reset:
             nextView = previousViewInitial()
             showNextView(centerWord: result.getWord())
         case .introductionToWord:
-            store.learnedNewWord(topic: topic, word: result.getWord())
+            topic.learnedNewWord(word: result.getWord())
             nextView = previousViewIntroduction(result: result)
             showNextView(centerWord: result.getWord())
         case .dragFiveToCorrectView:
@@ -85,7 +84,7 @@ extension LearnTopicViewController: DoneHandlerProtocol {
 // Given a previous view what is the next view we want to show
 extension LearnTopicViewController {
     func previousViewInitial() -> LearnView {
-        if topic.learnedWordsCount < topic.totalWordsCount {
+        if topic.canShowIntroductionToWordView() {
             return .introductionToWord
         } else {
             return previousViewIntroduction(result: .none)
@@ -93,9 +92,9 @@ extension LearnTopicViewController {
     }
 
     func previousViewIntroduction(result: ResultOfLearn) -> LearnView {
-        if topic.totalWordsCount > 5 {
+        if topic.canShowDragFiveCorrectView() {
             return .dragFiveToCorrectView
-        } else if topic.totalWordsCount > 3 {
+        } else if topic.canShowDragThreeCorrectView() {
             return .dragThreeToCorrectView
         } else {
             return .introductionToWord
@@ -129,7 +128,7 @@ extension LearnTopicViewController {
 // MARK: - Show Next View Logic
 extension LearnTopicViewController {
     func showNextView(centerWord: Word?) {
-        topic.lastTopicView = nextView.rawValue
+        topic.topic.lastTopicView = nextView.rawValue
         switch nextView {
         case .reset:
             previousView(previous: .reset, result: .none)
@@ -149,60 +148,62 @@ extension LearnTopicViewController {
     func showIntroductionToWordView() {
         removeAllSubviews()
         view.addSubview(introductionToWordView)
-        if let word = topic.words?[Int(topic.learnedWordsCount)] as? Word {
+        if let word = topic.getNextWord() {
             introductionToWordView.sendWord(word: word)
+        } else {
+            previousView(previous: .introductionToWord, result: .none)
         }
     }
 
     func showDragFiveToCorrectView(centerWord: Word?) {
-        dragFiveToCorrectView.progressView.percentageComplete = store.getTopicPercentageComplete(topic: topic)
+        dragFiveToCorrectView.progressView.percentageComplete = topic.getPercentageComplete()
         removeAllSubviews()
         view.addSubview(dragFiveToCorrectView)
         dragFiveToCorrectView.dragView.setup()
 
         if centerWord == nil {
-            guard let randomWord = store.getRandomLearnedWordFromTopic(topicName: topic.name!, learned: true) else {
+            guard let randomWord = topic.getRandomWord(learned: true) else {
                 nextView = .reset
                 showNextView(centerWord: nil)
                 return
             }
 
-            let words =  store.getRandomWords(topicName: topic.name!, word: randomWord, amount: 4)
-            dragFiveToCorrectView.dragView.setText(word: randomWord, nativeWords: store.getEnglishString(words: words))
+            let words =  topic.getRandomWords(word: randomWord, amount: 4)
+            dragFiveToCorrectView.dragView.setText(word: randomWord, nativeWords: topic.getEnglishString(words: words))
         } else {
-            let words =  store.getRandomWords(topicName: topic.name!, word: centerWord!, amount: 4)
-            dragFiveToCorrectView.dragView.setText(word: centerWord!, nativeWords: store.getEnglishString(words: words))
+            let words =  topic.getRandomWords(word: centerWord!, amount: 4)
+            dragFiveToCorrectView.dragView.setText(word: centerWord!, nativeWords: topic.getEnglishString(words: words))
         }
     }
 
     func showDragThreeToCorrectView(centerWord: Word?) {
-        dragThreeToCorrectView.progressView.percentageComplete = store.getTopicPercentageComplete(topic: topic)
+        dragThreeToCorrectView.progressView.percentageComplete = topic.getPercentageComplete()
         removeAllSubviews()
         view.addSubview(dragThreeToCorrectView)
         dragThreeToCorrectView.dragView.setup()
 
         if centerWord == nil {
-            guard let randomWord = store.getRandomLearnedWordFromTopic(topicName: topic.name!, learned: true) else {
+            guard let randomWord = topic.getRandomWord(learned: true) else {
                 nextView = .reset
                 showNextView(centerWord: nil)
                 return
             }
-            let words =  store.getRandomWords(topicName: topic.name!, word: randomWord, amount: 2)
+            let words =  topic.getRandomWords(word: randomWord, amount: 2)
             dragThreeToCorrectView.dragView.setText(word: randomWord,
-                                                    nativeWords: store.getEnglishString(words: words))
+                                                    nativeWords: topic.getEnglishString(words: words))
         } else {
-            let words =  store.getRandomWords(topicName: topic.name!, word: centerWord!, amount: 2)
-            dragThreeToCorrectView.dragView.setText(word: centerWord!, nativeWords: store.getEnglishString(words: words))
+            let words =  topic.getRandomWords(word: centerWord!, amount: 2)
+            dragThreeToCorrectView.dragView.setText(word: centerWord!, nativeWords: topic.getEnglishString(words: words))
         }
     }
 
     func showSwipeWordView(centerWord: Word?) {
         swipeWordView.animateView()
-        swipeWordView.progressView.percentageComplete = store.getTopicPercentageComplete(topic: topic)
+        swipeWordView.progressView.percentageComplete = topic.getPercentageComplete()
         var randomWord: Word!
 
         if centerWord == nil {
-            guard let tempRandomWord = store.getRandomLearnedWordFromTopic(topicName: topic.name!, learned: true) else {
+            guard let tempRandomWord = topic.getRandomWord(learned: true) else {
                 nextView = .reset
                 showNextView(centerWord: nil)
                 return
@@ -211,7 +212,8 @@ extension LearnTopicViewController {
         } else {
             randomWord = centerWord
         }
-        let words = store.getRandomWords(topicName: topic.name!, word: randomWord, amount: 2)
+
+        let words = topic.getRandomWords(word: randomWord, amount: 2)
 
         // 1 = no match 2 = match
         let match = (Int(arc4random_uniform(UInt32(2))) + 1) == 2
