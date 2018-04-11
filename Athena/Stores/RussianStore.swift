@@ -211,10 +211,12 @@ struct RussianStore {
         let notLearnedPredicate = NSPredicate(format: "learned == %@", NSNumber(value: false))
 
         var predicates = [namePredicate, learnedPredicate]
-        let learnedWords = getWordsFromTopic(predicates: predicates)
+        var learnedWords = getWordsFromTopic(predicates: predicates)
 
-        predicates = [namePredicate, notLearnedPredicate]
-        let notLearned = getWordsFromTopic(predicates: predicates)
+        // If the given word is learned we want to acocunt for it
+        if let index = learnedWords.index(of: word) {
+            indexes.append(index)
+        }
 
         // Get random words while we don't have 4 and wordsLearned still has unused words
         while words.count < amount && indexes.count < learnedWords.count {
@@ -227,7 +229,16 @@ struct RussianStore {
             }
         }
 
+        // Need to reset indexes for not learned
         indexes = []
+
+        predicates = [namePredicate, notLearnedPredicate]
+        var notLearned = getWordsFromTopic(predicates: predicates)
+
+        // If the given word is not learned we want to acocunt for it
+        if let index = notLearned.index(of: word) {
+            indexes.append(index)
+        }
 
         // Get random words while we don't have 4 and wordsToLearn still  has unused words
         while words.count < amount && indexes.count < notLearned.count {
@@ -257,6 +268,13 @@ struct RussianStore {
             wordsString.append(word.english!)
         }
         return wordsString
+    }
+
+    func learnedNewWord(topic: Topic, word: Word?) {
+        topic.learnedWordsCount += 1
+        if let word = word {
+            word.learned = true
+        }
     }
 
     func getTopicPercentageComplete(topic: Topic) -> Float {

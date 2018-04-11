@@ -59,12 +59,13 @@ extension LearnTopicViewController: DoneHandlerProtocol {
     // Determine what the next view should be and set the value of the nextView variable
     func previousView(previous: LearnView, result: ResultOfLearn) {
         lastResult = result
+        store.saveContext()
         switch previous {
         case .reset:
             nextView = previousViewInitial()
             showNextView(centerWord: result.getWord())
         case .introductionToWord:
-//            topic.lea
+            store.learnedNewWord(topic: topic, word: result.getWord())
             nextView = previousViewIntroduction(result: result)
             showNextView(centerWord: result.getWord())
         case .dragFiveToCorrectView:
@@ -165,6 +166,7 @@ extension LearnTopicViewController {
                 showNextView(centerWord: nil)
                 return
             }
+
             let words =  store.getRandomWords(topicName: topic.name!, word: randomWord, amount: 4)
             dragFiveToCorrectView.dragView.setText(word: randomWord, nativeWords: store.getEnglishString(words: words))
         } else {
@@ -196,24 +198,30 @@ extension LearnTopicViewController {
 
     func showSwipeWordView(centerWord: Word?) {
         swipeWordView.animateView()
+        swipeWordView.progressView.percentageComplete = store.getTopicPercentageComplete(topic: topic)
+        var randomWord: Word!
 
-//        var randomWord: Word!
-//
-//        if centerWord == nil {
-//            randomWord = topic.getRandomWord()
-//        } else {
-//            randomWord = centerWord
-//        }
-//
-//        let words = topic.getRandomWords(word: randomWord, amount: 2)
-//
-//        // 1 = no match 2 = match
-//        let match = (Int(arc4random_uniform(UInt32(2))) + 1) == 2
-//        if match {
-//            swipeWordView.setText(word: randomWord, native: randomWord.native, english: randomWord.english, match: match)
-//        } else {
-//            swipeWordView.setText(word: randomWord, native: randomWord.native, english: words[1].english, match: match)
-//        }
+        if centerWord == nil {
+            guard let tempRandomWord = store.getRandomLearnedWordFromTopic(topicName: topic.name!, learned: true) else {
+                nextView = .reset
+                showNextView(centerWord: nil)
+                return
+            }
+            randomWord = tempRandomWord
+        } else {
+            randomWord = centerWord
+        }
+        let words = store.getRandomWords(topicName: topic.name!, word: randomWord, amount: 2)
+
+        // 1 = no match 2 = match
+        let match = (Int(arc4random_uniform(UInt32(2))) + 1) == 2
+        if match {
+            swipeWordView.setText(word: randomWord, native: randomWord.native!,
+                                  english: randomWord.english!, match: match)
+        } else {
+            swipeWordView.setText(word: randomWord, native: randomWord.native!,
+                                  english: words[1].english!, match: match)
+        }
 
         view.addSubview(swipeWordView)
     }
