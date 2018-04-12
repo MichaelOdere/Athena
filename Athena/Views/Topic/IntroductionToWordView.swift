@@ -196,13 +196,13 @@ extension IntroductionToWordView {
                 UIView.animate(withDuration: 1, animations: {
                     self.addLabel.alpha = 0
                     self.littleNewWordView.alpha = 0
-                }) { (_) in
+                }, completion: { _ in
                     self.addLabel.alpha = 1
                     self.littleNewWordView.alpha = 1
                     self.delegate?.previousView(previous: .introductionToWord, result: .learned(self.word))
                     self.bigNewWordView.isHidden = false
                     self.littleNewWordView.isHidden = true
-                }
+                })
                 return
             }
         }

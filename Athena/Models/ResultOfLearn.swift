@@ -2,14 +2,14 @@ enum ResultOfLearn {
     case none
     case learned(Word)
     case incorrect(Word)
-    case correct
+    case correct(Word)
 }
 
 extension ResultOfLearn {
     func getWord() -> Word? {
         switch self {
-        case .correct:
-            return nil
+        case .correct(let word):
+            return word
         case .incorrect(let word):
             return word
         case .learned(let word):

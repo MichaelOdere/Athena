@@ -102,12 +102,12 @@ class SwipeWordView: TopicView {
 			self.card.frame.origin = CGPoint(x: origin.x + xDisplacement, y: origin.y)
 			self.card.transform =  CGAffineTransform(rotationAngle: rotation)
 			self.card.alpha = 0
-		}) { (success) in
+		}, completion: { _ in
 			// Transform needs to be set to identiy before origin is set
 			self.card.transform = CGAffineTransform.identity
 			self.card.alpha = 1
 			self.card.frame.origin = origin
-		}
+		})
 	}
 
 	@objc func selectIncorrect() {
@@ -121,7 +121,7 @@ class SwipeWordView: TopicView {
 	}
 
 	func getResult(userSelected: Bool) -> ResultOfLearn {
-		return userSelected == match ? .correct : .incorrect(word)
+		return userSelected == match ? .correct(word) : .incorrect(word)
 	}
 
     required init?(coder aDecoder: NSCoder) {

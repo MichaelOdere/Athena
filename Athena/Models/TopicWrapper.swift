@@ -18,6 +18,13 @@ struct TopicWrapper {
         }
     }
 
+    func getPercentageComplete() -> Float {
+        return Float(topic.learnedWordsCount) / Float(topic.totalWordsCount)
+    }
+}
+
+// MARK: - Update Topic
+extension TopicWrapper {
     func saveContext() {
         do {
             try context.save()
@@ -26,17 +33,31 @@ struct TopicWrapper {
         }
     }
 
-    func learnedNewWord(word: Word?) {
-        topic.learnedWordsCount += 1
-        if let word = word {
+    // Called when a new word is learned
+    // Changeds word to learned = true and topic learnedWordsCount += 1
+    func updateAfterNewWord(word: Word) {
+        if word.learned != true {
+            topic.learnedWordsCount += 1
             word.learned = true
+            word.firstSeen = Date()
         }
     }
 
-    func getPercentageComplete() -> Float {
-        return Float(topic.learnedWordsCount) / Float(topic.totalWordsCount)
+    func updateAfterResult(result: ResultOfLearn) {
+        switch result {
+        case .learned(let word):
+            updateAfterNewWord(word: word)
+            word.lastSeen = Date()
+        case .incorrect(let word):
+            word.incorrectCount += 1
+            word.lastSeen = Date()
+        case .correct(let word):
+            word.correctCount += 1
+            word.lastSeen = Date()
+        default:
+            break
+        }
     }
-
 }
 
 // MARK: - Get words
@@ -69,8 +90,8 @@ extension TopicWrapper {
         do {
             let entities = try context.fetch(fetchRequestSender)
 
-            for e in entities {
-                if let word = e as? Word {
+            for entity in entities {
+                if let word = entity as? Word {
                     words.append(word)
                 }
             }

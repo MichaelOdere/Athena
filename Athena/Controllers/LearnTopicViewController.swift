@@ -58,13 +58,13 @@ extension LearnTopicViewController: DoneHandlerProtocol {
     // Determine what the next view should be and set the value of the nextView variable
     func previousView(previous: LearnView, result: ResultOfLearn) {
         lastResult = result
+        topic.updateAfterResult(result: result)
         topic.saveContext()
         switch previous {
         case .reset:
             nextView = previousViewInitial()
             showNextView(centerWord: result.getWord())
         case .introductionToWord:
-            topic.learnedNewWord(word: result.getWord())
             nextView = previousViewIntroduction(result: result)
             showNextView(centerWord: result.getWord())
         case .dragFiveToCorrectView:
@@ -193,7 +193,8 @@ extension LearnTopicViewController {
                                                     nativeWords: topic.getEnglishString(words: words))
         } else {
             let words =  topic.getRandomWords(word: centerWord!, amount: 2)
-            dragThreeToCorrectView.dragView.setText(word: centerWord!, nativeWords: topic.getEnglishString(words: words))
+            dragThreeToCorrectView.dragView.setText(word: centerWord!,
+                                                    nativeWords: topic.getEnglishString(words: words))
         }
     }
 

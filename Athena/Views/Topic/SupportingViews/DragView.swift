@@ -127,7 +127,7 @@ extension DragView {
 
     func collisionDetected(collisionLabel: UILabel) {
         let boolResult = getResultOfCollision(collisionLabel: collisionLabel)
-        let result: ResultOfLearn = boolResult ? .correct : .incorrect(word)
+        let result: ResultOfLearn = boolResult ? .correct(word) : .incorrect(word)
 
         UIView.animate(withDuration: 0.6,
                        delay: 0,
