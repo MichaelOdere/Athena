@@ -18,7 +18,7 @@ class HistoryCell: UITableViewCell {
 
     func initaccuracyLabel() {
         accuracyLabel = UILabel()
-        accuracyLabel.font = UIFont(name: "HelveticaNeue-Bold", size: 35.0)
+        accuracyLabel.font = UIFont(name: "HelveticaNeue-Bold", size: 30.0)
         accuracyLabel.textColor = UIColor.white
         accuracyLabel.textAlignment = .left
         addSubview(accuracyLabel)
@@ -31,7 +31,7 @@ class HistoryCell: UITableViewCell {
                                          toItem: self,
                                          attribute: .leading,
                                          multiplier: 1,
-                                         constant: padding)
+                                         constant: 2 * padding)
         leading.isActive = true
 
         let top = NSLayoutConstraint(item: accuracyLabel,
@@ -55,7 +55,7 @@ class HistoryCell: UITableViewCell {
 
     func initNative() {
         nativeLabel = UILabel()
-        nativeLabel.font = UIFont(name: "HelveticaNeue", size: 20.0)
+        nativeLabel.font = UIFont(name: "HelveticaNeue", size: 25.0)
         nativeLabel.textColor = UIColor.white
         nativeLabel.textAlignment = .left
         addSubview(nativeLabel)
@@ -68,7 +68,7 @@ class HistoryCell: UITableViewCell {
                                          toItem: accuracyLabel,
                                          attribute: .leading,
                                          multiplier: 1,
-                                         constant: 8 * padding)
+                                         constant: 14 * padding)
         leading.isActive = true
 
         let trailing = NSLayoutConstraint(item: nativeLabel,
@@ -93,7 +93,7 @@ class HistoryCell: UITableViewCell {
 
     func initEnglish() {
         englishLabel = UILabel()
-        englishLabel.font = UIFont(name: "HelveticaNeue", size: 12.0)
+        englishLabel.font = UIFont(name: "HelveticaNeue", size: 18.0)
         englishLabel.textColor = UIColor.white
         englishLabel.textAlignment = .left
         addSubview(englishLabel)
