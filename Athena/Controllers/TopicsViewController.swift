@@ -117,31 +117,3 @@ extension TopicsViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
 }
-
-//
-//extension TopicsViewController: UITableViewDelegate, UITableViewDataSource {
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        lastIndex = indexPath
-//        let vc = LearnTopicViewController()
-//        vc.topic = store.topics[indexPath.row]
-//        vc.hidesBottomBarWhenPushed = true
-//        self.navigationController?.pushViewController(vc, animated: true)
-//    }
-//
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return store.topics.count
-//    }
-//
-//   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cellOptional = tableView.dequeueReusableCell(withIdentifier: "TopicCell") as? TopicCell
-//        let topic = store.topics[indexPath.row]
-//        guard let cell =  cellOptional else {
-//            fatalError("TopicCell not found.")
-//        }
-//        cell.title.text = topic.name
-////        cell.progress.progress = topic.getPercentageComplete()
-//
-//        cell.backgroundColor = colors[indexPath.row % colors.count]
-//        return cell
-//    }
-//}
