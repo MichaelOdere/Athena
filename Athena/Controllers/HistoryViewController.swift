@@ -82,7 +82,10 @@ extension HistoryViewController {
         cell.accuracyLabel.text = getPercentage(number: accuracy)
         cell.nativeLabel.text = word.native
         cell.englishLabel.text = word.english
-//        cell.progress.progress = Float(topic.learnedWordsCount) / Float(topic.totalWordsCount)
+
+        let diffInDays = Calendar.current.dateComponents([.day], from: word.lastSeen!, to: Date()).day
+        // TODO better learning formula
+        cell.strengthView.progress = accuracy - 0.01 * Float(diffInDays!)
 
         cell.backgroundColor = colors[indexPath.row % colors.count]
         return cell
@@ -96,6 +99,15 @@ extension HistoryViewController {
 
         return percentFormatter.string(from: NSNumber(value: number))!
     }
+
+//    func getDaysSince(lastSceen: Date) -> Int {
+//        let currentCalendar = Calendar.current
+//
+//        guard let start = currentCalendar.ordinality(of: comp, in: .era, for: date) else { return 0 }
+//        guard let end = currentCalendar.ordinality(of: comp, in: .era, for: self) else { return 0 }
+//
+//        return end - start
+//    }
 }
 
 extension HistoryViewController: NSFetchedResultsControllerDelegate {
