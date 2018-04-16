@@ -74,7 +74,6 @@ class TopicView: UIView {
         gl.colors = colors
         gl.locations = [0.0, 1.0]
         self.layer.insertSublayer(gl, below: self.progressView.layer)
-
     }
 
     required init?(coder aDecoder: NSCoder) {
