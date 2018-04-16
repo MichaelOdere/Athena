@@ -1,27 +1,26 @@
 import UIKit
 import CoreData
 
-class HistoryViewController: UITableViewController {
+class HistoryViewController: UIViewController {
     var store: RussianStore = RussianStore()
-    var colors = [AthenaPalette.parisGreen,
-                  AthenaPalette.maximumBlue,
-                  AthenaPalette.lightPink,
-                  AthenaPalette.rasberryPink,
-                  AthenaPalette.maximumRed]
-
     var lastIndex: IndexPath!
     var fetchedResultsController: NSFetchedResultsController<Word>!
 
+    var tableView: UITableView!
+
     override func viewDidLoad() {
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+
         initFetchedResultsController()
         initTableView()
+        initGradientColor(colors: [AthenaPalette.lightBlue.cgColor, AthenaPalette.lightPink.cgColor])
     }
 
     func initFetchedResultsController() {
         let topicRequests: NSFetchRequest<Word> = Word.fetchRequest()
         topicRequests.predicate = NSPredicate(format: "learned == %@", NSNumber(value: true))
 
-//        let sortDescriptor = NSSortDescriptor(key: "lastSceen", ascending: false)
+//        let lastSort = NSSortDescriptor(key: "lastSceen", ascending: false)
         let topicSort = NSSortDescriptor(key: "topic.level", ascending: true)
         let englishSort = NSSortDescriptor(key: "english", ascending: true)
         topicRequests.sortDescriptors = [topicSort, englishSort]
@@ -40,19 +39,46 @@ class HistoryViewController: UITableViewController {
     }
 
     func initTableView() {
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        print(tabBarController?.tabBar.frame.height)
+        tableView = UITableView(frame: CGRect(x: 0, y: 20, width: view.frame.width, height: view.frame.height - 20 - (tabBarController?.tabBar.frame.height)!))
         tableView.sectionHeaderHeight = 50
+        tableView.backgroundColor = UIColor.clear
         tableView.register(HistoryCell.self, forCellReuseIdentifier: "HistoryCell")
+
+        tableView.delegate = self
+        tableView.dataSource = self
+
+        view.addSubview(tableView)
+    }
+
+    func initGradientColor(colors: [CGColor]) {
+        let gl = CAGradientLayer()
+        gl.frame = self.view.frame
+        gl.colors = colors
+        gl.locations = [0.0, 1.0]
+//        let bgView = UIView.init(frame: self.tableView.frame)
+        view.layer.insertSublayer(gl, at: 0)
+//        self.tableView.backgroundView = bgView
     }
 }
 
-extension HistoryViewController {
+extension HistoryViewController: UITableViewDataSource, UITableViewDelegate {
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return self.fetchedResultsController.sections?.count ?? 0
     }
 
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = HistoryHeaderView()
+        if let sections = fetchedResultsController.sections {
+            let sectionInfo = sections[section]
+            headerView.titleLabel.text = sectionInfo.name
+        }
+
+        return headerView
+    }
+
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if let sections = fetchedResultsController.sections {
             let sectionInfo = sections[section]
             return sectionInfo.name
@@ -61,7 +87,7 @@ extension HistoryViewController {
         return nil
     }
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let sections = fetchedResultsController.sections {
             let sectionInfo = sections[section]
             return sectionInfo.numberOfObjects
@@ -69,13 +95,14 @@ extension HistoryViewController {
         return 0
     }
 
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellOptional = tableView.dequeueReusableCell(withIdentifier: "HistoryCell") as? HistoryCell
         let word = fetchedResultsController.object(at: indexPath)
 
         guard let cell =  cellOptional else {
             fatalError("HistoryCell not found.")
         }
+
         let correct = Float(word.correctCount)
         let total = max(Float(word.correctCount) + Float(word.incorrectCount), 1)
         let accuracy = correct / total
@@ -84,10 +111,10 @@ extension HistoryViewController {
         cell.englishLabel.text = word.english
 
         let diffInDays = Calendar.current.dateComponents([.day], from: word.lastSeen!, to: Date()).day
-        // TODO better learning formula
-        cell.strengthView.progress = accuracy - 0.01 * Float(diffInDays!)
 
-        cell.backgroundColor = colors[indexPath.row % colors.count]
+        // todo better strength formula
+        cell.strengthView.progress = min(1.0, accuracy - (0.01 * Float(diffInDays!) - 5.0))
+
         return cell
     }
 
@@ -99,15 +126,6 @@ extension HistoryViewController {
 
         return percentFormatter.string(from: NSNumber(value: number))!
     }
-
-//    func getDaysSince(lastSceen: Date) -> Int {
-//        let currentCalendar = Calendar.current
-//
-//        guard let start = currentCalendar.ordinality(of: comp, in: .era, for: date) else { return 0 }
-//        guard let end = currentCalendar.ordinality(of: comp, in: .era, for: self) else { return 0 }
-//
-//        return end - start
-//    }
 }
 
 extension HistoryViewController: NSFetchedResultsControllerDelegate {

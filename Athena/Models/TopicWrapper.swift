@@ -40,6 +40,7 @@ extension TopicWrapper {
             topic.learnedWordsCount += 1
             word.learned = true
             word.firstSeen = Date()
+            word.lastSeen = Date()
         }
     }
 
