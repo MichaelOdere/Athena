@@ -52,7 +52,6 @@ struct RussianStore {
         } catch {
             print(error)
         }
-
     }
 
     func isTopicInCoreData(name: String, language: String) -> Bool {
