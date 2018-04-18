@@ -8,6 +8,10 @@ public struct AthenaPalette {
     static public let lightPink = UIColor(red: 0xE0, green: 0xBA, blue: 0xD7)
     static public let rasberryPink = UIColor(red: 0xE3, green: 0x63, blue: 0x97)
     static public let maximumRed = UIColor(red: 0xDE, green: 0x1A, blue: 0x1A)
+    static public let slate = UIColor(red: 0x08, green: 0x52, blue: 0x6A)
+    static public let blue = UIColor(red: 0x4E, green: 0xB8, blue: 0xD3)
+    static public let floral = UIColor(red: 0xA6, green: 0x82, blue: 0xFF)
+    static public let yankeesBlue = UIColor(red: 0x14, green: 0x1B, blue: 0x41)
 }
 
 // https://stackoverflow.com/questions/24263007/how-to-use-hex-colour-values
