@@ -13,6 +13,10 @@
 		F91C1118205C588F00FD7776 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F91C1116205C588F00FD7776 /* Main.storyboard */; };
 		F91C111A205C588F00FD7776 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F91C1119205C588F00FD7776 /* Assets.xcassets */; };
 		F91C111D205C588F00FD7776 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F91C111B205C588F00FD7776 /* LaunchScreen.storyboard */; };
+		F92033242087D3A500B961FC /* HistoryHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92033222087D3A500B961FC /* HistoryHeaderView.swift */; };
+		F92033252087D3A500B961FC /* HistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92033232087D3A500B961FC /* HistoryCell.swift */; };
+		F92033272087D3B100B961FC /* TopicWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92033262087D3B100B961FC /* TopicWrapper.swift */; };
+		F92033292087D3BC00B961FC /* WordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92033282087D3BC00B961FC /* WordViewController.swift */; };
 		F9470BFF2061B19C000624E2 /* DragFiveToCorrectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9470BFE2061B19C000624E2 /* DragFiveToCorrectView.swift */; };
 		F9470C012061C500000624E2 /* DragFiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9470C002061C500000624E2 /* DragFiveView.swift */; };
 		F95EE947206E09F600DA2ED5 /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F95EE946206E09F600DA2ED5 /* CircleView.swift */; };
@@ -68,6 +72,10 @@
 		F91C1119205C588F00FD7776 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F91C111C205C588F00FD7776 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F91C111E205C588F00FD7776 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F92033222087D3A500B961FC /* HistoryHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryHeaderView.swift; sourceTree = "<group>"; };
+		F92033232087D3A500B961FC /* HistoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryCell.swift; sourceTree = "<group>"; };
+		F92033262087D3B100B961FC /* TopicWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicWrapper.swift; sourceTree = "<group>"; };
+		F92033282087D3BC00B961FC /* WordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordViewController.swift; sourceTree = "<group>"; };
 		F9470BFE2061B19C000624E2 /* DragFiveToCorrectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragFiveToCorrectView.swift; sourceTree = "<group>"; };
 		F9470C002061C500000624E2 /* DragFiveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragFiveView.swift; sourceTree = "<group>"; };
 		F95EE946206E09F600DA2ED5 /* CircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
@@ -183,6 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				F985E83E205E011800B5ACB4 /* HistoryViewController.swift */,
+				F92033282087D3BC00B961FC /* WordViewController.swift */,
 				F985E840205E012E00B5ACB4 /* ProfileViewController.swift */,
 				F985E838205E005A00B5ACB4 /* TabBarController.swift */,
 				F985E83A205E00CA00B5ACB4 /* TopicsViewController.swift */,
@@ -195,6 +204,7 @@
 		F91C1143205C747D00FD7776 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				F92033212087D3A500B961FC /* History */,
 				F9FFC994205E723A00224EB1 /* Topic */,
 			);
 			path = Views;
@@ -206,8 +216,18 @@
 				F9791E3C205E4DFE0055C1F6 /* Word.swift */,
 				F9791E41205E5C6D0055C1F6 /* Topic.swift */,
 				F96123BE2072F7D400EF8A9B /* ResultOfLearn.swift */,
+				F92033262087D3B100B961FC /* TopicWrapper.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		F92033212087D3A500B961FC /* History */ = {
+			isa = PBXGroup;
+			children = (
+				F92033222087D3A500B961FC /* HistoryHeaderView.swift */,
+				F92033232087D3A500B961FC /* HistoryCell.swift */,
+			);
+			path = History;
 			sourceTree = "<group>";
 		};
 		F9371249206B290300603CC5 /* SupportingViews */ = {
@@ -503,6 +523,7 @@
 				F9A5D7C7207475F20078AEEE /* DragLabel.swift in Sources */,
 				F985E841205E012E00B5ACB4 /* ProfileViewController.swift in Sources */,
 				F981135320603BFD00D3BE79 /* IntroductionToWordView.swift in Sources */,
+				F92033252087D3A500B961FC /* HistoryCell.swift in Sources */,
 				F9791E42205E5C6D0055C1F6 /* Topic.swift in Sources */,
 				F95EE947206E09F600DA2ED5 /* CircleView.swift in Sources */,
 				F96123B32071EAEC00EF8A9B /* TopicView.swift in Sources */,
@@ -510,6 +531,9 @@
 				F9791E3D205E4DFE0055C1F6 /* Word.swift in Sources */,
 				F9B87B772062164400BAF4A7 /* ProgressView.swift in Sources */,
 				F9C8D3632075948600884130 /* Constants.swift in Sources */,
+				F92033272087D3B100B961FC /* TopicWrapper.swift in Sources */,
+				F92033242087D3A500B961FC /* HistoryHeaderView.swift in Sources */,
+				F92033292087D3BC00B961FC /* WordViewController.swift in Sources */,
 				F9881E4F205F0A390014BF07 /* AthenaPallett.swift in Sources */,
 				F9C11282206EBC8100423969 /* SuccessView.swift in Sources */,
 				F9FFC996205E724700224EB1 /* TopicCell.swift in Sources */,

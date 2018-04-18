@@ -29,16 +29,15 @@ class WordViewController: UIViewController {
         let frame = CGRect(x: 0, y: yVal, width: view.frame.width, height: view.frame.height / 2)
         pieChart = PieChartView(frame: frame)
 
-        pieChart.chartDescription?.font = UIFont(name: "Futura", size: 22)!
-        pieChart.chartDescription?.xOffset = pieChart.frame.width - 30
-        pieChart.chartDescription?.yOffset = pieChart.frame.height * 0.8
-        pieChart.chartDescription?.textAlign = NSTextAlignment.left
-        pieChart.chartDescription?.text = "Attempts"
-        pieChart.chartDescription?.textColor = UIColor.white
+        pieChart.chartDescription?.text = ""
 
         pieChart.legend.textColor = UIColor.white
+        pieChart.legend.formSize = 16
+        pieChart.legend.font = UIFont(name: "HelveticaNeue-Bold", size: 16)!
 
         pieChart.drawHoleEnabled = false
+        pieChart.rotationEnabled = false
+
         pieChart.data = getPieChartData()
 
         pieChart.noDataText = "Not Enough Data"
@@ -55,7 +54,7 @@ class WordViewController: UIViewController {
         let correct = PieChartDataEntry(value: Double(word.correctCount), label: "correct")
         let incorrect = PieChartDataEntry(value: Double(word.incorrectCount), label: "incorrect")
 
-        let dataSet = PieChartDataSet(values: [correct, incorrect], label: "Result")
+        let dataSet = PieChartDataSet(values: [correct, incorrect], label: "")
         dataSet.colors = ChartColorTemplates.joyful()
 
         let data = PieChartData(dataSet: dataSet)
