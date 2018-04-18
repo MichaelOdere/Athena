@@ -8,6 +8,8 @@ class HistoryHeaderView: UIView {
 
         backgroundColor = UIColor.white
         layer.cornerRadius = 20
+
+        initTitleLabel()
     }
 
     required init?(coder aDecoder: NSCoder) {

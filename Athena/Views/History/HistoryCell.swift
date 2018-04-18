@@ -11,6 +11,7 @@ class HistoryCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
         backgroundColor = UIColor.clear
+        selectionStyle = .none
 
         initaccuracyLabel()
         initNative()
