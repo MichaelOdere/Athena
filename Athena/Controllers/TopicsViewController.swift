@@ -14,6 +14,9 @@ class TopicsViewController: UIViewController {
     var fetchedResultsController: NSFetchedResultsController<Topic>!
 
     override func viewDidLoad() {
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+
         initFetchedResultsController()
         initTableView()
         scrollToBottom()
@@ -45,9 +48,6 @@ class TopicsViewController: UIViewController {
     }
 
     func initTableView() {
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
-        self.navigationController?.navigationBar.shadowImage = UIImage()
-
         guard let tabHeight = self.tabBarController?.tabBar.frame.height else {
             fatalError("tabbar height not found.")
         }

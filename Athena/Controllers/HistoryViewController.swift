@@ -6,13 +6,25 @@ class HistoryViewController: UIViewController {
     var lastIndex: IndexPath!
     var fetchedResultsController: NSFetchedResultsController<Word>!
 
+    var emptyLabel: UILabel!
+    var isTableEmpty: Bool! {
+        didSet {
+            if isTableEmpty {
+                initEmptyLabel()
+            } else {
+                initEmptyLabel()
+                initTableView()
+            }
+        }
+    }
+
     var tableView: UITableView!
 
     override func viewDidLoad() {
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
 
         initFetchedResultsController()
-        initTableView()
         initGradientColor(colors: [AthenaPalette.lightBlue.cgColor, AthenaPalette.lightPink.cgColor])
     }
 
@@ -33,14 +45,24 @@ class HistoryViewController: UIViewController {
 
         do {
             try fetchedResultsController.performFetch()
+            // Check if we have any sections. If sections.count == 0 our table is empty
+            isTableEmpty = fetchedResultsController.sections?.count == 0
+
         } catch {
             print(error.localizedDescription)
         }
     }
 
     func initTableView() {
-        print(tabBarController?.tabBar.frame.height)
-        tableView = UITableView(frame: CGRect(x: 0, y: 20, width: view.frame.width, height: view.frame.height - 20 - (tabBarController?.tabBar.frame.height)!))
+        if tableView != nil {
+            return
+        }
+
+        tableView = UITableView(frame: CGRect(x: 0, y: 20,
+                                              width: view.frame.width,
+                                              height: view.frame.height
+                                                - 20
+                                                - (tabBarController?.tabBar.frame.height)!))
         tableView.sectionHeaderHeight = 50
         tableView.backgroundColor = UIColor.clear
         tableView.register(HistoryCell.self, forCellReuseIdentifier: "HistoryCell")
@@ -51,14 +73,28 @@ class HistoryViewController: UIViewController {
         view.addSubview(tableView)
     }
 
+    func initEmptyLabel() {
+        if isTableEmpty {
+            emptyLabel = UILabel(frame: CGRect(x: 0, y: 50, width: view.frame.width, height: view.frame.height * 0.1))
+            emptyLabel.textColor = UIColor.black
+            emptyLabel.font = UIFont(name: "HelveticaNeue-Bold", size: 30)
+            emptyLabel.textAlignment = .center
+            emptyLabel.text = "No words learned!"
+            view.addSubview(emptyLabel)
+        } else {
+            if emptyLabel != nil {
+                emptyLabel.removeFromSuperview()
+                emptyLabel = nil
+            }
+        }
+    }
+
     func initGradientColor(colors: [CGColor]) {
         let gl = CAGradientLayer()
         gl.frame = self.view.frame
         gl.colors = colors
         gl.locations = [0.0, 1.0]
-//        let bgView = UIView.init(frame: self.tableView.frame)
         view.layer.insertSublayer(gl, at: 0)
-//        self.tableView.backgroundView = bgView
     }
 }
 
@@ -85,6 +121,16 @@ extension HistoryViewController: UITableViewDataSource, UITableViewDelegate {
         }
 
         return nil
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let word = fetchedResultsController.object(at: indexPath)
+
+        let vc = WordViewController()
+        vc.hidesBottomBarWhenPushed = true
+        vc.word = word
+
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -131,6 +177,8 @@ extension HistoryViewController: UITableViewDataSource, UITableViewDelegate {
 extension HistoryViewController: NSFetchedResultsControllerDelegate {
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         initFetchedResultsController()
-        tableView.reloadData()
+        if tableView != nil {
+            tableView.reloadData()
+        }
     }
 }

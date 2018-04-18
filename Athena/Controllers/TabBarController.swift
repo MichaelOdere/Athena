@@ -3,13 +3,20 @@ import UIKit
 class TabBarController: UITabBarController {
     var topicNavController: UINavigationController!
     let topicsViewController = TopicsViewController()
+
     let trainerViewController = TrainerViewController()
+
+    var historyNavController: UINavigationController!
     let historyViewController = HistoryViewController()
+
     let profileViewController = ProfileViewController()
 
     override func viewDidLoad() {
         topicNavController = UINavigationController(rootViewController: topicsViewController)
         topicsViewController.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+
+        historyNavController = UINavigationController(rootViewController: historyViewController)
+        historyViewController.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
 
         topicsViewController.title = "Topics"
         trainerViewController.title = "Trainer"
@@ -17,7 +24,7 @@ class TabBarController: UITabBarController {
         profileViewController.title = "Profile"
 
         self.delegate = self
-        self.viewControllers = [topicNavController, historyViewController] //,
+        self.viewControllers = [topicNavController, historyNavController] //,
 //                               trainerViewController]
 //                               historyViewController,
 //                               profileViewController]
