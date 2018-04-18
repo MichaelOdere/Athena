@@ -5,6 +5,7 @@ target 'Athena' do
 
   # Pods for Athena
   pod 'SwiftyJSON', '~> 4.0'
+  pod 'Charts'
 
   target 'AthenaTests' do
     inherit! :search_paths
