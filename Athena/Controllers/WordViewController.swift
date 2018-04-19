@@ -8,10 +8,9 @@ class WordViewController: UIViewController {
     var word: Word!
 
     override func viewDidLoad() {
-        let colors = [AthenaPalette.floral.cgColor, AthenaPalette.yankeesBlue.cgColor]
         initWordView()
         initPieChart()
-        initGradientColor(colors: colors)
+        initGradientColor()
     }
 
     func initWordView() {
@@ -67,10 +66,10 @@ class WordViewController: UIViewController {
         return data
     }
 
-    func initGradientColor(colors: [CGColor]) {
+    func initGradientColor() {
         let gl = CAGradientLayer()
         gl.frame = self.view.frame
-        gl.colors = colors
+        gl.colors = [AthenaPalette.floral.cgColor, AthenaPalette.yankeesBlue.cgColor]
         gl.locations = [0.0, 1.0]
         view.layer.insertSublayer(gl, at: 0)
     }

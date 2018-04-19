@@ -24,7 +24,7 @@ class TabBarController: UITabBarController {
         profileViewController.title = "Profile"
 
         self.delegate = self
-        self.viewControllers = [topicNavController, historyNavController] //,
+        self.viewControllers = [topicNavController, trainerViewController, historyNavController] //,
 //                               trainerViewController]
 //                               historyViewController,
 //                               profileViewController]

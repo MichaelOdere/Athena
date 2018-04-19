@@ -2,7 +2,7 @@ import UIKit
 import CoreData
 
 class HistoryViewController: UIViewController {
-    var store: RussianStore = RussianStore()
+    let store: RussianStore = RussianStore()
     var lastIndex: IndexPath!
     var fetchedResultsController: NSFetchedResultsController<Word>!
 
@@ -24,8 +24,8 @@ class HistoryViewController: UIViewController {
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
 
+        initGradientColor()
         initFetchedResultsController()
-        initGradientColor(colors: [AthenaPalette.lightBlue.cgColor, AthenaPalette.lightPink.cgColor])
     }
 
     func initFetchedResultsController() {
@@ -89,10 +89,10 @@ class HistoryViewController: UIViewController {
         }
     }
 
-    func initGradientColor(colors: [CGColor]) {
+    func initGradientColor() {
         let gl = CAGradientLayer()
         gl.frame = self.view.frame
-        gl.colors = colors
+        gl.colors = [AthenaPalette.lightBlue.cgColor, AthenaPalette.lightPink.cgColor]
         gl.locations = [0.0, 1.0]
         view.layer.insertSublayer(gl, at: 0)
     }

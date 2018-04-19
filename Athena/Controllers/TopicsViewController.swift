@@ -3,7 +3,7 @@ import CoreData
 
 class TopicsViewController: UIViewController {
     var tableView: UITableView!
-    var store: RussianStore = RussianStore()
+    let store: RussianStore = RussianStore()
     var colors = [AthenaPalette.parisGreen,
                   AthenaPalette.maximumBlue,
                   AthenaPalette.lightPink,
