@@ -5,16 +5,22 @@ class SpellView: UIView {
     var word: Word! {
         didSet {
             initWordView()
-            print(word.native == word.native)
+
+            guard let nativeTemp = word.native?.applyingTransform(.latinToCyrillic, reverse: false) else {
+                print("word.native not set")
+                return
+            }
+
+            native = nativeTemp
         }
     }
+    var native: String?
     var wordView: NewWordView!
-    var textView: UITextView!
+    var textField: UITextField!
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        initTextView()
-        addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(check)))
+        inittextField()
     }
 
     func initWordView() {
@@ -27,28 +33,65 @@ class SpellView: UIView {
         addSubview(wordView)
     }
 
-    func initTextView() {
-        textView = UITextView(frame: CGRect(x: 0, y: frame.height * 0.4, width: frame.width, height: frame.height * 0.1))
-        textView.backgroundColor = UIColor.red
-        textView.text = ""
-        addSubview(textView)
+    func inittextField() {
+        textField = UITextField(frame: CGRect(x: 0, y: frame.height * 0.4,
+                                            width: frame.width,
+                                            height: frame.height * 0.1))
+
+        textField.text = ""
+        textField.textAlignment = .center
+        textField.backgroundColor = UIColor.clear
+
+        textField.layer.borderWidth = 1
+        textField.addTarget(self, action: #selector(updateBorder), for: .editingChanged)
+
+        addSubview(textField)
     }
 
-    @objc func check() {
-        print(textView.text.lowercased())
-        var native1 = word.native?.folding(options: .diacriticInsensitive, locale: .current)
-        var native2 = textView.text.folding(options: .diacriticInsensitive, locale: .current)
+    @objc func updateBorder() {
+        if check() {
+            textField.layer.borderColor = UIColor.green.cgColor
+        } else {
+            textField.layer.borderColor = UIColor.red.cgColor
+        }
+    }
 
-        native1 = native1?.trimmingCharacters(in: .whitespaces)
-        native2 = native2.trimmingCharacters(in: .whitespaces)
+    func check() -> Bool {
+        guard let native = native else {
+            return false
+        }
 
-        print(native1!.lowercased() == native2.lowercased())
+        guard let input = textField.text?.applyingTransform(.latinToCyrillic, reverse: false) else {
+            print("textField.text not set")
+            return false
+        }
 
-        print(native1!.localizedCaseInsensitiveCompare(native2) == .orderedSame)
+        if input.count > native.count || input.count == 0 {
+            print("false")
+            return false
+        }
+
+        let index = native.index(native.startIndex, offsetBy: input.count)
+        let truncated = String(native[native.startIndex..<index])
+
+        return truncated.forSorting == input.forSorting
+
     }
 
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
+}
+
+//extension SpellView: UITextFieldDelegate {
+//    textdidch
+//}
+
+extension String {
+    var forSorting: String {
+        let simple = folding(options: [.diacriticInsensitive, .widthInsensitive, .caseInsensitive], locale: nil)
+        let nonAlphaNumeric = CharacterSet.alphanumerics.inverted
+        return simple.components(separatedBy: nonAlphaNumeric).joined(separator: "")
+    }
 }
