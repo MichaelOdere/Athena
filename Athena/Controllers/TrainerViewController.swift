@@ -21,15 +21,15 @@ class TrainerViewController: UIViewController {
         let englishSort = NSSortDescriptor(key: "english", ascending: true)
         topicRequests.sortDescriptors = [topicSort, englishSort]
 
-        fetchedResultsController = NSFetchedResultsController(fetchRequest: topicRequests, managedObjectContext: store.context, sectionNameKeyPath: "topic.name", cacheName: nil)
+        fetchedResultsController = NSFetchedResultsController(fetchRequest: topicRequests,
+                                                              managedObjectContext: store.context,
+                                                              sectionNameKeyPath: "topic.name",
+                                                              cacheName: nil)
 
 //        fetchedResultsController.delegate = self
 
         do {
             try fetchedResultsController.performFetch()
-            // Check if we have any sections. If sections.count == 0 our table is empty
-//            isTableEmpty = fetchedResultsController.sections?.count == 0
-
         } catch {
             print(error.localizedDescription)
         }
