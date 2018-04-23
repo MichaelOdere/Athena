@@ -5,22 +5,18 @@ class SpellView: UIView {
     var word: Word! {
         didSet {
             initWordView()
-
-            guard let nativeTemp = word.native?.applyingTransform(.latinToCyrillic, reverse: false) else {
-                print("word.native not set")
-                return
-            }
-
-            native = nativeTemp
+            initWord()
         }
     }
+
     var native: String?
     var wordView: NewWordView!
     var textField: UITextField!
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        inittextField()
+        initTextField()
+        addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(removeKeyboard)))
     }
 
     func initWordView() {
@@ -33,10 +29,20 @@ class SpellView: UIView {
         addSubview(wordView)
     }
 
-    func inittextField() {
-        textField = UITextField(frame: CGRect(x: 0, y: frame.height * 0.4,
-                                            width: frame.width,
-                                            height: frame.height * 0.1))
+    func initWord() {
+        guard let nativeTemp = word.native?.applyingTransform(.latinToCyrillic, reverse: false) else {
+            print("word.native not set")
+            return
+        }
+
+        native = nativeTemp
+    }
+
+    func initTextField() {
+        textField = UITextField(frame: CGRect(x: frame.width * 0.05,
+                                              y: frame.height * 0.4,
+                                              width: frame.width * 0.9,
+                                              height: frame.height * 0.1))
 
         textField.text = ""
         textField.textAlignment = .center
@@ -44,6 +50,7 @@ class SpellView: UIView {
 
         textField.layer.borderWidth = 1
         textField.addTarget(self, action: #selector(updateBorder), for: .editingChanged)
+        textField.delegate = self
 
         addSubview(textField)
     }
@@ -61,13 +68,15 @@ class SpellView: UIView {
             return false
         }
 
-        guard let input = textField.text?.applyingTransform(.latinToCyrillic, reverse: false) else {
-            print("textField.text not set")
+        guard let input = textField.text?
+            .applyingTransform(.latinToCyrillic, reverse: false)?
+            .trimmingCharacters(in: .whitespaces) else {
+
+                print("textField.text not set")
             return false
         }
 
         if input.count > native.count || input.count == 0 {
-            print("false")
             return false
         }
 
@@ -75,18 +84,23 @@ class SpellView: UIView {
         let truncated = String(native[native.startIndex..<index])
 
         return truncated.forSorting == input.forSorting
+    }
 
+    @objc func removeKeyboard() {
+        textField.resignFirstResponder()
     }
 
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
 }
 
-//extension SpellView: UITextFieldDelegate {
-//    textdidch
-//}
+extension SpellView: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+}
 
 extension String {
     var forSorting: String {
