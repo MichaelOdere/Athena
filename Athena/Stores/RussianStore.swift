@@ -8,7 +8,6 @@ public enum Language: String {
 }
 
 struct RussianStore {
-    let defaults = UserDefaults.standard
     weak var appDelegate = UIApplication.shared.delegate as? AppDelegate
     var context: NSManagedObjectContext!
 
