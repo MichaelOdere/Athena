@@ -1,4 +1,3 @@
-import Foundation
 import SwiftyJSON
 import CoreData
 
@@ -8,10 +7,10 @@ public enum Language: String {
 }
 
 struct RussianStore {
-    weak var appDelegate = UIApplication.shared.delegate as? AppDelegate
     var context: NSManagedObjectContext!
 
     init() {
+        weak var appDelegate = UIApplication.shared.delegate as? AppDelegate
         guard let loadContext = appDelegate?.persistentContainer.viewContext else {
             fatalError("Could not get context")
         }

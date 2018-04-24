@@ -95,6 +95,7 @@ struct DayStore {
         }
 
         // If current day does not exist, create it, save it and add it to days list
+        print("Day was not inside core data")
         let currentDate = Day(context: context)
         currentDate.date = Date()
         currentDate.learnedWords = 0
