@@ -20,6 +20,7 @@ class LearnTopicViewController: UIViewController {
     var swipeWordView: SwipeWordView!
 
     var topic: TopicWrapper!
+    var dayStore: DayStore!
 
     var nextView: LearnView!
     var lastResult: ResultOfLearn!
@@ -30,7 +31,7 @@ class LearnTopicViewController: UIViewController {
     override func viewDidLoad() {
         let resultRect = CGRect(x: 0, y: view.frame.height / 2 - view.frame.width / 2,
                                 width: view.frame.width, height: view.frame.width)
-        successView = SuccessView(frame: view.frame)
+        successView = SuccessView(frame: resultRect)
         failView = FailView(frame: resultRect)
 
         introductionToWordView = IntroductionToWordView(frame: view.frame)
@@ -59,6 +60,7 @@ extension LearnTopicViewController: DoneHandlerProtocol {
     func previousView(previous: LearnView, result: ResultOfLearn) {
         lastResult = result
         topic.updateAfterResult(result: result)
+        dayStore.getCurrentDay().updateAfterResult(result: result)
         topic.saveContext()
         switch previous {
         case .reset:

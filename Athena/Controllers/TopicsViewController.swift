@@ -3,7 +3,9 @@ import CoreData
 
 class TopicsViewController: UIViewController {
     var tableView: UITableView!
-    let store: RussianStore = RussianStore()
+    let russianStore: RussianStore = RussianStore()
+    let dayStore: DayStore = DayStore(numberOfDays: nil)
+
     var colors = [AthenaPalette.parisGreen,
                   AthenaPalette.maximumBlue,
                   AthenaPalette.lightPink,
@@ -35,7 +37,7 @@ class TopicsViewController: UIViewController {
         topicRequests.sortDescriptors = [sortDescriptor]
 
         fetchedResultsController = NSFetchedResultsController(fetchRequest: topicRequests,
-                                                              managedObjectContext: store.context,
+                                                              managedObjectContext: russianStore.context,
                                                               sectionNameKeyPath: nil,
                                                               cacheName: nil)
 //        fetchedResultsController.delegate = self
@@ -98,7 +100,8 @@ extension TopicsViewController: UITableViewDelegate, UITableViewDataSource {
         lastIndex = indexPath
         let vc = LearnTopicViewController()
         let topic = fetchedResultsController.object(at: indexPath)
-        vc.topic = TopicWrapper(topic: topic, context: store.context)
+        vc.topic = TopicWrapper(topic: topic, context: russianStore.context)
+        vc.dayStore = dayStore
         vc.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(vc, animated: true)
     }
