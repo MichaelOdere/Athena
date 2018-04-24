@@ -4,7 +4,8 @@ class TabBarController: UITabBarController {
     var topicNavController: UINavigationController!
     let topicsViewController = TopicsViewController()
 
-    let trainerViewController = TrainerViewController()
+    var trainerNavController: UINavigationController!
+    let trainerCollectionViewController = TrainerCollectionViewController()
 
     var historyNavController: UINavigationController!
     let historyViewController = HistoryViewController()
@@ -15,16 +16,19 @@ class TabBarController: UITabBarController {
         topicNavController = UINavigationController(rootViewController: topicsViewController)
         topicsViewController.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
 
+        trainerNavController = UINavigationController(rootViewController: trainerCollectionViewController)
+        trainerCollectionViewController.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+
         historyNavController = UINavigationController(rootViewController: historyViewController)
         historyViewController.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
 
         topicsViewController.title = "Topics"
-        trainerViewController.title = "Trainer"
+        trainerCollectionViewController.title = "Trainer"
         historyViewController.title = "History"
         profileViewController.title = "Profile"
 
         self.delegate = self
-        self.viewControllers = [topicNavController, trainerViewController, historyNavController] //,
+        self.viewControllers = [topicNavController, trainerNavController, historyNavController] //,
 //                               trainerViewController]
 //                               historyViewController,
 //                               profileViewController]

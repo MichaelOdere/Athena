@@ -1,6 +1,6 @@
 import UIKit
 
-class SpellView: UIView {
+class SpellView: TrainerView {
 
     var word: Word! {
         didSet {
@@ -15,6 +15,7 @@ class SpellView: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
+        name = "Spell View"
         initTextField()
         addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(removeKeyboard)))
     }

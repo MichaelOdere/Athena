@@ -1,6 +1,6 @@
 import UIKit
 
-class FlashCardsView: UIView {
+class FlashCardsView: TrainerView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
