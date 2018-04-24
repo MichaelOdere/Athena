@@ -75,7 +75,6 @@ struct DayStore {
         let datePredicate = NSPredicate(format: "%@ <= date", dateFrom as NSDate)
 
         if let day = days.first(where: {$0.day.date! <= dateFrom}) {
-            print("Day was inside days")
            return day
         }
 
@@ -83,19 +82,10 @@ struct DayStore {
         let currentDateArr = getDays(limit: 1, predicates: [datePredicate])
         if currentDateArr.count > 0 {
             days.append(currentDateArr[0])
-            print("Day was inside core data")
-            print(Date())
-            print(dateFrom)
-            print(currentDateArr.count)
-            print(currentDateArr[0].day.date)
-            print(currentDateArr[0].day.learnedWords)
-            print(currentDateArr[0].day.incorrectWords)
-            print(currentDateArr[0].day.correctWords)
             return currentDateArr[0]
         }
 
         // If current day does not exist, create it, save it and add it to days list
-        print("Day was not inside core data")
         let currentDate = Day(context: context)
         currentDate.date = Date()
         currentDate.learnedWords = 0
