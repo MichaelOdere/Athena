@@ -15,10 +15,6 @@ struct DayStore {
         context = loadContext
         self.numberOfDays = numberOfDays
         days = getDays(limit: numberOfDays, predicates: nil)
-        print("count in days \(days.count)")
-        for day in days {
-            print(day.day.date)
-        }
     }
 
     func saveContext() {

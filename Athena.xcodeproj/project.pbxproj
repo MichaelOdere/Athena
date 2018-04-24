@@ -19,6 +19,10 @@
 		F92033292087D3BC00B961FC /* WordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92033282087D3BC00B961FC /* WordViewController.swift */; };
 		F9470BFF2061B19C000624E2 /* DragFiveToCorrectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9470BFE2061B19C000624E2 /* DragFiveToCorrectView.swift */; };
 		F9470C012061C500000624E2 /* DragFiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9470C002061C500000624E2 /* DragFiveView.swift */; };
+		F94B89EF208FF32400A0B064 /* TrainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94B89EE208FF32400A0B064 /* TrainerView.swift */; };
+		F950652E208F958F00931F6D /* TrainerCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F950652D208F958F00931F6D /* TrainerCollectionViewLayout.swift */; };
+		F9506530208F95C600931F6D /* TrainerCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F950652F208F95C600931F6D /* TrainerCollectionCell.swift */; };
+		F9506532208FE78500931F6D /* TrainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9506531208FE78500931F6D /* TrainerViewController.swift */; };
 		F95209192089B05100CBF9A9 /* MatchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F95209182089B05100CBF9A9 /* MatchView.swift */; };
 		F952091B2089B3AE00CBF9A9 /* DragSplitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F952091A2089B3AE00CBF9A9 /* DragSplitView.swift */; };
 		F952091D2089B3E200CBF9A9 /* FlashCardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F952091C2089B3E200CBF9A9 /* FlashCardsView.swift */; };
@@ -39,7 +43,7 @@
 		F981135F20607E1900D3BE79 /* NewWordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F981135E20607E1900D3BE79 /* NewWordView.swift */; };
 		F985E839205E005A00B5ACB4 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F985E838205E005A00B5ACB4 /* TabBarController.swift */; };
 		F985E83B205E00CA00B5ACB4 /* TopicsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F985E83A205E00CA00B5ACB4 /* TopicsViewController.swift */; };
-		F985E83D205E010F00B5ACB4 /* TrainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F985E83C205E010F00B5ACB4 /* TrainerViewController.swift */; };
+		F985E83D205E010F00B5ACB4 /* TrainerCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F985E83C205E010F00B5ACB4 /* TrainerCollectionViewController.swift */; };
 		F985E83F205E011800B5ACB4 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F985E83E205E011800B5ACB4 /* HistoryViewController.swift */; };
 		F985E841205E012E00B5ACB4 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F985E840205E012E00B5ACB4 /* ProfileViewController.swift */; };
 		F9881E4F205F0A390014BF07 /* AthenaPallett.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9881E4E205F0A390014BF07 /* AthenaPallett.swift */; };
@@ -85,6 +89,10 @@
 		F92033282087D3BC00B961FC /* WordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordViewController.swift; sourceTree = "<group>"; };
 		F9470BFE2061B19C000624E2 /* DragFiveToCorrectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragFiveToCorrectView.swift; sourceTree = "<group>"; };
 		F9470C002061C500000624E2 /* DragFiveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragFiveView.swift; sourceTree = "<group>"; };
+		F94B89EE208FF32400A0B064 /* TrainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainerView.swift; sourceTree = "<group>"; };
+		F950652D208F958F00931F6D /* TrainerCollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainerCollectionViewLayout.swift; sourceTree = "<group>"; };
+		F950652F208F95C600931F6D /* TrainerCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainerCollectionCell.swift; sourceTree = "<group>"; };
+		F9506531208FE78500931F6D /* TrainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainerViewController.swift; sourceTree = "<group>"; };
 		F95209182089B05100CBF9A9 /* MatchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchView.swift; sourceTree = "<group>"; };
 		F952091A2089B3AE00CBF9A9 /* DragSplitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragSplitView.swift; sourceTree = "<group>"; };
 		F952091C2089B3E200CBF9A9 /* FlashCardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashCardsView.swift; sourceTree = "<group>"; };
@@ -107,7 +115,7 @@
 		F981135E20607E1900D3BE79 /* NewWordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewWordView.swift; sourceTree = "<group>"; };
 		F985E838205E005A00B5ACB4 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		F985E83A205E00CA00B5ACB4 /* TopicsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicsViewController.swift; sourceTree = "<group>"; };
-		F985E83C205E010F00B5ACB4 /* TrainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainerViewController.swift; sourceTree = "<group>"; };
+		F985E83C205E010F00B5ACB4 /* TrainerCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainerCollectionViewController.swift; sourceTree = "<group>"; };
 		F985E83E205E011800B5ACB4 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		F985E840205E012E00B5ACB4 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		F9881E4E205F0A390014BF07 /* AthenaPallett.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AthenaPallett.swift; sourceTree = "<group>"; };
@@ -210,7 +218,8 @@
 				F985E838205E005A00B5ACB4 /* TabBarController.swift */,
 				F985E83A205E00CA00B5ACB4 /* TopicsViewController.swift */,
 				F981135020602AFD00D3BE79 /* LearnTopicViewController.swift */,
-				F985E83C205E010F00B5ACB4 /* TrainerViewController.swift */,
+				F985E83C205E010F00B5ACB4 /* TrainerCollectionViewController.swift */,
+				F9506531208FE78500931F6D /* TrainerViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -265,9 +274,12 @@
 			isa = PBXGroup;
 			children = (
 				F9545C39208859200009EEEC /* SpellView.swift */,
+				F94B89EE208FF32400A0B064 /* TrainerView.swift */,
 				F95209182089B05100CBF9A9 /* MatchView.swift */,
 				F952091A2089B3AE00CBF9A9 /* DragSplitView.swift */,
 				F952091C2089B3E200CBF9A9 /* FlashCardsView.swift */,
+				F950652D208F958F00931F6D /* TrainerCollectionViewLayout.swift */,
+				F950652F208F95C600931F6D /* TrainerCollectionCell.swift */,
 			);
 			path = Trainer;
 			sourceTree = "<group>";
@@ -576,8 +588,10 @@
 				F952091B2089B3AE00CBF9A9 /* DragSplitView.swift in Sources */,
 				F96123B92072993300EF8A9B /* DragThreeView.swift in Sources */,
 				F985E839205E005A00B5ACB4 /* TabBarController.swift in Sources */,
-				F985E83D205E010F00B5ACB4 /* TrainerViewController.swift in Sources */,
+				F9506530208F95C600931F6D /* TrainerCollectionCell.swift in Sources */,
+				F985E83D205E010F00B5ACB4 /* TrainerCollectionViewController.swift in Sources */,
 				F952091D2089B3E200CBF9A9 /* FlashCardsView.swift in Sources */,
+				F94B89EF208FF32400A0B064 /* TrainerView.swift in Sources */,
 				F985E83F205E011800B5ACB4 /* HistoryViewController.swift in Sources */,
 				F981135120602AFD00D3BE79 /* LearnTopicViewController.swift in Sources */,
 				F96123B7207296B700EF8A9B /* DragView.swift in Sources */,
@@ -587,6 +601,8 @@
 				F96123BF2072F7D400EF8A9B /* ResultOfLearn.swift in Sources */,
 				F9C8D36120748A8200884130 /* SwipeWordView.swift in Sources */,
 				F9791E40205E5C530055C1F6 /* RussianStore.swift in Sources */,
+				F950652E208F958F00931F6D /* TrainerCollectionViewLayout.swift in Sources */,
+				F9506532208FE78500931F6D /* TrainerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
