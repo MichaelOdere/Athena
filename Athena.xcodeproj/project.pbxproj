@@ -19,6 +19,10 @@
 		F92033292087D3BC00B961FC /* WordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92033282087D3BC00B961FC /* WordViewController.swift */; };
 		F9470BFF2061B19C000624E2 /* DragFiveToCorrectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9470BFE2061B19C000624E2 /* DragFiveToCorrectView.swift */; };
 		F9470C012061C500000624E2 /* DragFiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9470C002061C500000624E2 /* DragFiveView.swift */; };
+		F95209192089B05100CBF9A9 /* MatchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F95209182089B05100CBF9A9 /* MatchView.swift */; };
+		F952091B2089B3AE00CBF9A9 /* DragSplitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F952091A2089B3AE00CBF9A9 /* DragSplitView.swift */; };
+		F952091D2089B3E200CBF9A9 /* FlashCardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F952091C2089B3E200CBF9A9 /* FlashCardsView.swift */; };
+		F9545C3A208859200009EEEC /* SpellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9545C39208859200009EEEC /* SpellView.swift */; };
 		F95EE947206E09F600DA2ED5 /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F95EE946206E09F600DA2ED5 /* CircleView.swift */; };
 		F96123B32071EAEC00EF8A9B /* TopicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96123B22071EAEC00EF8A9B /* TopicView.swift */; };
 		F96123B52072938000EF8A9B /* DragThreeToCorrectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96123B42072938000EF8A9B /* DragThreeToCorrectView.swift */; };
@@ -46,6 +50,9 @@
 		F9C11286206EC3F800423969 /* FailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C11285206EC3F800423969 /* FailView.swift */; };
 		F9C8D36120748A8200884130 /* SwipeWordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C8D36020748A8200884130 /* SwipeWordView.swift */; };
 		F9C8D3632075948600884130 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C8D3622075948600884130 /* Constants.swift */; };
+		F9E2DFA4208E43F200042A7F /* UserWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E2DFA3208E43F200042A7F /* UserWrapper.swift */; };
+		F9E2DFA6208E47F100042A7F /* DayWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E2DFA5208E47F100042A7F /* DayWrapper.swift */; };
+		F9E2DFA8208E972F00042A7F /* DayStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E2DFA7208E972F00042A7F /* DayStore.swift */; };
 		F9FFC996205E724700224EB1 /* TopicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9FFC995205E724700224EB1 /* TopicCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -78,6 +85,10 @@
 		F92033282087D3BC00B961FC /* WordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordViewController.swift; sourceTree = "<group>"; };
 		F9470BFE2061B19C000624E2 /* DragFiveToCorrectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragFiveToCorrectView.swift; sourceTree = "<group>"; };
 		F9470C002061C500000624E2 /* DragFiveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragFiveView.swift; sourceTree = "<group>"; };
+		F95209182089B05100CBF9A9 /* MatchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchView.swift; sourceTree = "<group>"; };
+		F952091A2089B3AE00CBF9A9 /* DragSplitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragSplitView.swift; sourceTree = "<group>"; };
+		F952091C2089B3E200CBF9A9 /* FlashCardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashCardsView.swift; sourceTree = "<group>"; };
+		F9545C39208859200009EEEC /* SpellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellView.swift; sourceTree = "<group>"; };
 		F95EE946206E09F600DA2ED5 /* CircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
 		F96123B22071EAEC00EF8A9B /* TopicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicView.swift; sourceTree = "<group>"; };
 		F96123B42072938000EF8A9B /* DragThreeToCorrectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragThreeToCorrectView.swift; sourceTree = "<group>"; };
@@ -107,6 +118,9 @@
 		F9C11285206EC3F800423969 /* FailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FailView.swift; sourceTree = "<group>"; };
 		F9C8D36020748A8200884130 /* SwipeWordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeWordView.swift; sourceTree = "<group>"; usesTabs = 1; };
 		F9C8D3622075948600884130 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		F9E2DFA3208E43F200042A7F /* UserWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserWrapper.swift; sourceTree = "<group>"; };
+		F9E2DFA5208E47F100042A7F /* DayWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayWrapper.swift; sourceTree = "<group>"; };
+		F9E2DFA7208E972F00042A7F /* DayStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayStore.swift; sourceTree = "<group>"; };
 		F9FFC995205E724700224EB1 /* TopicCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -206,6 +220,7 @@
 			children = (
 				F92033212087D3A500B961FC /* History */,
 				F9FFC994205E723A00224EB1 /* Topic */,
+				F9545C38208858A50009EEEC /* Trainer */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -217,6 +232,8 @@
 				F9791E41205E5C6D0055C1F6 /* Topic.swift */,
 				F96123BE2072F7D400EF8A9B /* ResultOfLearn.swift */,
 				F92033262087D3B100B961FC /* TopicWrapper.swift */,
+				F9E2DFA3208E43F200042A7F /* UserWrapper.swift */,
+				F9E2DFA5208E47F100042A7F /* DayWrapper.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -244,6 +261,17 @@
 			path = SupportingViews;
 			sourceTree = "<group>";
 		};
+		F9545C38208858A50009EEEC /* Trainer */ = {
+			isa = PBXGroup;
+			children = (
+				F9545C39208859200009EEEC /* SpellView.swift */,
+				F95209182089B05100CBF9A9 /* MatchView.swift */,
+				F952091A2089B3AE00CBF9A9 /* DragSplitView.swift */,
+				F952091C2089B3E200CBF9A9 /* FlashCardsView.swift */,
+			);
+			path = Trainer;
+			sourceTree = "<group>";
+		};
 		F96123C520742C8C00EF8A9B /* AthenaTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -260,6 +288,7 @@
 				F9791E3F205E5C530055C1F6 /* RussianStore.swift */,
 				F9881E4E205F0A390014BF07 /* AthenaPallett.swift */,
 				F9C8D3622075948600884130 /* Constants.swift */,
+				F9E2DFA7208E972F00042A7F /* DayStore.swift */,
 			);
 			path = Stores;
 			sourceTree = "<group>";
@@ -528,20 +557,27 @@
 				F95EE947206E09F600DA2ED5 /* CircleView.swift in Sources */,
 				F96123B32071EAEC00EF8A9B /* TopicView.swift in Sources */,
 				F981135F20607E1900D3BE79 /* NewWordView.swift in Sources */,
+				F9E2DFA6208E47F100042A7F /* DayWrapper.swift in Sources */,
 				F9791E3D205E4DFE0055C1F6 /* Word.swift in Sources */,
 				F9B87B772062164400BAF4A7 /* ProgressView.swift in Sources */,
 				F9C8D3632075948600884130 /* Constants.swift in Sources */,
+				F95209192089B05100CBF9A9 /* MatchView.swift in Sources */,
+				F9E2DFA4208E43F200042A7F /* UserWrapper.swift in Sources */,
 				F92033272087D3B100B961FC /* TopicWrapper.swift in Sources */,
 				F92033242087D3A500B961FC /* HistoryHeaderView.swift in Sources */,
+				F9545C3A208859200009EEEC /* SpellView.swift in Sources */,
 				F92033292087D3BC00B961FC /* WordViewController.swift in Sources */,
 				F9881E4F205F0A390014BF07 /* AthenaPallett.swift in Sources */,
 				F9C11282206EBC8100423969 /* SuccessView.swift in Sources */,
 				F9FFC996205E724700224EB1 /* TopicCell.swift in Sources */,
 				F91C1113205C588F00FD7776 /* AppDelegate.swift in Sources */,
+				F9E2DFA8208E972F00042A7F /* DayStore.swift in Sources */,
 				F9C11286206EC3F800423969 /* FailView.swift in Sources */,
+				F952091B2089B3AE00CBF9A9 /* DragSplitView.swift in Sources */,
 				F96123B92072993300EF8A9B /* DragThreeView.swift in Sources */,
 				F985E839205E005A00B5ACB4 /* TabBarController.swift in Sources */,
 				F985E83D205E010F00B5ACB4 /* TrainerViewController.swift in Sources */,
+				F952091D2089B3E200CBF9A9 /* FlashCardsView.swift in Sources */,
 				F985E83F205E011800B5ACB4 /* HistoryViewController.swift in Sources */,
 				F981135120602AFD00D3BE79 /* LearnTopicViewController.swift in Sources */,
 				F96123B7207296B700EF8A9B /* DragView.swift in Sources */,
