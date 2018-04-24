@@ -37,10 +37,14 @@ class TrainerViewController: UIViewController {
 
     func initSpellView() {
         spellView = SpellView(frame: view.frame)
-        guard let word = fetchedResultsController.fetchedObjects?[1] else {
+        guard let words = fetchedResultsController.fetchedObjects else {
             return
         }
-        spellView.word = word
+
+        if words.count > 0 {
+            spellView.word = words[0]
+        }
+
         view.addSubview(spellView)
     }
 
