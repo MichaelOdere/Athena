@@ -30,13 +30,14 @@
         <attribute name="lastSeen" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="learned" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="native" attributeType="String" syncable="YES"/>
+        <attribute name="strength" attributeType="Float" minValueString="0" maxValueString="1" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="transliteration" attributeType="String" syncable="YES"/>
         <relationship name="topic" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Topic" inverseName="words" inverseEntity="Topic" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Topic" positionX="54" positionY="27" width="128" height="163"/>
-        <element name="Word" positionX="-81" positionY="-19" width="128" height="178"/>
-        <element name="User" positionX="-2" positionY="-160" width="128" height="103"/>
         <element name="Day" positionX="0" positionY="9" width="128" height="105"/>
+        <element name="Topic" positionX="54" positionY="27" width="128" height="163"/>
+        <element name="User" positionX="-2" positionY="-160" width="128" height="103"/>
+        <element name="Word" positionX="-81" positionY="-19" width="128" height="195"/>
     </elements>
 </model>
