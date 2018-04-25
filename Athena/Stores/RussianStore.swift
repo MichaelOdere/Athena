@@ -152,7 +152,7 @@ struct RussianStore {
         word.english = english
         word.native = native
         word.transliteration = transliteration
-
+        word.strength = 0
         word.learned = false
         word.incorrectCount = 0
         word.correctCount = 0
