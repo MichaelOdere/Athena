@@ -11,6 +11,14 @@ class TrainerViewController: UIViewController {
     }
 
     override func viewDidLoad() {
-        view.backgroundColor = UIColor.red
+        initGradientColor()
+    }
+
+    func initGradientColor() {
+        let gl = CAGradientLayer()
+        gl.frame = self.view.frame
+        gl.colors = [AthenaPalette.parisGreen.cgColor, AthenaPalette.turquoise.cgColor]
+        gl.locations = [0.0, 1.0]
+        view.layer.insertSublayer(gl, at: 0)
     }
 }

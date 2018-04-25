@@ -5,6 +5,7 @@ class TrainerCollectionViewController: UIViewController {
     let store: RussianStore = RussianStore()
     var fetchedResultsController: NSFetchedResultsController<Word>!
     var spellView: SpellView!
+    var flashCardView: FlashCardsView!
 
     var collectionView: UICollectionView!
     var trainerViewController: TrainerViewController!
@@ -17,26 +18,29 @@ class TrainerCollectionViewController: UIViewController {
         initGradientColor()
         initFetchedResultsController()
         initSpellView()
+        initFlashCardView()
         initCollectionView()
         initTrainerViewController()
-        trainerViews = [spellView, spellView, spellView]
+        trainerViews = [spellView, flashCardView]
     }
 
     func initFetchedResultsController() {
         let topicRequests: NSFetchRequest<Word> = Word.fetchRequest()
-        topicRequests.predicate = NSPredicate(format: "learned == %@", NSNumber(value: true))
+        let learned = NSPredicate(format: "learned == %@", NSNumber(value: true))
+        let strength = NSPredicate(format: "strength <= %@", NSNumber(value: 0.75))
 
-        //        let lastSort = NSSortDescriptor(key: "lastSceen", ascending: false)
-        let topicSort = NSSortDescriptor(key: "topic.level", ascending: true)
-        let englishSort = NSSortDescriptor(key: "english", ascending: true)
-        topicRequests.sortDescriptors = [topicSort, englishSort]
+        let compound = NSCompoundPredicate(andPredicateWithSubpredicates: [learned, strength])
+        topicRequests.predicate = compound
+
+        let strengthSort = NSSortDescriptor(key: "strength", ascending: true)
+        topicRequests.sortDescriptors = [strengthSort]
 
         fetchedResultsController = NSFetchedResultsController(fetchRequest: topicRequests,
                                                               managedObjectContext: store.context,
                                                               sectionNameKeyPath: "topic.name",
                                                               cacheName: nil)
 
-//        fetchedResultsController.delegate = self
+        fetchedResultsController.delegate = self
 
         do {
             try fetchedResultsController.performFetch()
@@ -66,15 +70,10 @@ class TrainerCollectionViewController: UIViewController {
 
     func initSpellView() {
         spellView = SpellView(frame: view.frame)
-        guard let words = fetchedResultsController.fetchedObjects else {
-            return
-        }
+    }
 
-        if words.count > 0 {
-            spellView.word = words[0]
-        }
-
-//        view.addSubview(spellView)
+    func initFlashCardView() {
+        flashCardView = FlashCardsView(frame: view.frame)
     }
 
     func initGradientColor() {
@@ -92,6 +91,13 @@ extension TrainerCollectionViewController: UICollectionViewDelegate, UICollectio
         let view = trainerViews[indexPath.row]
         trainerViewController.trainerView = view
         trainerViewController.hidesBottomBarWhenPushed = true
+        if let words = fetchedResultsController.fetchedObjects {
+            view.words = words
+        }
+
+        if let vc = view as? FlashCardsView {
+            vc.collectionView.reloadData()
+        }
 
         self.navigationController?.pushViewController(trainerViewController, animated: true)
 
@@ -116,5 +122,12 @@ extension TrainerCollectionViewController: UICollectionViewDelegate, UICollectio
 
         cell.nameLabel.text = trainerView.name
         return cell
+    }
+}
+
+extension TrainerCollectionViewController: NSFetchedResultsControllerDelegate {
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        initFetchedResultsController()
+        print("init fetch")
     }
 }
