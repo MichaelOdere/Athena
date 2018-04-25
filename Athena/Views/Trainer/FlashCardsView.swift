@@ -1,13 +1,21 @@
 import UIKit
 
-class FlashCardsView: TrainerView {
+class FlashCardsView: UIView, TrainerViewProtocol {
+    // Required for the TrainerViewProtocol
+    var name: String?
+    var words: [Word]!
 
     var collectionView: UICollectionView!
 
     override init(frame: CGRect) {
         super.init(frame: frame)
         name = "Flash Cards"
+        words = []
         initCollectionView()
+    }
+
+    func setup() {
+        collectionView.reloadData()
     }
 
     func initCollectionView() {

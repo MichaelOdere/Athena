@@ -1,6 +1,9 @@
 import UIKit
 
-class SpellView: TrainerView {
+class SpellView: UIView, TrainerViewProtocol {
+    // Required for the TrainerViewProtocol
+    var name: String?
+    var words: [Word]!
 
     var native: String!
     var wordView: NewWordView!
@@ -9,14 +12,18 @@ class SpellView: TrainerView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         name = "Spell View"
+        words = []
         initTextField()
         initWordView()
         addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(removeKeyboard)))
     }
 
+    func setup() {
+        setRandomWord()
+    }
+
     func initWordView() {
         wordView = NewWordView(frame: CGRect(x: 0, y: 0, width: frame.width, height: frame.height * 0.4))
-        setRandomWord()
         addSubview(wordView)
     }
 

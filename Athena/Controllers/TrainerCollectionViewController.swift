@@ -9,7 +9,7 @@ class TrainerCollectionViewController: UIViewController {
 
     var collectionView: UICollectionView!
     var trainerViewController: TrainerViewController!
-    var trainerViews: [TrainerView] = []
+    var trainerViews: [TrainerViewProtocol] = []
 
     override func viewDidLoad() {
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
@@ -88,16 +88,14 @@ class TrainerCollectionViewController: UIViewController {
 extension TrainerCollectionViewController: UICollectionViewDelegate, UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let view = trainerViews[indexPath.row]
-        trainerViewController.trainerView = view
-        trainerViewController.hidesBottomBarWhenPushed = true
+        var view = trainerViews[indexPath.row]
         if let words = fetchedResultsController.fetchedObjects {
             view.words = words
+            view.setup()
         }
 
-        if let vc = view as? FlashCardsView {
-            vc.collectionView.reloadData()
-        }
+        trainerViewController.trainerView = view as? UIView
+        trainerViewController.hidesBottomBarWhenPushed = true
 
         self.navigationController?.pushViewController(trainerViewController, animated: true)
 
@@ -128,6 +126,5 @@ extension TrainerCollectionViewController: UICollectionViewDelegate, UICollectio
 extension TrainerCollectionViewController: NSFetchedResultsControllerDelegate {
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         initFetchedResultsController()
-        print("init fetch")
     }
 }
