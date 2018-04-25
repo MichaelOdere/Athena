@@ -8,6 +8,7 @@ public enum Language: String {
 
 struct RussianStore {
     var context: NSManagedObjectContext!
+    typealias ObjectType = NSManagedObject
 
     init() {
         weak var appDelegate = UIApplication.shared.delegate as? AppDelegate
@@ -15,7 +16,7 @@ struct RussianStore {
             fatalError("Could not get context")
         }
         context = loadContext
-
+        delete()
         checkForNewData()
         saveContext()
     }
@@ -158,5 +159,38 @@ struct RussianStore {
         word.correctCount = 0
 
         return word
+    }
+}
+
+// MARK: - Delete all objects for testing
+extension RussianStore {
+    func delete() {
+        deleteRecords(name: "Word")
+        deleteRecords(name: "Day")
+        deleteRecords(name: "Topic")
+    }
+
+    func deleteRecords(name: String) {
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: name)
+        let result = try? context.fetch(fetchRequest)
+        guard let resultData = result as? [NSManagedObject] else {
+            print("Cannot cast")
+            return
+        }
+
+        for object in resultData {
+            print("deleting")
+            context.delete(object)
+        }
+
+        do {
+            try context.save()
+            print("saved!")
+        } catch let error as NSError {
+            print("Could not save \(error), \(error.userInfo)")
+        } catch {
+
+        }
+
     }
 }
