@@ -145,6 +145,12 @@ class NewWordView: UIView {
         trailing.isActive = true
     }
 
+    func setText(word: Word) {
+        nativeLabel.text = word.native
+        englishLabel.text = word.english
+        transliterationLabel.text = word.transliteration
+    }
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
