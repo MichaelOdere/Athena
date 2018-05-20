@@ -37,7 +37,7 @@ class TrainerCollectionViewController: UIViewController {
 
         fetchedResultsController = NSFetchedResultsController(fetchRequest: topicRequests,
                                                               managedObjectContext: store.context,
-                                                              sectionNameKeyPath: "topic.name",
+                                                              sectionNameKeyPath: nil,
                                                               cacheName: nil)
 
         fetchedResultsController.delegate = self

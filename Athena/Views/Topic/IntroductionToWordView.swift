@@ -183,7 +183,7 @@ extension IntroductionToWordView {
             return
         }
         isValidDrag = false
-        addLabel.layer.removeAllAnimations()
+
         if let location = touches.first?.location(in: self) {
             littleNewWordView.center = location
             if addLabel.frame.contains(location) {

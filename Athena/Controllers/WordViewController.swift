@@ -15,10 +15,7 @@ class WordViewController: UIViewController {
 
     func initWordView() {
         wordView = NewWordView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height / 2))
-
-        wordView.nativeLabel.text = word.native
-        wordView.englishLabel.text = word.english
-        wordView.transliterationLabel.text = word.transliteration
+        wordView.setText(word: word)
 
         view.addSubview(wordView)
     }
