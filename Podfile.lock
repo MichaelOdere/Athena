@@ -2,21 +2,29 @@ PODS:
   - Charts (3.0.5):
     - Charts/Core (= 3.0.5)
   - Charts/Core (3.0.5)
+  - FontAwesome.swift (1.3.2)
+  - SAConfettiView (0.1.8)
   - SwiftyJSON (4.0.0)
 
 DEPENDENCIES:
   - Charts
+  - FontAwesome.swift
+  - SAConfettiView
   - SwiftyJSON (~> 4.0)
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - Charts
+    - FontAwesome.swift
+    - SAConfettiView
     - SwiftyJSON
 
 SPEC CHECKSUMS:
   Charts: 45cdc985b764c838b35ee47eb1365d15735f6d1a
+  FontAwesome.swift: b4e4c8ccbbecb12f9b592bc533ff237af3706667
+  SAConfettiView: c87031a2280659261b730fce3669fb10e73636ee
   SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
 
-PODFILE CHECKSUM: 2f3054228686f23bb19eef5858443128606bed7f
+PODFILE CHECKSUM: e39b9cc0da75032092ce9a152c49cc4e37234ea6
 
 COCOAPODS: 1.5.0

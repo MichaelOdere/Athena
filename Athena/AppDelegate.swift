@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import FontAwesome_swift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -24,12 +25,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = mainViewController
 
         let tabBar = mainViewController.tabBar
-        let pvc = tabBar.items![0]
-        pvc.image = UIImage(named: "avatar")?.withRenderingMode(.alwaysOriginal) // deselect image
-        pvc.selectedImage = UIImage(named: "avatar")?.withRenderingMode(.alwaysOriginal) // select image
-        pvc.tag = 0
+        setupTabBarImages(tabBar: tabBar)
+        setupTabBarText()
         window?.makeKeyAndVisible()
 
+        return true
+    }
+
+    func setupTabBarImages(tabBar: UITabBar) {
+        let small: CGFloat = 30
+        let large: CGFloat = 50
+
+        let topics = tabBar.items![0]
+        topics.image = UIImage.fontAwesomeIcon(name: .listUL, textColor: UIColor.black, size: CGSize(width: small, height: small))
+        topics.selectedImage = UIImage.fontAwesomeIcon(name: .listUL, textColor: UIColor.black, size: CGSize(width: large, height: large))
+
+        let trainer = tabBar.items![1]
+        trainer.image = UIImage.fontAwesomeIcon(name: .star, textColor: UIColor.black, size: CGSize(width: small, height: small))
+        trainer.selectedImage = UIImage.fontAwesomeIcon(name: .star, textColor: UIColor.black, size: CGSize(width: large, height: large))
+
+        let history = tabBar.items![2]
+        history.image = UIImage.fontAwesomeIcon(name: .folder, textColor: UIColor.black, size: CGSize(width: small, height: small))
+        history.selectedImage = UIImage.fontAwesomeIcon(name: .folder, textColor: UIColor.black, size: CGSize(width: large, height: large))
+    }
+
+    func setupTabBarText() {
         let attributesNormal = [
             NSAttributedStringKey.foregroundColor: UIColor.black,
             NSAttributedStringKey.font: UIFont(name: "AmericanTypewriter", size: 12.0)!
@@ -42,7 +62,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         UITabBarItem.appearance().setTitleTextAttributes(attributesNormal, for: UIControlState.normal)
         UITabBarItem.appearance().setTitleTextAttributes(attributesSelected, for: UIControlState.selected)
-        return true
     }
 
     // MARK: - Core Data Stack
